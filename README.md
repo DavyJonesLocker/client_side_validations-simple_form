@@ -2,7 +2,7 @@
 
 [![Build Status](http://travis-ci.org/dockyard/client_side_validations-simple_form.png)](http://travis-ci.org/dockyard/client_side_validations-simple_form)
 
-SimpleForm plugin for [ClientSideValidations](https://github.com/bcardarella/client_side_validations)
+[SimpleForm](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/bcardarella/client_side_validations)
 
 ## Installation ##
 
