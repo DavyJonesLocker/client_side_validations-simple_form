@@ -3,7 +3,6 @@ require 'bundler'
 Bundler.setup
 require 'test/unit'
 require 'mocha'
-require 'ruby-debug'
 
 module Rails
   def self.env
