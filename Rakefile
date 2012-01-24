@@ -1,4 +1,6 @@
 require 'bundler'
+require 'git'
+require File.join(File.expand_path('..', __FILE__), 'coffeescript/processor')
 Bundler::GemHelper.install_tasks
 
 multitask :default => 'test:ruby'
@@ -33,6 +35,30 @@ namespace :test do
     sleep 3
     system( *browse_cmd(url) )
   end
+end
+
+desc %{Regenerate and commit JavaScript file}
+task :regenerate_javascript do
+  regenerate_javascript
+end
+
+Rake::Task[:build].instance_eval { @actions.clear }
+task :build do
+  begin
+    regenerate_javascript
+    git = Git.open(File.expand_path('..', __FILE__))
+    git.add('vendor')
+    git.commit('Regenerated JavaScript')
+    puts 'Committed changes'
+  rescue
+    puts 'No changes, no commit'
+  end
+  Bundler::GemHelper.new(Dir.pwd).build_gem
+end
+
+def regenerate_javascript
+  ClientSideValidations::Processor.run
+  puts 'Regenerated JavaScript'
 end
 
 PORT = 4567

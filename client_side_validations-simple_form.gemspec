@@ -24,4 +24,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'shotgun'
   gem.add_development_dependency 'thin'
   gem.add_development_dependency 'json'
+  gem.add_development_dependency 'coffee-script'
 end
