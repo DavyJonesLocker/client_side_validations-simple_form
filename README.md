@@ -27,6 +27,20 @@ Add the following line to `app/assets/javascripts/application.js`
 
 Again, order matters. You should add this line after the require for `rails.validations` as described in the `ClientSideValidations` installation instructions.
 
+If the asset pipeline is disabled the asset file will be copied
+into `public/javascripts` when the `ClientSideValidations` install generator is run.
+
+At any time you can copy the asset file into your project by running:
+
+```
+rails g client_side_validations:copy_assets
+```
+
+If the asset pipeline is disabled the asset file will be copied
+into `public/javascripts`. Otherwise the asset file will be copied into
+`app/assets/javascripts` (or whatever asset directory you have
+defined)
+
 ## Usage ##
 
 The usage is the same as `ClientSideValidations`, just pass `:validate => true` to the form builder
