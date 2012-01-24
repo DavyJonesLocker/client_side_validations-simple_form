@@ -1,5 +1,4 @@
 require 'bundler'
-require 'git'
 require File.join(File.expand_path('..', __FILE__), 'coffeescript/processor')
 Bundler::GemHelper.install_tasks
 
@@ -44,21 +43,37 @@ end
 
 Rake::Task[:build].instance_eval { @actions.clear }
 task :build do
-  begin
-    regenerate_javascript
-    git = Git.open(File.expand_path('..', __FILE__))
-    git.add('vendor')
-    git.commit('Regenerated JavaScript')
-    puts 'Committed changes'
-  rescue
-    puts 'No changes, no commit'
-  end
+  regenerate_javascript
+  perform_git_commit
   Bundler::GemHelper.new(Dir.pwd).build_gem
+end
+
+def perform_git_commit
+  sh_with_code('git add vendor')
+  out, code = sh_with_code('git commit -m "Regenerated JavaScript"')
+  if code == 0
+    puts "Committed changes"
+  else
+    puts "Nothing to commit"
+  end
 end
 
 def regenerate_javascript
   ClientSideValidations::Processor.run
   puts 'Regenerated JavaScript'
+end
+
+def sh_with_code(cmd, &block)
+  cmd << " 2>&1"
+  outbuf = ''
+  Bundler.ui.debug(cmd)
+  Dir.chdir(Dir.pwd) {
+    outbuf = `#{cmd}`
+    if $? == 0
+      block.call(outbuf) if block
+    end
+  }
+  [outbuf, $?]
 end
 
 PORT = 4567
