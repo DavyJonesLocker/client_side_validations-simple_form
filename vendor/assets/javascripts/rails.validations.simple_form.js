@@ -1,6 +1,6 @@
 
 /*
-  Client Side Validations - SimpleForm - v1.5.0.beta.2
+  Client Side Validations - SimpleForm - v1.5.0.beta.3
   https://github.com/dockyard/client_side_validations-simple_form
 
   Copyright (c) 2012 DockYard, LLC
