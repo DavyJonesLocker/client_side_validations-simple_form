@@ -4,13 +4,13 @@ module ClientSideValidations
 
       def self.included(base)
         base.class_eval do
-          def self.client_side_form_settings(options, form_helper)
+          def client_side_form_settings(options, form_helper)
             {
-              :type => self.to_s,
-              :error_class => ::SimpleForm.error_class,
-              :error_tag => ::SimpleForm.error_tag,
-              :wrapper_error_class => ::SimpleForm.wrapper_error_class,
-              :wrapper_tag => ::SimpleForm.wrapper_tag
+              :type => self.class.to_s,
+              :error_class => wrapper.find(:error).defaults[:class].first,
+              :error_tag => wrapper.find(:error).defaults[:tag],
+              :wrapper_error_class => wrapper.defaults[:error_class],
+              :wrapper_tag => wrapper.defaults[:tag]
             }
           end
           alias_method_chain :input, :client_side_validations
