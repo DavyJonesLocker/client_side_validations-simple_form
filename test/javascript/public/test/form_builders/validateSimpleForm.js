@@ -6,6 +6,7 @@ module('Validate SimpleForm', {
       error_tag: 'span',
       wrapper_error_class: 'field_with_errors',
       wrapper_tag: 'div',
+      wrapper: 'default',
       validators: {
         "user[name]":{"presence":{"message": "must be present"}, "format":{"message":"is invalid","with":/\d+/}}
       }

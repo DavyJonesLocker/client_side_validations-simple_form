@@ -13,9 +13,11 @@
 
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function(element, settings, message) {
-      debugger;
+      return this.wrappers[settings.wrapper].add.call(this, element, settings, message);
     },
-    remove: function(element, settings) {},
+    remove: function(element, settings) {
+      return this.wrappers[settings.wrapper].remove.call(this, element, settings);
+    },
     wrappers: {
       "default": {
         add: function(element, settings, message) {
@@ -41,8 +43,12 @@
         }
       },
       bootstrap: {
-        add: function(element, settings, message) {},
-        remove: function(element, settings) {}
+        add: function(element, settings, message) {
+          return this.wrappers['default'].add.call(this, element, settings, message);
+        },
+        remove: function(element, settings) {
+          return this.wrappers['default'].remove.call(this, element, settings);
+        }
       }
     }
   };

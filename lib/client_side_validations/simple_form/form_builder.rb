@@ -10,7 +10,8 @@ module ClientSideValidations
               :error_class => wrapper.find(:error).defaults[:class].first,
               :error_tag => wrapper.find(:error).defaults[:tag],
               :wrapper_error_class => wrapper.defaults[:error_class],
-              :wrapper_tag => wrapper.defaults[:tag]
+              :wrapper_tag => wrapper.defaults[:tag],
+              :wrapper => options[:wrapper] || ::SimpleForm.default_wrapper
             }
           end
           alias_method_chain :input, :client_side_validations
