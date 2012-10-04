@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.version       = ClientSideValidations::SimpleForm::VERSION
 
   gem.add_dependency 'client_side_validations', '~> 3.2.0.rc.1'
-  gem.add_dependency 'simple_form', '~> 2.0.0'
+  gem.add_dependency 'simple_form', '~> 2.0.3'
 
   gem.add_development_dependency 'rails', '~> 3.2.0'
   gem.add_development_dependency 'mocha'
