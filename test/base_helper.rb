@@ -10,3 +10,10 @@ if RUBY_VERSION >= '1.9.3'
 end
 
 module ClientSideValidations; end
+
+require 'rails/engine'
+
+module TestApp
+  class Application < Rails::Application
+  end
+end
