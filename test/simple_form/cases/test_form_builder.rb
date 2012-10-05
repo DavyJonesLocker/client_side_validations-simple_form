@@ -8,6 +8,7 @@ class ClientSideValidations::SimpleForm::FormBuilderTest < Test::Unit::TestCase
       :error_tag => :span,
       :wrapper_error_class => :field_with_errors,
       :wrapper_tag => :div,
+      :wrapper_class => :input,
       :wrapper => :default
     }
     builder = SimpleForm::FormBuilder.new(:user, nil, {}, {}, Proc.new {})
@@ -21,6 +22,7 @@ class ClientSideValidations::SimpleForm::FormBuilderTest < Test::Unit::TestCase
       :error_tag => :span,
       :wrapper_error_class => :field_with_errors,
       :wrapper_tag => :div,
+      :wrapper_class => :input,
       :wrapper => :bootstrap
     }
     builder = SimpleForm::FormBuilder.new(:user, nil, {}, {}, Proc.new {})
