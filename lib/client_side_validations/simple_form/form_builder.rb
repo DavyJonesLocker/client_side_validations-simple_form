@@ -11,6 +11,7 @@ module ClientSideValidations
               :error_tag => wrapper.find(:error).defaults[:tag],
               :wrapper_error_class => wrapper.defaults[:error_class],
               :wrapper_tag => wrapper.defaults[:tag],
+              :wrapper_class => wrapper.defaults[:class].first,
               :wrapper => options[:wrapper] || ::SimpleForm.default_wrapper
             }
           end
