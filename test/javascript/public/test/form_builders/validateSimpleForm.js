@@ -9,7 +9,7 @@ module('Validate SimpleForm', {
       wrapper_class: 'input',
       wrapper: 'default',
       validators: {
-        "user[name]":{"presence":{"message": "must be present"}, "format":{"message":"is invalid","with":/\d+/}}
+        "user[name]":{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":/\d+/}]}
       }
     }
 
@@ -25,7 +25,6 @@ module('Validate SimpleForm', {
           .append($('<input />', {
             name: 'user[name]',
             id: 'user_name',
-            'data-validate': 'true',
             type: 'text'
           }))
           .append($('<label for="user_name">Name</label>'));
