@@ -1,12 +1,13 @@
 
 /*
-  Client Side Validations - SimpleForm - v1.5.0.beta.3
+  Client Side Validations - SimpleForm - v1.5.0.rc.1
   https://github.com/dockyard/client_side_validations-simple_form
 
   Copyright (c) 2012 DockYard, LLC
   Licensed under the MIT license
   http://www.opensource.org/licenses/mit-license.php
 */
+
 
 (function() {
 
