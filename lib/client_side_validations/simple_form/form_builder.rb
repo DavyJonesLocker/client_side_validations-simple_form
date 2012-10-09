@@ -4,9 +4,9 @@ module ClientSideValidations
 
       def self.included(base)
         base.class_eval do
-          def self.client_side_form_settings(options, form_helper)
+          def client_side_form_settings(options, form_helper)
             {
-              :type => self.to_s,
+              :type => self.class.to_s,
               :error_class => ::SimpleForm.error_class,
               :error_tag => ::SimpleForm.error_tag,
               :wrapper_error_class => ::SimpleForm.wrapper_error_class,

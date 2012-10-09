@@ -9,7 +9,8 @@ class ClientSideValidations::SimpleForm::FormBuilderTest < Test::Unit::TestCase
       :wrapper_error_class => :field_with_errors,
       :wrapper_tag => :div
     }
-    assert_equal expected, SimpleForm::FormBuilder.client_side_form_settings(nil, nil)
+    builder = SimpleForm::FormBuilder.new(:user, nil, {}, {}, Proc.new {})
+    assert_equal expected, builder.client_side_form_settings({}, nil)
   end
 end
 
