@@ -64,4 +64,16 @@ test('Validate error attaching and detaching', function() {
   ok(!input.parent().parent().hasClass('error'));
   ok(!label.parent().hasClass('error'));
   ok(!input.parent().find('span.help-inline')[0]);
+
+  // Validate pre-existing error blocks are re-used
+  input.parent().append($('<span class="help-inline">Error from Server</span>'))
+  // Assert my fixture
+  ok(input.parent().find('span.help-inline:contains("Error from Server")')[0]);
+  input.val('abc')
+  input.trigger('change')
+  input.trigger('focusout')
+  ok(input.parent().parent().hasClass('error'));
+  ok(label.parent().hasClass('error'));
+  ok(input.parent().find('span.help-inline:contains("is invalid")').size() === 1);
+
 });
