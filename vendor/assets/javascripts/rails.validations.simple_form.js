@@ -22,17 +22,17 @@
       "default": {
         add: function(element, settings, message) {
           var errorElement, wrapper;
-          if (element.data('valid') !== false) {
-            wrapper = element.closest(settings.wrapper_tag);
-            wrapper.addClass(settings.wrapper_error_class);
+          errorElement = element.parent().find("" + settings.error_tag + "." + settings.error_class);
+          wrapper = element.closest(settings.wrapper_tag);
+          if (!(errorElement[0] != null)) {
             errorElement = $("<" + settings.error_tag + "/>", {
               "class": settings.error_class,
               text: message
             });
-            return wrapper.append(errorElement);
-          } else {
-            return element.parent().find("" + settings.error_tag + "." + settings.error_class).text(message);
+            wrapper.append(errorElement);
           }
+          wrapper.addClass(settings.wrapper_error_class);
+          return errorElement.text(message);
         },
         remove: function(element, settings) {
           var errorElement, wrapper;

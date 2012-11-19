@@ -66,7 +66,6 @@ test('Validate error attaching and detaching', function() {
   ok(!input.parent().find('span.help-inline')[0]);
 });
 
-
 test('Validate pre-existing error blocks are re-used', function() {
   var form = $('form#new_user'), input = form.find('input#user_name');
   var label = $('label[for="user_name"]');
