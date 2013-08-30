@@ -1,3 +1,5 @@
+# This library is no longer being maintained. Use at your own risk #
+
 # ClientSideValidations-SimpleForm #
 
 [![Build Status](https://secure.travis-ci.org/dockyard/client_side_validations-simple_form.png?branch=master)](http://travis-ci.org/dockyard/client_side_validations-simple_form)
