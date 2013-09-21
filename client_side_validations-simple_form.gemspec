@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = ClientSideValidations::SimpleForm::VERSION
 
-  gem.add_dependency 'client_side_validations', '~> 3.2.5'
+  gem.add_dependency 'client_side_validations', '>= 3.2.2'
   gem.add_dependency 'simple_form', '>= 2.1.0'
 
   gem.add_development_dependency 'rails', '~> 3.2.0'
