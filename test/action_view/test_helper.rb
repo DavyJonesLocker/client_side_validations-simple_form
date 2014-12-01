@@ -12,6 +12,7 @@ end
 module ActionViewTestSetup
   include ::ClientSideValidations::ActionView::Helpers::FormHelper
   include ::ClientSideValidations::ActionView::Helpers::FormTagHelper
+  include ActionView::RecordIdentifier
 
   def form_for(*)
     @output_buffer = super
@@ -32,6 +33,4 @@ module ActionViewTestSetup
     super
     @post = Post.new
   end
-
 end
-

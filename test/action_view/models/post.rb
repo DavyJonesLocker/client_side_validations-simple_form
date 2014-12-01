@@ -5,7 +5,7 @@ class Post
   include ActiveModel::Conversion
 
   attr_accessor :title, :author_name, :body, :secret, :written_on, :cost
-  validates :cost, :presence => true
+  validates :cost, presence: true
 
   def initialize(params={})
     params.each do |attr, value|
@@ -20,4 +20,3 @@ class Post
   attr_accessor :comments, :comment_ids
   def comments_attributes=(attributes); end
 end
-

@@ -6,13 +6,13 @@ module ClientSideValidations
         base.class_eval do
           def client_side_form_settings(options, form_helper)
             {
-              :type => self.class.to_s,
-              :error_class => wrapper.find(:error).defaults[:class].first,
-              :error_tag => wrapper.find(:error).defaults[:tag],
-              :wrapper_error_class => wrapper.defaults[:error_class],
-              :wrapper_tag => wrapper.defaults[:tag],
-              :wrapper_class => wrapper.defaults[:class].first,
-              :wrapper => options[:wrapper] || ::SimpleForm.default_wrapper
+              type: self.class.to_s,
+              error_class: wrapper.find(:error).defaults[:class].first,
+              error_tag: wrapper.find(:error).defaults[:tag],
+              wrapper_error_class: wrapper.defaults[:error_class],
+              wrapper_tag: wrapper.defaults[:tag],
+              wrapper_class: wrapper.defaults[:class].first,
+              wrapper: options[:wrapper] || ::SimpleForm.default_wrapper
             }
           end
           alias_method_chain :input, :client_side_validations
@@ -22,7 +22,7 @@ module ClientSideValidations
       def input_with_client_side_validations(attribute_name, options = {}, &block)
         if options.key?(:validate)
           options[:input_html] ||= {}
-          options[:input_html].merge!(:validate => options[:validate])
+          options[:input_html].merge!(validate: options[:validate])
           options.delete(:validate)
         end
 

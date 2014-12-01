@@ -2,8 +2,10 @@ source 'http://rubygems.org'
 
 gemspec
 
-if RUBY_VERSION >= '1.9.3'
+gem 'client_side_validations', github: 'tagliala/client_side_validations', branch: 'rails4'
+
+if RUBY_VERSION >= '2.0.0'
+  gem 'byebug'
+else
   gem 'debugger'
-elsif RUBY_VERSION < '1.9'
-  gem 'minitest'
 end

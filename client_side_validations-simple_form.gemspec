@@ -1,29 +1,36 @@
 # -*- encoding: utf-8 -*-
 require File.expand_path('../lib/client_side_validations/simple_form/version', __FILE__)
 
-Gem::Specification.new do |gem|
-  gem.authors       = ["Brian Cardarella"]
-  gem.email         = ["bcardarella@gmail.com"]
-  gem.description   = %q{SimpleForm Plugin for ClientSideValidaitons}
-  gem.summary       = %q{SimpleForm Plugin for ClientSideValidations}
-  gem.homepage      = 'https://github.com/dockyard/client_side_validations-simple_form'
+Gem::Specification.new do |s|
+  s.name        = 'client_side_validations-simple_form'
+  s.version     = ClientSideValidations::SimpleForm::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["Brian Cardarella"]
+  s.email       = ["bcardarella@gmail.com"]
+  s.homepage    = 'https://github.com/dockyard/client_side_validations-simple_form'
+  s.summary     = %q{SimpleForm Plugin for ClientSideValidations}
+  s.description = %q{SimpleForm Plugin for ClientSideValidaitons}
 
-  gem.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
-  gem.name          = 'client_side_validations-simple_form'
-  gem.require_paths = ['lib']
-  gem.version       = ClientSideValidations::SimpleForm::VERSION
+  s.license     = 'MIT'
 
-  gem.add_dependency 'client_side_validations', '~> 3.2.5'
-  gem.add_dependency 'simple_form', '~> 2.1.0'
+  s.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
+  s.require_paths = ['lib']
 
-  gem.add_development_dependency 'rails', '~> 3.2.0'
-  gem.add_development_dependency 'mocha'
-  gem.add_development_dependency 'm'
+  s.add_dependency 'client_side_validations', '~> 4.1.0'
+  s.add_dependency 'simple_form', '~> 3.1'
+
+  s.add_development_dependency 'rails', '>= 4.0.0', '<= 4.2.0.beta4'
+  s.add_development_dependency 'mocha', '~> 1.1'
+  s.add_development_dependency 'm', '~> 1.3'
+  s.add_development_dependency 'minitest', '>= 4.7.5', '< 5.5.0'
+  s.add_development_dependency 'simplecov', '~> 0.9.1'
+  s.add_development_dependency 'coveralls', '~> 0.7.2'
+  s.add_development_dependency 'appraisal', '~> 1.0'
 
   # For QUnit testing
-  gem.add_development_dependency 'sinatra', '~> 1.0'
-  gem.add_development_dependency 'shotgun'
-  gem.add_development_dependency 'thin'
-  gem.add_development_dependency 'json'
-  gem.add_development_dependency 'coffee-script'
+  s.add_development_dependency 'sinatra', '~> 1.4'
+  s.add_development_dependency 'shotgun', '~> 0.9'
+  s.add_development_dependency 'thin', '~> 1.6'
+  s.add_development_dependency 'json', '~> 1.8'
+  s.add_development_dependency 'coffee-script', '~> 2.3'
 end

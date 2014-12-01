@@ -1,10 +1,5 @@
 require 'base_helper'
 
-module TestApp
-  class Application < Rails::Application
-  end
-end
-
 require 'rails/generators/test_case'
 require 'client_side_validations-simple_form'
 require 'generators/client_side_validations/copy_assets_generator'
@@ -23,8 +18,9 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   test 'Assert file is properly created when asset pipeline present and disabled' do
     stub_configuration
-    configuration = {:enabled => false}
+    configuration = {}
     configuration.stubs(:prefix).returns('/assets')
+    ClientSideValidations::Generators::CopyAssetsGenerator.stubs(:asset_pipeline_enabled?).returns false
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'public/javascripts/rails.validations.simple_form.js'
@@ -32,8 +28,9 @@ class InstallGeneratorTest < Rails::Generators::TestCase
 
   test 'Assert file is not created when asset pipeline present and enabled' do
     stub_configuration
-    configuration = {:enabled => true}
+    configuration = {}
     configuration.stubs(:prefix).returns('/assets')
+    ClientSideValidations::Generators::CopyAssetsGenerator.stubs(:asset_pipeline_enabled?).returns true
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_no_file 'app/assets/javascripts/rails.validations.simple_form.js'
@@ -57,8 +54,9 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
 
   test 'Assert file is properly created when asset pipeline present and disabled' do
     stub_configuration
-    configuration = {:enabled => false}
+    configuration = {}
     configuration.stubs(:prefix).returns('/assets')
+    ClientSideValidations::Generators::CopyAssetsGenerator.stubs(:asset_pipeline_enabled?).returns false
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'public/javascripts/rails.validations.simple_form.js'
@@ -66,8 +64,9 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
 
   test 'Assert file is properly created when asset pipeline present and enabled' do
     stub_configuration
-    configuration = {:enabled => true}
+    configuration = {}
     configuration.stubs(:prefix).returns('/assets')
+    ClientSideValidations::Generators::CopyAssetsGenerator.stubs(:asset_pipeline_enabled?).returns true
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'app/assets/javascripts/rails.validations.simple_form.js'
@@ -77,4 +76,3 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
     Rails.stubs(:configuration).returns(mock('Configuration'))
   end
 end
-
