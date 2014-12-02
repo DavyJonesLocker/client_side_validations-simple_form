@@ -11,7 +11,7 @@ class ClientSideValidations::SimpleForm::FormBuilderTest < MiniTest::Test
       wrapper_class: :input,
       wrapper: :default
     }
-    builder = SimpleForm::FormBuilder.new(:user, nil, {}, {}, Proc.new {})
+    builder = SimpleForm::FormBuilder.new(:user, nil, {}, {})
     assert_equal expected, builder.client_side_form_settings({}, nil)
   end
 
@@ -25,7 +25,7 @@ class ClientSideValidations::SimpleForm::FormBuilderTest < MiniTest::Test
       wrapper_class: :input,
       wrapper: :bootstrap
     }
-    builder = SimpleForm::FormBuilder.new(:user, nil, {}, {}, Proc.new {})
+    builder = SimpleForm::FormBuilder.new(:user, nil, {}, {})
     assert_equal expected, builder.client_side_form_settings({wrapper: :bootstrap}, nil)
   end
 end
