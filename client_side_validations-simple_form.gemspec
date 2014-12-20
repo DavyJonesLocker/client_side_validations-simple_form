@@ -10,7 +10,6 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/dockyard/client_side_validations-simple_form'
   s.summary     = %q{SimpleForm Plugin for ClientSideValidations}
   s.description = %q{SimpleForm Plugin for ClientSideValidaitons}
-
   s.license     = 'MIT'
 
   s.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
