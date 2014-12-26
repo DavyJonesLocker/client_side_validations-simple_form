@@ -2,7 +2,7 @@
 
 source "http://rubygems.org"
 
-gem "client_side_validations", :github => "tagliala/client_side_validations", :branch => "rails4"
+gem "client_side_validations", "~> 4.2.0"
 gem "byebug"
 gem "rails", "~> 4.2.0"
 

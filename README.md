@@ -70,10 +70,10 @@ Per-input options are done with `:validate`
 
 This gem follows [Semantic Versioning](http://semver.org)
 
-Major and minor version numbers will follow `Rails`'s major and
+Major and minor version numbers will follow `simple_form`'s major and
 minor version numbers. For example,
-`client_side_validations-simple_form-2.0.0` will be compatible up to
-`~> simple_form-2.0.0`
+`client_side_validations-simple_form-3.1.0` will be compatible up to
+`~> simple_form-3.1.0`
 
 ## Want to help? ##
 
