@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Brian Cardarella"]
   s.email       = ["bcardarella@gmail.com"]
-  s.homepage    = 'https://github.com/dockyard/client_side_validations-simple_form'
+  s.homepage    = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
   s.summary     = %q{SimpleForm Plugin for ClientSideValidations}
   s.description = %q{SimpleForm Plugin for ClientSideValidaitons}
   s.license     = 'MIT'
@@ -18,13 +18,18 @@ Gem::Specification.new do |s|
   s.add_dependency 'client_side_validations', '~> 4.2.0'
   s.add_dependency 'simple_form', '~> 3.1'
 
-  s.add_development_dependency 'rails', '>= 4.0.0', '< 5.0.0'
   s.add_development_dependency 'mocha', '~> 1.1'
   s.add_development_dependency 'm', '~> 1.3'
   s.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
   s.add_development_dependency 'simplecov', '~> 0.9.1'
   s.add_development_dependency 'coveralls', '~> 0.7.2'
   s.add_development_dependency 'appraisal', '~> 1.0'
+
+  if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.0')
+    s.add_development_dependency 'byebug', '~> 3.5'
+  else
+    s.add_development_dependency 'debugger', '~> 1.6'
+  end
 
   # For QUnit testing
   s.add_development_dependency 'sinatra', '~> 1.4'

@@ -1,6 +1,6 @@
 ###
   Client Side Validations - SimpleForm - v<%= ClientSideValidations::SimpleForm::VERSION %>
-  https://github.com/dockyard/client_side_validations-simple_form
+  https://github.com/DavyJonesLocker/client_side_validations-simple_form
 
   Copyright (c) <%= DateTime.now.year %> DockYard, LLC
   Licensed under the MIT license
