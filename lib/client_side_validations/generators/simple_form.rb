@@ -3,8 +3,8 @@ module ClientSideValidations
     class SimpleForm
       def self.assets
         [{
-          :path => File.expand_path('../../../../vendor/assets/javascripts', __FILE__),
-          :file => 'rails.validations.simple_form.js'
+          path: File.expand_path('../../../../vendor/assets/javascripts', __FILE__),
+          file: 'rails.validations.simple_form.js'
         }]
       end
 
@@ -12,6 +12,3 @@ module ClientSideValidations
     end
   end
 end
-
-
-

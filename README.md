@@ -1,12 +1,12 @@
-# This library is no longer being maintained. Use at your own risk #
-
 # ClientSideValidations-SimpleForm #
 
-[![Build Status](https://secure.travis-ci.org/dockyard/client_side_validations-simple_form.png?branch=master)](http://travis-ci.org/dockyard/client_side_validations-simple_form)
-[![Dependency Status](https://gemnasium.com/dockyard/client_side_validations-simple_form.png?travis)](https://gemnasium.com/dockyard/client_side_validations-simple_form)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dockyard/client_side_validations-simple_form)
+[![Gem Version](https://badge.fury.io/rb/client_side_validations-simple_form.svg)](http://badge.fury.io/rb/client_side_validations-simple_form)
+[![Build Status](https://secure.travis-ci.org/DavyJonesLocker/client_side_validations-simple_form.svg?branch=master)](https://travis-ci.org/DavyJonesLocker/client_side_validations-simple_form)
+[![Dependency Status](https://gemnasium.com/DavyJonesLocker/client_side_validations-simple_form.svg)](https://gemnasium.com/DavyJonesLocker/client_side_validations-simple_form)
+[![Code Climate](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/badges/gpa.svg)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form)
+[![Coverage Status](https://coveralls.io/repos/DavyJonesLocker/client_side_validations-simple_form/badge.svg)](https://coveralls.io/r/DavyJonesLocker/client_side_validations-simple_form)
 
-[SimpleForm](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/bcardarella/client_side_validations)
+[SimpleForm](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
 
 ## Installation ##
 
@@ -21,7 +21,7 @@ gem 'client_side_validations-simple_form'
 Order matters here. `SimpleForm` and `ClientSideValidations` need to be
 required **before** `ClientSideValidations-SimpleForm`.
 
-[Follow the remaining installation instructions for ClientSideValidations](https://github.com/bcardarella/client_side_validations/tree/3-2-stable/README.md)
+[Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/tree/3-2-stable/README.md)
 
 Add the following line to `app/assets/javascripts/application.js`
 
@@ -65,26 +65,28 @@ Per-input options are done with `:validate`
 
 [Brian Cardarella](http://twitter.com/bcardarella)
 
-[We are very thankful for the many contributors](https://github.com/dockyard/client_side_validations-simple_form/graphs/contributors)
+[Geremia Taglialatela](http://twitter.com/gtagliala)
+
+[We are very thankful for the many contributors](https://github.com/DavyJonesLocker/client_side_validations-simple_form/graphs/contributors)
 
 ## Versioning ##
 
 This gem follows [Semantic Versioning](http://semver.org)
 
-Major and minor version numbers will follow `Rails`'s major and
+Major and minor version numbers will follow `simple_form`'s major and
 minor version numbers. For example,
-`client_side_validations-simple_form-2.0.0` will be compatible up to 
-`~> simple_form-2.0.0`
+`client_side_validations-simple_form-3.1.0` will be compatible up to
+`~> simple_form-3.1.0`
 
 ## Want to help? ##
 
 Please do! We are always looking to improve this gem. Please see our
-[Contribution Guidelines](https://github.com/dockyard/client_side_validations-simple_form/blob/master/CONTRIBUTING.md)
+[Contribution Guidelines](https://github.com/DavyJonesLocker/client_side_validations-simple_form/blob/master/CONTRIBUTING.md)
 on how to properly submit issues and pull requests.
 
 ## Legal ##
 
-[DockYard](http://dockyard.com), LLC &copy; 2012
+[DockYard](http://dockyard.com), LLC &copy; 2012-2015
 
 [@dockyard](http://twitter.com/dockyard)
 
