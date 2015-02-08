@@ -5,10 +5,11 @@
 If you need to open a new issue you *must* provide the following:
 
 1. Version of ClientSideValidations
-2. Version of Rails
-3. Code snippet from your model of the validations
-4. The form code from your template
-5. The resulting HTML along with the script tag
+2. Version of ClientSideValidations-SimpleForm
+3. Version of Rails
+4. Code snippet from your model of the validations
+5. The form code from your template
+6. The resulting HTML along with the script tag
 
 Failure to include the above mentioned requirements will result in the
 issue being closed.
