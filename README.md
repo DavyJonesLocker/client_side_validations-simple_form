@@ -21,7 +21,7 @@ gem 'client_side_validations-simple_form'
 Order matters here. `SimpleForm` and `ClientSideValidations` need to be
 required **before** `ClientSideValidations-SimpleForm`.
 
-[Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/tree/3-2-stable/README.md)
+[Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/master/README.md)
 
 Add the following line to `app/assets/javascripts/application.js`
 
