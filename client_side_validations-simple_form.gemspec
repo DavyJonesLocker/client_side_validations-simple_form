@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["bcardarella@gmail.com"]
   s.homepage    = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
   s.summary     = %q{SimpleForm Plugin for ClientSideValidations}
-  s.description = %q{SimpleForm Plugin for ClientSideValidaitons}
+  s.description = %q{SimpleForm Plugin for ClientSideValidations}
   s.license     = 'MIT'
 
   s.files         = `git ls-files -- {lib/*,vendor/*,*.gemspec}`.split("\n")
