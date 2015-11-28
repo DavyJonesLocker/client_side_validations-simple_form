@@ -1,6 +1,6 @@
 
 /*
-  Client Side Validations - SimpleForm - v3.1.0
+  Client Side Validations - SimpleForm - v3.2.0
   https://github.com/DavyJonesLocker/client_side_validations-simple_form
 
   Copyright (c) 2015 DockYard, LLC

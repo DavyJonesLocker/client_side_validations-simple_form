@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency 'client_side_validations', '~> 4.2.0'
-  s.add_dependency 'simple_form', '~> 3.1'
+  s.add_dependency 'simple_form', '~> 3.2'
 
   s.add_development_dependency 'appraisal', '~> 2.1'
   s.add_development_dependency 'coveralls', '~> 0.8.9'
