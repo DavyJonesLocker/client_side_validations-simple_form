@@ -19,11 +19,11 @@ Gem::Specification.new do |s|
   s.add_dependency 'simple_form', '~> 3.2'
 
   s.add_development_dependency 'appraisal', '~> 2.1'
-  s.add_development_dependency 'coveralls', '~> 0.8.9'
+  s.add_development_dependency 'coveralls', '~> 0.8.10'
   s.add_development_dependency 'm', '~> 1.4'
   s.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
   s.add_development_dependency 'mocha', '~> 1.1'
-  s.add_development_dependency 'simplecov', '~> 0.10.0'
+  s.add_development_dependency 'simplecov', '~> 0.11.1'
 
   if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.0')
     s.add_development_dependency 'byebug', '~> 8.2'
