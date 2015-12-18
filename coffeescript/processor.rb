@@ -1,4 +1,4 @@
-$:.unshift(File.expand_path('../../lib', __FILE__))
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 
 require 'client_side_validations/simple_form/version'
 require 'coffee_script'
