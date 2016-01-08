@@ -1,7 +1,7 @@
 require 'base_helper'
 
 require 'rails/generators/test_case'
-require 'client_side_validations-simple_form'
+require 'client_side_validations/simple_form'
 require 'generators/client_side_validations/copy_assets_generator'
 require 'generators/client_side_validations/install_generator'
 

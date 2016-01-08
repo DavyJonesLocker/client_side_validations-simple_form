@@ -34,7 +34,7 @@ module ActionViewTestSetup
   def url_for(object)
     @url_for_options = object
     if object.is_a?(Hash) && object[:use_route].blank? && object[:controller].blank?
-      object.merge!(controller: "main", action: "index")
+      object.merge!(controller: 'main', action: 'index')
     end
     super
   end
@@ -46,24 +46,25 @@ module ActionViewTestSetup
     if defined?(ActionView::OutputFlow)
       @view_flow        = ActionView::OutputFlow.new
     else
-      @_content_for     = Hash.new { |h,k| h[k] = ActiveSupport::SafeBuffer.new }
+      @_content_for     = Hash.new { |h, k| h[k] = ActiveSupport::SafeBuffer.new }
     end
   end
 
   protected
-    def posts_path(options={})
-      "/posts"
-    end
 
-    def post_path(post, options = {})
-      if options[:format]
-        "/posts/#{post.id}.#{options[:format]}"
-      else
-        "/posts/#{post.id}"
-      end
-    end
+  def posts_path(_options = {})
+    '/posts'
+  end
 
-    def protect_against_forgery?
-      false
+  def post_path(post, options = {})
+    if options[:format]
+      "/posts/#{post.id}.#{options[:format]}"
+    else
+      "/posts/#{post.id}"
     end
+  end
+
+  def protect_against_forgery?
+    false
+  end
 end
