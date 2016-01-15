@@ -34,7 +34,8 @@ module ActionViewTestSetup
   def url_for(object)
     @url_for_options = object
     if object.is_a?(Hash) && object[:use_route].blank? && object[:controller].blank?
-      object.merge!(controller: 'main', action: 'index')
+      object[:controller] = 'main'
+      object[:action] = 'index'
     end
     super
   end
