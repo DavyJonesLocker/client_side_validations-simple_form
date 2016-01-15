@@ -1,11 +1,8 @@
 
-/*
-  Client Side Validations - SimpleForm - v3.2.0
-  https://github.com/DavyJonesLocker/client_side_validations-simple_form
-
-  Copyright (c) 2016 DockYard, LLC
-  Licensed under the MIT license
-  http://www.opensource.org/licenses/mit-license.php
+/*!
+ * Client Side Validations - SimpleForm - v3.2.1 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Copyright (c) 2016 Brian Cardarella
+ * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
  */
 
 (function() {
