@@ -18,9 +18,6 @@ require 'byebug'
 require 'mocha/setup'
 require 'rails'
 
-# MiniTest 4 support
-MiniTest::Test = MiniTest::Unit::TestCase unless defined?(MiniTest::Test)
-
 module TestApp
   class Application < Rails::Application
     config.root = File.dirname(__FILE__)

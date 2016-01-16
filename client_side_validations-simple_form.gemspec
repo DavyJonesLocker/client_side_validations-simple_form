@@ -19,9 +19,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
-  spec.post_install_message = "*** POTENTIAL BREAKING CHANGE ***\nIf you are upgrading from client_side_validations-simple_form <= 3.2.1,\nplease take a look at https://goo.gl/j70wIR"
-
-  spec.add_dependency 'client_side_validations', '~> 4.2.12'
+  spec.add_dependency 'client_side_validations', '~> 5.0.0'
   spec.add_dependency 'simple_form', '~> 3.4'
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
@@ -35,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.12.0'
 
   # For QUnit testing
-  spec.add_development_dependency 'sinatra', '~> 1.4'
+  spec.add_development_dependency 'sinatra', '~> 2.0'
   spec.add_development_dependency 'shotgun', '~> 0.9.2'
   spec.add_development_dependency 'thin', '~> 1.7'
   spec.add_development_dependency 'coffee-script', '~> 2.4'
