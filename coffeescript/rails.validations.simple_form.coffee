@@ -28,7 +28,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
 
     bootstrap:
       add: (element, settings, message) ->
-        errorElement = element.parent().find "#{settings.error_tag}.#{settings.error_class}"
+        errorElement = element.closest(settings.wrapper_tag).find "#{settings.error_tag}.#{settings.error_class}"
         if not errorElement[0]?
           wrapperTagElement = element.closest(settings.wrapper_tag)
           errorElement = $("<#{settings.error_tag}/>", { class: settings.error_class, text: message })
