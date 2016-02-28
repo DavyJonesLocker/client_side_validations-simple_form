@@ -13,37 +13,20 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
   wrappers:
     default:
       add: (element, settings, message) ->
-        errorElement = element.parent().find "#{settings.error_tag}.#{settings.error_class}"
-        wrapper = element.closest(settings.wrapper_tag)
-        if not errorElement[0]?
+        wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_class.replace(/\ /g, '.')}")
+        errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class}")
+        unless errorElement.length
           errorElement = $("<#{settings.error_tag}/>", { class: settings.error_class, text: message })
           wrapper.append(errorElement)
         wrapper.addClass(settings.wrapper_error_class)
         errorElement.text(message)
       remove: (element, settings) ->
-        wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_error_class}")
-        wrapper.removeClass(settings.wrapper_error_class)
+        wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_class.replace(/\ /g, '.')}.#{settings.wrapper_error_class}")
         errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class}")
+        wrapper.removeClass(settings.wrapper_error_class)
         errorElement.remove()
 
-    bootstrap:
-      add: (element, settings, message) ->
-        errorElement = element.parent().find "#{settings.error_tag}.#{settings.error_class}"
-        if not errorElement[0]?
-          wrapperTagElement = element.closest(settings.wrapper_tag)
-          errorElement = $("<#{settings.error_tag}/>", { class: settings.error_class, text: message })
-          wrapperTagElement.append(errorElement)
-        wrapperClassElement = element.closest(".#{settings.wrapper_class.replace(/\ /g, '.')}");
-        wrapperClassElement.addClass(settings.wrapper_error_class)
-        errorElement.text(message)
-      remove: (element, settings) ->
-        wrapperClassElement = element.closest(".#{settings.wrapper_class.replace(/\ /g, '.')}.#{settings.wrapper_error_class}")
-        wrapperClassElement.removeClass(settings.wrapper_error_class)
-        wrapperTagElement = element.closest(settings.wrapper_tag)
-        errorElement = wrapperTagElement.find("#{settings.error_tag}.#{settings.error_class}")
-        errorElement.remove()
-
-# Alias simple_form's default bootstrap wrappers to bootstrap
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.vertical_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.bootstrap
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.horizontal_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.bootstrap
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.inline_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.bootstrap
+# Alias default wrapper to Bootstrap and Foundation wrappers
+ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.vertical_form   = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default
+ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.horizontal_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default
+ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.inline_form     = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default

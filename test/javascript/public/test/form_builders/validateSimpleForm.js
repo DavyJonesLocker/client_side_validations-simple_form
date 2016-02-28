@@ -21,7 +21,9 @@ module('Validate SimpleForm', {
         id: 'new_user'
       }))
       .find('form')
-        .append('<div />').find('div')
+        .append($('<div />', {
+            class: 'input'
+          })).find('div')
           .append($('<input />', {
             name: 'user[name]',
             id: 'user_name',
