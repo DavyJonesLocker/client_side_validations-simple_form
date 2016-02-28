@@ -6,8 +6,8 @@ require 'client_side_validations/simple_form/version'
 Gem::Specification.new do |spec|
   spec.name        = 'client_side_validations-simple_form'
   spec.version     = ClientSideValidations::SimpleForm::VERSION
-  spec.authors     = ['Brian Cardarella']
-  spec.email       = ['bcardarella@gmail.com']
+  spec.authors     = ['Geremia Taglialatela', 'Brian Cardarella']
+  spec.email       = ['tagliala.dev@gmail.com', 'bcardarella@gmail.com']
 
   spec.summary     = 'SimpleForm Plugin for ClientSideValidations'
   spec.description = 'SimpleForm Plugin for ClientSideValidations'
