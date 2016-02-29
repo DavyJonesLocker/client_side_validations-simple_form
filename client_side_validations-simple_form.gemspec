@@ -19,6 +19,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
+  spec.post_install_message = "*** POTENTIAL BREAKING CHANGE ***\nIf you are upgrading from client_side_validations-simple_form <= 3.2.1,\nplease take a look at https://goo.gl/j70wIR"
+
   spec.add_dependency 'client_side_validations', '~> 4.2.0'
   spec.add_dependency 'simple_form', '~> 3.2'
 
