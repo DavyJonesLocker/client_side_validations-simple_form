@@ -12,7 +12,7 @@ require File.join(File.expand_path('../../..', __FILE__), 'coffeescript/processo
 ClientSideValidations::Processor.run
 
 rails_validations_path = Bundler.load.specs.find { |s| s.name == 'client_side_validations' }
-fail 'Client Side Validations bundle not found' if rails_validations_path.nil?
+raise 'Client Side Validations bundle not found' if rails_validations_path.nil?
 
 class AssetPath
   def initialize(app, options = {})

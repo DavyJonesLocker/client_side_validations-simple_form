@@ -6,8 +6,8 @@ require 'client_side_validations/simple_form/version'
 Gem::Specification.new do |spec|
   spec.name        = 'client_side_validations-simple_form'
   spec.version     = ClientSideValidations::SimpleForm::VERSION
-  spec.authors     = ['Brian Cardarella']
-  spec.email       = ['bcardarella@gmail.com']
+  spec.authors     = ['Geremia Taglialatela', 'Brian Cardarella']
+  spec.email       = ['tagliala.dev@gmail.com', 'bcardarella@gmail.com']
 
   spec.summary     = 'SimpleForm Plugin for ClientSideValidations'
   spec.description = 'SimpleForm Plugin for ClientSideValidations'
@@ -19,16 +19,18 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
+  spec.post_install_message = "*** POTENTIAL BREAKING CHANGE ***\nIf you are upgrading from client_side_validations-simple_form <= 3.2.1,\nplease take a look at https://goo.gl/j70wIR"
+
   spec.add_dependency 'client_side_validations', '~> 4.2.0'
   spec.add_dependency 'simple_form', '~> 3.2'
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
-  spec.add_development_dependency 'coveralls', '~> 0.8.10'
+  spec.add_development_dependency 'coveralls', '~> 0.8.12'
   spec.add_development_dependency 'm', '~> 1.4'
   spec.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
   spec.add_development_dependency 'mocha', '~> 1.1'
-  spec.add_development_dependency 'rubocop', '~> 0.36.0'
-  spec.add_development_dependency 'simplecov', '~> 0.11.1'
+  spec.add_development_dependency 'rubocop', '~> 0.37.2'
+  spec.add_development_dependency 'simplecov', '~> 0.11.2'
 
   if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.0')
     spec.add_development_dependency 'byebug', '~> 8.2'

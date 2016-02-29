@@ -4,7 +4,7 @@
 [![Build Status](https://secure.travis-ci.org/DavyJonesLocker/client_side_validations-simple_form.svg?branch=master)](https://travis-ci.org/DavyJonesLocker/client_side_validations-simple_form)
 [![Dependency Status](https://gemnasium.com/DavyJonesLocker/client_side_validations-simple_form.svg)](https://gemnasium.com/DavyJonesLocker/client_side_validations-simple_form)
 [![Code Climate](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/badges/gpa.svg)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form)
-[![Coverage Status](https://coveralls.io/repos/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=master)](https://coveralls.io/r/DavyJonesLocker/client_side_validations-simple_form?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=master)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=master)
 
 [SimpleForm](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
 
@@ -47,10 +47,10 @@ defined)
 
 ## Usage ##
 
-The usage is the same as `ClientSideValidations`, just pass `:validate => true` to the form builder
+The usage is the same as `ClientSideValidations`, just pass `validate: true` to the form builder
 
 ```ruby
-<%= simple_form_for @book, :validate => true do |book| %>
+<%= simple_form_for @book, validate: true do |book| %>
   <%= book.input :name %>
 <% end %>
 ```
@@ -58,7 +58,7 @@ The usage is the same as `ClientSideValidations`, just pass `:validate => true` 
 Per-input options are done with `:validate`
 
 ```ruby
-<%= book.input :name, :validate => { :presence => true, :uniqueness => false }
+<%= book.input :name, validate: { presence: true, uniqueness: false } %>
 ```
 
 ## Authors ##
@@ -86,7 +86,7 @@ on how to properly submit issues and pull requests.
 
 ## Legal ##
 
-[DockYard](http://dockyard.com), LLC &copy; 2012-2015
+[DockYard](http://dockyard.com), LLC &copy; 2012-2016
 
 [@dockyard](http://twitter.com/dockyard)
 
