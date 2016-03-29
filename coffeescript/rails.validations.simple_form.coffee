@@ -6,9 +6,11 @@
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
   add: (element, settings, message) ->
-    @wrappers[settings.wrapper].add.call(@, element, settings, message)
+    @wrapper(settings.wrapper).add.call(@, element, settings, message)
   remove: (element, settings) ->
-    @wrappers[settings.wrapper].remove.call(@, element, settings)
+    @wrapper(settings.wrapper).remove.call(@, element, settings)
+  wrapper: (name) ->
+    @wrappers[name] || @wrappers.default
 
   wrappers:
     default:
@@ -25,8 +27,3 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
         errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class}")
         wrapper.removeClass(settings.wrapper_error_class)
         errorElement.remove()
-
-# Alias default wrapper to Bootstrap and Foundation wrappers
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.vertical_form   = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.horizontal_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.inline_form     = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.default

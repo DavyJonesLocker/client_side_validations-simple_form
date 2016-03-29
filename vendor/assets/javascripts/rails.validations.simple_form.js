@@ -8,10 +8,13 @@
 (function() {
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function(element, settings, message) {
-      return this.wrappers[settings.wrapper].add.call(this, element, settings, message);
+      return this.wrapper(settings.wrapper).add.call(this, element, settings, message);
     },
     remove: function(element, settings) {
-      return this.wrappers[settings.wrapper].remove.call(this, element, settings);
+      return this.wrapper(settings.wrapper).remove.call(this, element, settings);
+    },
+    wrapper: function(name) {
+      return this.wrappers[name] || this.wrappers["default"];
     },
     wrappers: {
       "default": {
@@ -39,11 +42,5 @@
       }
     }
   };
-
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.vertical_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers["default"];
-
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.horizontal_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers["default"];
-
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers.inline_form = ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers["default"];
 
 }).call(this);
