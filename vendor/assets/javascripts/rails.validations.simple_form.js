@@ -18,7 +18,7 @@
         add: function(element, settings, message) {
           var errorElement, wrapper;
           wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')));
-          errorElement = wrapper.find(settings.error_tag + "." + settings.error_class);
+          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
           if (!errorElement.length) {
             errorElement = $("<" + settings.error_tag + "/>", {
               "class": settings.error_class,
@@ -32,7 +32,7 @@
         remove: function(element, settings) {
           var errorElement, wrapper;
           wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')) + "." + settings.wrapper_error_class);
-          errorElement = wrapper.find(settings.error_tag + "." + settings.error_class);
+          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
           wrapper.removeClass(settings.wrapper_error_class);
           return errorElement.remove();
         }

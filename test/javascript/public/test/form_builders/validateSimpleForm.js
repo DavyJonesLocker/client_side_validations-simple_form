@@ -2,7 +2,7 @@ module('Validate SimpleForm', {
   setup: function() {
     window.ClientSideValidations.forms['new_user'] = {
       type: 'SimpleForm::FormBuilder',
-      error_class: 'error',
+      error_class: 'error small',
       error_tag: 'span',
       wrapper_error_class: 'field_with_errors',
       wrapper_tag: 'div',
