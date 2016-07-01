@@ -31,13 +31,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
   spec.add_development_dependency 'mocha', '~> 1.1'
   spec.add_development_dependency 'rake', '~> 11.2'
-  spec.add_development_dependency 'rubocop', '~> 0.40.0'
+  spec.add_development_dependency 'rubocop', '~> 0.41.1'
   spec.add_development_dependency 'simplecov', '~> 0.11.2'
 
   # For QUnit testing
   spec.add_development_dependency 'sinatra', '~> 1.4'
   spec.add_development_dependency 'shotgun', '~> 0.9.1'
   spec.add_development_dependency 'thin', '~> 1.7'
-  spec.add_development_dependency 'json', '~> 1.8'
   spec.add_development_dependency 'coffee-script', '~> 2.4'
 end
