@@ -63,9 +63,9 @@ Per-input options are done with `:validate`
 
 ## Authors ##
 
-[Brian Cardarella](http://twitter.com/bcardarella)
+[Brian Cardarella](https://twitter.com/bcardarella)
 
-[Geremia Taglialatela](http://twitter.com/gtagliala)
+[Geremia Taglialatela](https://twitter.com/gtagliala)
 
 [We are very thankful for the many contributors](https://github.com/DavyJonesLocker/client_side_validations-simple_form/graphs/contributors)
 
@@ -86,8 +86,8 @@ on how to properly submit issues and pull requests.
 
 ## Legal ##
 
-[DockYard](http://dockyard.com), LLC &copy; 2012-2016
+[DockYard](https://dockyard.com/), LLC &copy; 2012-2016
 
-[@dockyard](http://twitter.com/dockyard)
+[@dockyard](https://twitter.com/dockyard)
 
-[Licensed under the MIT license](http://www.opensource.org/licenses/mit-license.php)
+[Licensed under the MIT license](http://opensource.org/licenses/mit-license.php)
