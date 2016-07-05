@@ -6,6 +6,14 @@
  */
 
 (function() {
+  var join_tag_and_classes;
+
+  join_tag_and_classes = function(tag, classes) {
+    return tag + '.' + classes.filter(Boolean).map(function(cls) {
+      return cls.replace(/\ /g, '.');
+    }).join('.');
+  };
+
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function(element, settings, message) {
       return this.wrapper(settings.wrapper).add.call(this, element, settings, message);
@@ -19,25 +27,34 @@
     wrappers: {
       "default": {
         add: function(element, settings, message) {
-          var errorElement, wrapper;
-          wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')));
-          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
-          if (!errorElement.length) {
-            errorElement = $("<" + settings.error_tag + "/>", {
-              "class": settings.error_class,
-              text: message
-            });
-            wrapper.append(errorElement);
+          var errorElement, errorParent, fieldWrapper;
+          fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class]));
+          if (settings.error_parent_tag) {
+            errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class]));
+            errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]));
+            if (errorElement.length) {
+              errorElement.text(message);
+            } else {
+              errorElement = $("<" + settings.error_tag + "/>", {
+                "class": settings.error_class,
+                text: message
+              });
+              errorParent.append(errorElement);
+            }
+            errorParent.addClass(settings.error_parent_with_errors_class);
           }
-          wrapper.addClass(settings.wrapper_error_class);
-          return errorElement.text(message);
+          return fieldWrapper.addClass(settings.field_with_errors_class);
         },
         remove: function(element, settings) {
-          var errorElement, wrapper;
-          wrapper = element.closest(settings.wrapper_tag + "." + (settings.wrapper_class.replace(/\ /g, '.')) + "." + settings.wrapper_error_class);
-          errorElement = wrapper.find(settings.error_tag + "." + (settings.error_class.replace(/\ /g, '.')));
-          wrapper.removeClass(settings.wrapper_error_class);
-          return errorElement.remove();
+          var errorElement, errorParent, fieldWrapper;
+          fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class, settings.field_with_errors_class]));
+          if (settings.error_parent_tag) {
+            errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class]));
+            errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]));
+            errorParent.removeClass(settings.error_parent_with_errors_class);
+            errorElement.remove();
+          }
+          return fieldWrapper.removeClass(settings.field_with_errors_class);
         }
       }
     }

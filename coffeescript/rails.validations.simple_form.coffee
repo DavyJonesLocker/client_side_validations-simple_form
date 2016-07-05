@@ -4,6 +4,9 @@
  * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
 ###
 
+join_tag_and_classes = (tag, classes) ->
+  tag + '.' + classes.filter(Boolean).map((cls) -> cls.replace(/\ /g, '.')).join('.')
+
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
   add: (element, settings, message) ->
     @wrapper(settings.wrapper).add.call(@, element, settings, message)
@@ -15,15 +18,22 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
   wrappers:
     default:
       add: (element, settings, message) ->
-        wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_class.replace(/\ /g, '.')}")
-        errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class.replace(/\ /g, '.')}")
-        unless errorElement.length
-          errorElement = $("<#{settings.error_tag}/>", { class: settings.error_class, text: message })
-          wrapper.append(errorElement)
-        wrapper.addClass(settings.wrapper_error_class)
-        errorElement.text(message)
+        fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class]))
+        if settings.error_parent_tag
+          errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class]))
+          errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]))
+          if errorElement.length
+            errorElement.text(message)
+          else
+            errorElement = $("<#{settings.error_tag}/>", { class: settings.error_class, text: message })
+            errorParent.append(errorElement)
+          errorParent.addClass(settings.error_parent_with_errors_class)
+        fieldWrapper.addClass(settings.field_with_errors_class)
       remove: (element, settings) ->
-        wrapper = element.closest("#{settings.wrapper_tag}.#{settings.wrapper_class.replace(/\ /g, '.')}.#{settings.wrapper_error_class}")
-        errorElement = wrapper.find("#{settings.error_tag}.#{settings.error_class.replace(/\ /g, '.')}")
-        wrapper.removeClass(settings.wrapper_error_class)
-        errorElement.remove()
+        fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class, settings.field_with_errors_class]))
+        if settings.error_parent_tag
+          errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class]))
+          errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]))
+          errorParent.removeClass(settings.error_parent_with_errors_class)
+          errorElement.remove()
+        fieldWrapper.removeClass(settings.field_with_errors_class)
