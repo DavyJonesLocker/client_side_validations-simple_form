@@ -46,6 +46,24 @@ module ClientSideValidations
         assert_equal expected, builder.client_side_form_settings({ wrapper: :nested_wrappers }, nil)
       end
 
+      def test_client_side_form_js_hash_with_error_parent_not_an_input_ancestor_wrapper
+        expected = DEFAULT_SETTINGS.merge(
+          wrapper: :error_parent_not_ancestor_of_input,
+          field_tag: 'div',
+          field_class: 'form-group row',
+          field_with_errors_class: 'has-error',
+
+          error_parent_tag: 'div',
+          error_parent_class: 'col-md-3',
+          error_parent_with_errors_class: nil,
+
+          error_tag: 'span',
+          error_class: 'help-block'
+        )
+        builder = ::SimpleForm::FormBuilder.new(:user, nil, {}, wrapper: :error_parent_not_ancestor_of_input)
+        assert_equal expected, builder.client_side_form_settings({ wrapper: :error_parent_not_ancestor_of_input }, nil)
+      end
+
       def test_client_side_form_js_hash_with_no_error_wrapper
         expected = DEFAULT_BASIC_SETTINGS.merge(
           wrapper: :no_error,
