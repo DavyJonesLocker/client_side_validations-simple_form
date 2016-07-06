@@ -24,7 +24,7 @@ module('Validate SimpleForm Nested wrappers', {
               <th>
                 <label for="user_name">Name</label>
               </th>
-              <td id="input_wrapper" class="input">
+              <td id="error_parent" class="input">
                 <input id="user_name" name="user[name]" type="text">
               </td>
             </tr>
@@ -40,41 +40,41 @@ module('Validate SimpleForm Nested wrappers', {
 test('Validate error attaching and detaching', function() {
   var form = $('form#new_user');
   var field_wrapper = form.find('#field_wrapper');
-  var input_wrapper = form.find('#input_wrapper');
+  var error_parent = form.find('#error_parent');
   var input = form.find('input#user_name');
 
   input.trigger('focusout');
   ok(field_wrapper.hasClass('field_with_errors'));
-  ok(input_wrapper.hasClass('input_with_errors'));
-  ok(input_wrapper.find('span.error:contains("must be present")')[0]);
+  ok(error_parent.hasClass('input_with_errors'));
+  ok(error_parent.find('span.error:contains("must be present")')[0]);
 
   input.val('abc')
   input.trigger('change')
   input.trigger('focusout')
   ok(field_wrapper.hasClass('field_with_errors'));
-  ok(input_wrapper.hasClass('input_with_errors'));
-  ok(input_wrapper.find('span.error:contains("is invalid")')[0]);
+  ok(error_parent.hasClass('input_with_errors'));
+  ok(error_parent.find('span.error:contains("is invalid")')[0]);
 
   input.val('123')
   input.trigger('change')
   input.trigger('focusout')
   ok(!field_wrapper.hasClass('field_with_errors'));
-  ok(!input_wrapper.hasClass('input_with_errors'));
+  ok(!error_parent.hasClass('input_with_errors'));
   ok(!field_wrapper.find('span.error')[0]);
 });
 
 test('Validate pre-existing error blocks are re-used', function() {
   var form = $('form#new_user');
   var field_wrapper = form.find('#field_wrapper');
-  var input_wrapper = form.find('#input_wrapper');
+  var error_parent = form.find('#error_parent');
   var input = form.find('input#user_name');
 
-  input_wrapper.append($('<span class="error">Error from Server</span>'));
-  ok(input_wrapper.find('span.error:contains("Error from Server")')[0]);
+  error_parent.append($('<span class="error">Error from Server</span>'));
+  ok(error_parent.find('span.error:contains("Error from Server")')[0]);
   input.val('abc')
   input.trigger('change')
   input.trigger('focusout')
   ok(field_wrapper.hasClass('field_with_errors'));
-  ok(input_wrapper.hasClass('input_with_errors'));
+  ok(error_parent.hasClass('input_with_errors'));
   ok(field_wrapper.find('span.error:contains("is invalid")').size() === 1);
 });

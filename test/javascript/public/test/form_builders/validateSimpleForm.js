@@ -52,7 +52,7 @@ test('Validate error attaching and detaching', function() {
   ok(input.parent().hasClass('field_with_errors'));
   ok(label.parent().hasClass('field_with_errors'));
   ok(input.parent().find('span.error:contains("is invalid")')[0]);
-  
+
   input.val('123')
   input.trigger('change')
   input.trigger('focusout')
