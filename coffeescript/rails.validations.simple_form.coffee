@@ -20,7 +20,9 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
       add: (element, settings, message) ->
         fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class]))
         if settings.error_parent_tag
-          errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class]))
+          errorParentSelector = join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class])
+          errorParent = fieldWrapper.filter(errorParentSelector)
+          errorParent = fieldWrapper.find(errorParentSelector) unless errorParent.length 
           errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]))
           if errorElement.length
             errorElement.text(message)
@@ -32,7 +34,9 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
       remove: (element, settings) ->
         fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class, settings.field_with_errors_class]))
         if settings.error_parent_tag
-          errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class]))
+          errorParentSelector = join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class])
+          errorParent = fieldWrapper.filter(errorParentSelector)
+          errorParent = fieldWrapper.find(errorParentSelector) unless errorParent.length
           errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]))
           errorParent.removeClass(settings.error_parent_with_errors_class)
           errorElement.remove()

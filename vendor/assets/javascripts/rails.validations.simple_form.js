@@ -27,10 +27,14 @@
     wrappers: {
       "default": {
         add: function(element, settings, message) {
-          var errorElement, errorParent, fieldWrapper;
+          var errorElement, errorParent, errorParentSelector, fieldWrapper;
           fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class]));
           if (settings.error_parent_tag) {
-            errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class]));
+            errorParentSelector = join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class]);
+            errorParent = fieldWrapper.filter(errorParentSelector);
+            if (!errorParent.length) {
+              errorParent = fieldWrapper.find(errorParentSelector);
+            }
             errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]));
             if (errorElement.length) {
               errorElement.text(message);
@@ -46,10 +50,14 @@
           return fieldWrapper.addClass(settings.field_with_errors_class);
         },
         remove: function(element, settings) {
-          var errorElement, errorParent, fieldWrapper;
+          var errorElement, errorParent, errorParentSelector, fieldWrapper;
           fieldWrapper = element.closest(join_tag_and_classes(settings.field_tag, [settings.field_class, settings.field_with_errors_class]));
           if (settings.error_parent_tag) {
-            errorParent = element.closest(join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class]));
+            errorParentSelector = join_tag_and_classes(settings.error_parent_tag, [settings.error_parent_class, settings.error_parent_with_errors_class]);
+            errorParent = fieldWrapper.filter(errorParentSelector);
+            if (!errorParent.length) {
+              errorParent = fieldWrapper.find(errorParentSelector);
+            }
             errorElement = errorParent.find(join_tag_and_classes(settings.error_tag, [settings.error_class]));
             errorParent.removeClass(settings.error_parent_with_errors_class);
             errorElement.remove();
