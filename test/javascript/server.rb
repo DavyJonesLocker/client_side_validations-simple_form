@@ -25,7 +25,7 @@ class AssetPath
   end
 
   def route_file(path)
-    @urls.is_a?(Array) && @urls.any? { |url| path.index(url) == 0 }
+    @urls.is_a?(Array) && @urls.any? { |url| path.index(url).zero? }
   end
 
   def can_serve(path)
