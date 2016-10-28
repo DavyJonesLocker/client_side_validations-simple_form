@@ -5,6 +5,12 @@ AllCops:
 Metrics/AbcSize:
   Max: 23.02
 
+Metrics/BlockLength:
+  Exclude:
+    - '*.gemspec'
+    - 'Rakefile'
+    - 'test/**/*'
+
 Metrics/ClassLength:
   Exclude:
     - 'test/**/*'
