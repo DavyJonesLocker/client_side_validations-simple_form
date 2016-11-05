@@ -55,14 +55,14 @@ test('Validate error attaching and detaching', function() {
   input.trigger('focusout')
   ok(!input.parent().hasClass('field_with_errors'));
   ok(!label.parent().hasClass('field_with_errors'));
-  ok(!input.parent().find('span.error')[0]);
+  ok(!form.find('span.error')[0]);
 });
 
 test('Validate pre-existing error blocks are re-used', function() {
   var form = $('form#new_user'), input = form.find('input#user_name');
   var label = $('label[for="user_name"]');
 
-  input.parent().append($('<span class="error">Error from Server</span>'))
+  input.parent().append($('<span class="error small">Error from Server</span>'))
   ok(input.parent().find('span.error:contains("Error from Server")')[0]);
   input.val('abc')
   input.trigger('change')
@@ -70,4 +70,5 @@ test('Validate pre-existing error blocks are re-used', function() {
   ok(input.parent().hasClass('field_with_errors'));
   ok(label.parent().hasClass('field_with_errors'));
   ok(input.parent().find('span.error:contains("is invalid")').size() === 1);
+  ok(form.find('span.error').size() === 1);
 });

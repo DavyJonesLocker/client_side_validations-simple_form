@@ -100,6 +100,7 @@ for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
     ok(input.parent().parent().hasClass('error'));
     ok(label.parent().hasClass('error'));
     ok(input.parent().find('span.help-inline:contains("is invalid")').size() === 1);
+    ok(form.find('span.help-inline').size() === 1);
   });
 
   test(wrapper + ' - Validate input-group', function() {
