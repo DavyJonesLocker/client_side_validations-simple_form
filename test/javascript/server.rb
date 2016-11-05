@@ -10,28 +10,7 @@ ClientSideValidations::Processor.run
 rails_validations_path = Bundler.load.specs.find { |s| s.name == 'client_side_validations' }
 raise 'Client Side Validations bundle not found' if rails_validations_path.nil?
 
-class AssetPath
-  def initialize(app, options = {})
-    @app = app
-    @urls = options[:urls] || ['/favicon.ico']
-    @index = options[:index]
-    root = options[:root] || Dir.pwd
-    cache_control = options[:cache_control]
-    @file_server = Rack::File.new(root, cache_control)
-  end
-
-  def overwrite_file_path(path)
-    @urls.is_a?(Hash) && @urls.key?(path) || @index && path == '/'
-  end
-
-  def route_file(path)
-    @urls.is_a?(Array) && @urls.any? { |url| path.index(url) == 0 }
-  end
-
-  def can_serve(path)
-    route_file(path) || overwrite_file_path(path)
-  end
-
+class AssetPath < Rack::Static
   def call(env)
     path = env['PATH_INFO']
 
