@@ -5,7 +5,7 @@
 ###
 
 join_tag_and_classes = (tag, classes) ->
-  tag + '.' + classes.filter(Boolean).map((cls) -> cls.replace(/\ /g, '.')).join('.')
+  tag + '.' + jQuery.map(jQuery.grep(classes, Boolean), (cls) -> cls.replace(/\ /g, '.')).join('.')
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =
   add: (element, settings, message) ->

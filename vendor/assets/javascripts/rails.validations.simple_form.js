@@ -9,7 +9,7 @@
   var join_tag_and_classes;
 
   join_tag_and_classes = function(tag, classes) {
-    return tag + '.' + classes.filter(Boolean).map(function(cls) {
+    return tag + '.' + jQuery.map(jQuery.grep(classes, Boolean), function(cls) {
       return cls.replace(/\ /g, '.');
     }).join('.');
   };
