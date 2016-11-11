@@ -8,7 +8,6 @@ class Post
   validates :cost, presence: true
 
   def initialize(params = {})
-    return unless params
     params.each do |attr, value|
       public_send("#{attr}=", value)
     end
