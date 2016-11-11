@@ -69,6 +69,6 @@ test('Validate pre-existing error blocks are re-used', function() {
   input.trigger('focusout')
   ok(input.parent().hasClass('field_with_errors'));
   ok(label.parent().hasClass('field_with_errors'));
-  ok(input.parent().find('span.error:contains("is invalid")').size() === 1);
-  ok(form.find('span.error').size() === 1);
+  ok(input.parent().find('span.error:contains("is invalid")').length === 1);
+  ok(form.find('span.error').length === 1);
 });
