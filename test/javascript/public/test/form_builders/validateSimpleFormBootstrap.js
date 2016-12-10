@@ -2,12 +2,15 @@ module('Validate SimpleForm Bootstrap', {
   setup: function() {
     window.ClientSideValidations.forms['new_user'] = {
       type: 'SimpleForm::FormBuilder',
-      error_class: 'help-inline',
-      error_tag: 'span',
-      wrapper_error_class: 'error',
-      wrapper_tag: 'div',
-      wrapper_class: 'control-group control-group-2 control-group-3',
       wrapper: 'bootstrap',
+      field_tag: 'div',
+      field_class: 'control-group control-group-2 control-group-3',
+      field_with_errors_class: 'error',
+      error_parent_tag: 'div',
+      error_parent_class: 'control-group control-group-2 control-group-3',
+      error_parent_with_errors_class: 'error',
+      error_tag: 'span',
+      error_class: 'help-inline',
       validators: {
         "user[name]":{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":/\d+/}]},
         "user[username]":{"presence":[{"message": "must be present"}]}
