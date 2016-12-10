@@ -21,17 +21,17 @@ Gem::Specification.new do |spec|
 
   spec.post_install_message = "*** POTENTIAL BREAKING CHANGE ***\nIf you are upgrading from client_side_validations-simple_form <= 3.2.1,\nplease take a look at https://goo.gl/j70wIR"
 
-  spec.add_dependency 'client_side_validations', '~> 4.2.9'
+  spec.add_dependency 'client_side_validations', '~> 4.2.11'
   spec.add_dependency 'simple_form', '~> 3.3'
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
   spec.add_development_dependency 'byebug', '~> 9.0'
-  spec.add_development_dependency 'coveralls', '~> 0.8.15'
+  spec.add_development_dependency 'coveralls', '~> 0.8.17'
   spec.add_development_dependency 'm', '~> 1.5'
   spec.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
   spec.add_development_dependency 'mocha', '~> 1.2'
-  spec.add_development_dependency 'rake', '~> 11.3'
-  spec.add_development_dependency 'rubocop', '~> 0.45.0'
+  spec.add_development_dependency 'rake', '~> 12.0'
+  spec.add_development_dependency 'rubocop', '~> 0.46.0'
   spec.add_development_dependency 'simplecov', '~> 0.12.0'
 
   # For QUnit testing
