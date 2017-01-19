@@ -12,3 +12,5 @@ bin/*
 coverage
 test/log
 .byebug_history
+
+node_modules
