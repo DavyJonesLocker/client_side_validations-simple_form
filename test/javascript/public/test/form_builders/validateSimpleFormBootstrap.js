@@ -1,5 +1,5 @@
-module('Validate SimpleForm Bootstrap', {
-  setup: function() {
+QUnit.module('Validate SimpleForm Bootstrap', {
+  beforeEach: function() {
     window.ClientSideValidations.forms['new_user'] = {
       type: 'SimpleForm::FormBuilder',
       error_class: 'help-inline',
@@ -62,59 +62,59 @@ module('Validate SimpleForm Bootstrap', {
 });
 
 for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
-  test(wrapper + ' - Validate error attaching and detaching', function() {
+  QUnit.test(wrapper + ' - Validate error attaching and detaching', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_name');
     var label = $('label[for="user_name"]');
     window.ClientSideValidations.forms['new_user'].wrapper = wrapper
 
     input.trigger('focusout');
-    ok(input.parent().parent().hasClass('error'));
-    ok(label.parent().hasClass('error'));
-    ok(input.parent().parent().find('span.help-inline:contains("must be present")')[0]);
+    assert.ok(input.parent().parent().hasClass('error'));
+    assert.ok(label.parent().hasClass('error'));
+    assert.ok(input.parent().parent().find('span.help-inline:contains("must be present")')[0]);
 
     input.val('abc')
     input.trigger('change')
     input.trigger('focusout')
-    ok(input.parent().parent().hasClass('error'));
-    ok(input.parent().parent().find('span.help-inline:contains("is invalid")')[0]);
-    ok(label.parent().hasClass('error'));
+    assert.ok(input.parent().parent().hasClass('error'));
+    assert.ok(input.parent().parent().find('span.help-inline:contains("is invalid")')[0]);
+    assert.ok(label.parent().hasClass('error'));
 
     input.val('123')
     input.trigger('change')
     input.trigger('focusout')
-    ok(!input.parent().parent().hasClass('error'));
-    ok(!input.parent().parent().find('span.help-inline')[0]);
-    ok(!label.parent().hasClass('error'));
+    assert.ok(!input.parent().parent().hasClass('error'));
+    assert.ok(!input.parent().parent().find('span.help-inline')[0]);
+    assert.ok(!label.parent().hasClass('error'));
   });
 
-  test(wrapper + ' - Validate pre-existing error blocks are re-used', function() {
+  QUnit.test(wrapper + ' - Validate pre-existing error blocks are re-used', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_name');
     var label = $('label[for="user_name"]');
     window.ClientSideValidations.forms['new_user'].wrapper = wrapper
 
     input.parent().append($('<span class="help-inline">Error from Server</span>'))
-    ok(input.parent().find('span.help-inline:contains("Error from Server")')[0]);
+    assert.ok(input.parent().find('span.help-inline:contains("Error from Server")')[0]);
     input.val('abc')
     input.trigger('change')
     input.trigger('focusout')
-    ok(input.parent().parent().hasClass('error'));
-    ok(label.parent().hasClass('error'));
-    ok(input.parent().find('span.help-inline:contains("is invalid")').length === 1);
-    ok(form.find('span.help-inline').length === 1);
+    assert.ok(input.parent().parent().hasClass('error'));
+    assert.ok(label.parent().hasClass('error'));
+    assert.ok(input.parent().find('span.help-inline:contains("is invalid")').length === 1);
+    assert.ok(form.find('span.help-inline').length === 1);
   });
 
-  test(wrapper + ' - Validate input-group', function() {
+  QUnit.test(wrapper + ' - Validate input-group', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_username');
     window.ClientSideValidations.forms['new_user'].wrapper = wrapper
 
     input.trigger('change')
     input.trigger('focusout')
-    ok(input.closest('.input-group').find('span.help-inline').length === 0);
-    ok(input.closest('.control-group').find('span.help-inline').length === 1);
+    assert.ok(input.closest('.input-group').find('span.help-inline').length === 0);
+    assert.ok(input.closest('.control-group').find('span.help-inline').length === 1);
 
     input.val('abc')
     input.trigger('change')
     input.trigger('focusout')
-    ok(input.closest('.control-group').find('span.help-inline').length === 0);
+    assert.ok(input.closest('.control-group').find('span.help-inline').length === 0);
   });
 }
