@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - 'vendor/bundle/**/*'
+  TargetRubyVersion: 2.2
 
 Metrics/AbcSize:
   Max: 23.02
