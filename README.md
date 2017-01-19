@@ -75,8 +75,8 @@ This gem follows [Semantic Versioning](http://semver.org)
 
 Major and minor version numbers will follow `simple_form`'s major and
 minor version numbers. For example,
-`client_side_validations-simple_form-3.3.0` will be compatible up to
-`~> simple_form-3.3.0`
+`client_side_validations-simple_form-3.4.0` will be compatible up to
+`~> simple_form-3.4.0`
 
 ## Want to help? ##
 
