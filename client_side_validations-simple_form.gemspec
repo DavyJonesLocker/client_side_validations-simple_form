@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.platform    = Gem::Platform::RUBY
 
-  spec.files         = `git ls-files -z -- {README.md,lib,vendor}`.split("\x0")
+  spec.files         = `git ls-files -z -- {CHANGELOG.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
   spec.add_dependency 'client_side_validations', '~> 6.0'
