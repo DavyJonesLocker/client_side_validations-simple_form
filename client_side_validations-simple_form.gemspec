@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Geremia Taglialatela', 'Brian Cardarella']
   spec.email       = ['tagliala.dev@gmail.com', 'bcardarella@gmail.com']
 
-  spec.summary     = 'SimpleForm Plugin for ClientSideValidations'
+  spec.summary     = 'ClientSideValidations SimpleForm'
   spec.description = 'SimpleForm Plugin for ClientSideValidations'
   spec.homepage    = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
   spec.license     = 'MIT'
@@ -19,14 +19,14 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {CHANGELOG.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'client_side_validations', '~> 6.0'
+  spec.add_dependency 'client_side_validations', '>= 6.0', '< 8.0'
   spec.add_dependency 'simple_form', '~> 3.4'
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
   spec.add_development_dependency 'byebug', '~> 9.0'
-  spec.add_development_dependency 'coveralls', '~> 0.8.18'
+  spec.add_development_dependency 'coveralls', '~> 0.8.19'
   spec.add_development_dependency 'm', '~> 1.5'
-  spec.add_development_dependency 'minitest', '>= 4.7.5', '< 6.0.0'
+  spec.add_development_dependency 'minitest', '~> 5.10'
   spec.add_development_dependency 'mocha', '~> 1.2'
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rubocop', '~> 0.47.1'
