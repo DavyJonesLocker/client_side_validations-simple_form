@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.2.0 (2017-01-22)
+
+* ClientSideValidations 8.0 compatibility
+
 ## 5.1.0 (2017-01-22)
 
 * ClientSideValidations 7.0 compatibility
