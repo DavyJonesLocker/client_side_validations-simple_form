@@ -8,6 +8,4 @@ rvm:
   - 2.3.3
   - 2.4.0
 gemfile:
-  - gemfiles/csv_6.0.gemfile
-  - gemfiles/csv_7.0.gemfile
-  - gemfiles/csv_8.0.gemfile
+  - gemfiles/csv_9.0.gemfile
