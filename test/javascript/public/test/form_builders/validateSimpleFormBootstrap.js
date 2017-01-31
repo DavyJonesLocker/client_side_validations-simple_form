@@ -1,23 +1,25 @@
 QUnit.module('Validate SimpleForm Bootstrap', {
   beforeEach: function() {
-    window.ClientSideValidations.forms['new_user'] = {
-      type: 'SimpleForm::FormBuilder',
-      error_class: 'help-inline',
-      error_tag: 'span',
-      wrapper_error_class: 'error',
-      wrapper_tag: 'div',
-      wrapper_class: 'control-group control-group-2 control-group-3',
-      wrapper: 'bootstrap',
+    dataCsv = {
+      html_settings: {
+        type: 'SimpleForm::FormBuilder',
+        error_class: 'help-inline',
+        error_tag: 'span',
+        wrapper_error_class: 'error',
+        wrapper_tag: 'div',
+        wrapper_class: 'control-group control-group-2 control-group-3',
+        wrapper: 'bootstrap'
+      },
       validators: {
-        "user[name]":{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":/\d+/}]},
-        "user[username]":{"presence":[{"message": "must be present"}]}
+        'user[name]':{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":{"options":"g", "source": "\\d+"}}]},
+        'user[username]':{"presence":[{"message": "must be present"}]}
       }
     }
 
     $('#qunit-fixture')
       .append($('<form />', {
         action: '/users',
-        'data-validate': true,
+        'data-client-side-validations': JSON.stringify(dataCsv),
         method: 'post',
         id: 'new_user'
       }))
@@ -65,7 +67,7 @@ for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
   QUnit.test(wrapper + ' - Validate error attaching and detaching', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_name');
     var label = $('label[for="user_name"]');
-    window.ClientSideValidations.forms['new_user'].wrapper = wrapper
+    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
 
     input.trigger('focusout');
     assert.ok(input.parent().parent().hasClass('error'));
@@ -90,7 +92,7 @@ for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
   QUnit.test(wrapper + ' - Validate pre-existing error blocks are re-used', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_name');
     var label = $('label[for="user_name"]');
-    window.ClientSideValidations.forms['new_user'].wrapper = wrapper
+    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
 
     input.parent().append($('<span class="help-inline">Error from Server</span>'))
     assert.ok(input.parent().find('span.help-inline:contains("Error from Server")')[0]);
@@ -105,7 +107,7 @@ for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
 
   QUnit.test(wrapper + ' - Validate input-group', function(assert) {
     var form = $('form#new_user'), input = form.find('input#user_username');
-    window.ClientSideValidations.forms['new_user'].wrapper = wrapper
+    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
 
     input.trigger('change')
     input.trigger('focusout')

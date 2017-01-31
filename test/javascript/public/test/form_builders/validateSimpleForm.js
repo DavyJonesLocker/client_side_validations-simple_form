@@ -1,22 +1,24 @@
 QUnit.module('Validate SimpleForm', {
   beforeEach: function() {
-    window.ClientSideValidations.forms['new_user'] = {
-      type: 'SimpleForm::FormBuilder',
-      error_class: 'error small',
-      error_tag: 'span',
-      wrapper_error_class: 'field_with_errors',
-      wrapper_tag: 'div',
-      wrapper_class: 'input',
-      wrapper: 'default',
+    dataCsv = {
+      html_settings: {
+        type: 'SimpleForm::FormBuilder',
+        error_class: 'error small',
+        error_tag: 'span',
+        wrapper_error_class: 'field_with_errors',
+        wrapper_tag: 'div',
+        wrapper_class: 'input',
+        wrapper: 'default'
+      },
       validators: {
-        "user[name]":{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":/\d+/}]}
+        'user[name]':{"presence":[{"message": "must be present"}], "format":[{"message":"is invalid","with":{"options":"g", "source": "\\d+"}}]},
       }
     }
 
     $('#qunit-fixture')
       .append($('<form />', {
         action: '/users',
-        'data-validate': true,
+        'data-client-side-validations': JSON.stringify(dataCsv),
         method: 'post',
         id: 'new_user'
       }))
