@@ -1,18 +1,22 @@
 # Changelog
 
-## 6.0.0 (2017-01-31)
+## 6.0.0.master / Unreleased
 
-* ClientSideValidations 9.0 compatibility
+* [ENHANCEMENT] Follow Vandamme's changelog conventions
 
-## 5.2.0 (2017-01-22)
+## 6.0.0 / 2017-01-31
 
-* ClientSideValidations 8.0 compatibility
+* [FEATURE] ClientSideValidations 9.0 compatibility
 
-## 5.1.0 (2017-01-22)
+## 5.2.0 / 2017-01-22
 
-* ClientSideValidations 7.0 compatibility
-* Update development dependencies
+* [FEATURE] ClientSideValidations 8.0 compatibility
 
-## 5.0.0 (2017-01-20)
+## 5.1.0 / 2017-01-22
 
-* ClientSideValidations 6.0 compatibility
+* [FEATURE] ClientSideValidations 7.0 compatibility
+* [ENHANCEMENT] Update development dependencies
+
+## 5.0.0 / 2017-01-20
+
+* [FEATURE] ClientSideValidations 6.0 compatibility
