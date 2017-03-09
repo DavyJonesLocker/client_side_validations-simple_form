@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'base_helper'
 require 'action_view'
 require 'action_view/models'

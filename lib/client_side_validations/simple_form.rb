@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'simple_form'
 require 'client_side_validations'
 require 'client_side_validations/simple_form/form_builder'
