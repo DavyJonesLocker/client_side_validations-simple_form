@@ -1,9 +1,10 @@
 # Changelog
 
-## 6.0.0.master / Unreleased
+## 6.1.0 / 2017-03-23
 
 * [ENHANCEMENT] Use Ruby 2.3's Frozen String Literal Pragma
 * [ENHANCEMENT] Test against Ruby 2.4.1
+* [ENHANCEMENT] Test against jQuery 3.2.0 and 3.2.1
 * [ENHANCEMENT] Follow Vandamme's changelog conventions
 
 ## 6.0.0 / 2017-01-31
