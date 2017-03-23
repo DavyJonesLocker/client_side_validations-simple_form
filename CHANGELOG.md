@@ -3,6 +3,7 @@
 ## 6.0.0.master / Unreleased
 
 * [ENHANCEMENT] Use Ruby 2.3's Frozen String Literal Pragma
+* [ENHANCEMENT] Test against Ruby 2.4.1
 * [ENHANCEMENT] Follow Vandamme's changelog conventions
 
 ## 6.0.0 / 2017-01-31
