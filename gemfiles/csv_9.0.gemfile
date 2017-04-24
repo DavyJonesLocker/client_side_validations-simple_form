@@ -4,4 +4,4 @@ source "https://rubygems.org"
 
 gem "client_side_validations", "~> 9.0"
 
-gemspec :path => "../"
+gemspec path: "../"
