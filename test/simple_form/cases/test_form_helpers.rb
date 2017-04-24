@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'action_view/test_helper'
 require 'simple_form/cases/helper'
 

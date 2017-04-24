@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'bundler'
 require File.join(File.expand_path('..', __FILE__), 'coffeescript/processor')
 Bundler::GemHelper.install_tasks
@@ -90,7 +91,7 @@ def browse_cmd(url)
   browser = ENV['BROWSER'] ||
             (RbConfig::CONFIG['host_os'].include?('darwin') && 'open') ||
             (RbConfig::CONFIG['host_os'] =~ /msdos|mswin|djgpp|mingw|windows/ && 'start') ||
-            %w(xdg-open x-www-browser firefox opera mozilla netscape).find { |comm| which comm }
+            %w[xdg-open x-www-browser firefox opera mozilla netscape].find { |comm| which comm }
 
   abort('ERROR: no web browser detected') unless browser
   Array(browser) << url
