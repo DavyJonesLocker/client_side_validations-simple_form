@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.2.0 / 2017-04-24
+
+* [ENHANCEMENT] Code cleanup
+* [ENHANCEMENT] Test against Ruby 2.2.7 and 2.3.4
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.1.0 / 2017-03-23
 
 * [ENHANCEMENT] Use Ruby 2.3's Frozen String Literal Pragma
