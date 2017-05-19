@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.2.0.master / unreleased
+
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.2.0 / 2017-04-24
 
 * [ENHANCEMENT] Code cleanup
