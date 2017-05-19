@@ -15,7 +15,7 @@ In your Gemfile add the following:
 ```ruby
 gem 'simple_form'
 gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
+gem 'client_side_validations_simple_form'
 ```
 
 Order matters here. `SimpleForm` and `ClientSideValidations` need to be
