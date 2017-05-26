@@ -1,8 +1,10 @@
 # Changelog
 
-## 6.2.0.master / unreleased
+## 6.3.0 / 2017-05-27
 
+* [ENHANCEMENT] Update runtime dependencies
 * [ENHANCEMENT] Update development dependencies
+* [ENHANCEMENT] Add spec for simple_fields_for to avoid regressions
 
 ## 6.2.0 / 2017-04-24
 
