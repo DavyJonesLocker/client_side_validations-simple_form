@@ -9,7 +9,6 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - '*.gemspec'
-    - 'Rakefile'
     - 'test/**/*'
 
 Metrics/ClassLength:
@@ -36,14 +35,7 @@ Rails:
 Style/Documentation:
   Enabled: false
 
-Style/FileName:
-  Exclude:
-    - Appraisals
-
 # TODO: Remove when targeting Ruby 2.3 because it is already enabled.
 Style/FrozenStringLiteralComment:
   Enabled: true
   EnforcedStyle: always
-
-Style/SpaceAroundOperators:
-  AllowForAlignment: true
