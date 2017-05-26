@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class Post
+class Category
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Validations
   include ActiveModel::Conversion
 
-  attr_accessor :title, :author_name, :body, :secret, :written_on, :cost
-  validates :cost, presence: true
+  attr_reader :id, :title
+  validates :title, presence: true
 
   def initialize(params = {})
     params.each do |attr, value|
@@ -18,10 +18,4 @@ class Post
   def persisted?
     false
   end
-
-  attr_accessor :comments, :comment_ids
-  def comments_attributes=(attributes); end
-
-  attr_accessor :category
-  def category_attributes=(attributes); end
 end
