@@ -7,3 +7,4 @@ rvm:
 gemfile:
   - gemfiles/csv_9.0.gemfile
   - gemfiles/csv_10.0.gemfile
+  - gemfiles/csv_11.0.gemfile
