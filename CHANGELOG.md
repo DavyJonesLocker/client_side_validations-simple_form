@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.5.1 / 2018-02-03
+
+* [ENHANCEMENT] Test against Ruby 2.2.9, 2.3.6, 2.4.3, and 2.5.0
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.5.0 / 2017-11-29
 
 * [FEATURE] Add ClientSideValidations 11.0 compatibility
