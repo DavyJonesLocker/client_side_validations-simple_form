@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.6.0 / 2018-04-13
+
+* [FEATURE] Add Simple Form 4.0 compatibility
+* [ENHANCEMENT] Test against Ruby 2.2.10, 2.3.7, 2.4.4, and 2.5.1
+* [ENHANCEMENT] Test against jQuery 3.3.1
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.5.1 / 2018-02-03
 
 * [ENHANCEMENT] Test against Ruby 2.2.9, 2.3.6, 2.4.3, and 2.5.0
