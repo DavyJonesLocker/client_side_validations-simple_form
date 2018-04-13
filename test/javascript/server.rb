@@ -34,8 +34,8 @@ use AssetPath, urls: ['/vendor/assets/javascripts'], root: File.expand_path('../
 use AssetPath, urls: ['/vendor/assets/javascripts'], root: File.expand_path('../', $LOAD_PATH.find { |p| p =~ /jquery-rails/ })
 use AssetPath, urls: ['/vendor/assets/javascripts'], root: rails_validations_path.full_gem_path
 
-DEFAULT_JQUERY_VERSION = '3.1.1'.freeze
-QUNIT_VERSION          = '2.1.1'.freeze
+DEFAULT_JQUERY_VERSION = '3.3.1'.freeze
+QUNIT_VERSION          = '2.6.0'.freeze
 
 helpers do
   def jquery_version
