@@ -21,17 +21,17 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'client_side_validations', '>= 9.3.2', '< 12'
-  spec.add_dependency 'simple_form', '~> 3.5'
+  spec.add_dependency 'simple_form', '>= 3.5', '< 5'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
   spec.add_development_dependency 'byebug', '~> 10.0'
-  spec.add_development_dependency 'coveralls_reborn', '~> 0.10.0'
+  spec.add_development_dependency 'coveralls_reborn', '~> 0.11.1'
   spec.add_development_dependency 'm', '~> 1.5'
   spec.add_development_dependency 'minitest', '~> 5.11'
-  spec.add_development_dependency 'mocha', '~> 1.3'
+  spec.add_development_dependency 'mocha', '~> 1.5'
   spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rubocop', '~> 0.52.1'
-  spec.add_development_dependency 'simplecov', '~> 0.15.1'
+  spec.add_development_dependency 'rubocop', '~> 0.54.0'
+  spec.add_development_dependency 'simplecov', '~> 0.16.1'
 
   # For QUnit testing
   spec.add_development_dependency 'coffee-script', '~> 2.4'
