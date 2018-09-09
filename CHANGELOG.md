@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.7.0 / 2018-09-09
+
+* [FEATURE] Add Bootstrap 4 support
+* [ENHANCEMENT] Update QUnit to 2.6.2
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.6.0 / 2018-04-13
 
 * [FEATURE] Add Simple Form 4.0 compatibility
