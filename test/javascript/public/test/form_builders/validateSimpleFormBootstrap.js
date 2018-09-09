@@ -28,7 +28,7 @@ QUnit.module('Validate SimpleForm Bootstrap', {
           class: 'form-inputs'
         }))
         .find('div')
-        	.append($('<div />', {
+          .append($('<div />', {
             class: 'control-group control-group-2 control-group-3 control-group-user-name'
           }))
           .find('div.control-group-user-name')
@@ -41,7 +41,7 @@ QUnit.module('Validate SimpleForm Bootstrap', {
                 id: 'user_name',
                 type: 'text'
               }))
-        	.append($('<div />', {
+          .append($('<div />', {
             class: 'control-group control-group-2 control-group-3 control-group-user-username'
           }))
           .find('div.control-group-user-username')
