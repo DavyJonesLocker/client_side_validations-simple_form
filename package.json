@@ -2,7 +2,7 @@
   "name": "client-side-validations_simple-form",
   "private": true,
   "scripts": {
-    "lint": "coffeelint -- coffeescript/rails.validations.simple_form.coffee"
+    "lint": "coffeelint -- coffeescript/*.coffee"
   },
   "devDependencies": {
     "coffeelint": "^2.1.0"

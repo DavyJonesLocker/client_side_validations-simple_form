@@ -22,10 +22,14 @@ required **before** `ClientSideValidations-SimpleForm`.
 
 [Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/master/README.md)
 
-Add the following line to `app/assets/javascripts/application.js`
+According to the web framework you are using, add **one** of the following lines to `app/assets/javascripts/application.js`
 
 ```javascript
+// No framework / Generic Framework / Bootstrap 3
 //= require rails.validations.simple_form
+
+// Bootstrap 4
+//= require rails.validations.simple_form.bootstrap4
 ```
 
 Again, order matters. You should add this line after the require for `rails.validations` as described in the `ClientSideValidations` installation instructions.

@@ -26,6 +26,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'public/javascripts/rails.validations.simple_form.js'
+    assert_file 'public/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
   test 'Assert file is not created when asset pipeline present and enabled' do
@@ -36,6 +37,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_no_file 'app/assets/javascripts/rails.validations.simple_form.js'
+    assert_no_file 'app/assets/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
   def stub_configuration
@@ -52,6 +54,7 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
     stub_configuration
     run_generator
     assert_file 'public/javascripts/rails.validations.simple_form.js'
+    assert_file 'public/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
   test 'Assert file is properly created when asset pipeline present and disabled' do
@@ -62,6 +65,7 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'public/javascripts/rails.validations.simple_form.js'
+    assert_file 'public/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
   test 'Assert file is properly created when asset pipeline present and enabled' do
@@ -72,6 +76,7 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
     Rails.configuration.stubs(:assets).returns(configuration)
     run_generator
     assert_file 'app/assets/javascripts/rails.validations.simple_form.js'
+    assert_file 'app/assets/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
   def stub_configuration

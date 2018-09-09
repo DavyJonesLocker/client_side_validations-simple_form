@@ -10,29 +10,36 @@ require 'date'
 module ClientSideValidations
   class Processor
     def self.run
-      write_file
+      write_files
     end
 
     def self.root_path
       File.expand_path('..', __dir__)
     end
 
-    def self.file_name
-      'rails.validations.simple_form'
+    def self.file_names
+      Dir["#{root_path}/coffeescript/*.coffee"]
     end
 
-    def self.template
-      ERB.new(File.open(File.join(root_path, 'coffeescript', "#{file_name}.coffee")).read)
+    def self.template(coffeefile)
+      ERB.new(File.open(coffeefile).read)
     end
 
-    def self.compiled_coffeescript
-      CoffeeScript.compile(template.result(binding))
+    def self.compile(file_name)
+      CoffeeScript.compile(template(file_name).result(binding))
     end
 
-    def self.write_file
-      file = File.new(File.join(root_path, "vendor/assets/javascripts/#{file_name}.js"), 'w')
-      file << compiled_coffeescript
-      file.close
+    def self.new_javascript_file(file_name)
+      basename = File.basename(file_name, '.coffee')
+      File.new(File.join(root_path, "vendor/assets/javascripts/#{basename}.js"), 'w')
+    end
+
+    def self.write_files
+      file_names.each do |file_name|
+        file = new_javascript_file(file_name)
+        file << compile(file_name)
+        file.close
+      end
     end
   end
 end
