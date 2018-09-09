@@ -25,7 +25,7 @@ required **before** `ClientSideValidations-SimpleForm`.
 According to the web framework you are using, add **one** of the following lines to `app/assets/javascripts/application.js`
 
 ```javascript
-// No framework / Generic Framework / Bootstrap 3
+// No framework / Generic frameworks / Bootstrap 3
 //= require rails.validations.simple_form
 
 // Bootstrap 4
@@ -84,7 +84,7 @@ on how to properly submit issues and pull requests.
 
 ## Legal ##
 
-[DockYard](https://dockyard.com/), LLC &copy; 2012-2017
+[DockYard](https://dockyard.com/), LLC &copy; 2012-2018
 
 [@dockyard](https://twitter.com/dockyard)
 
