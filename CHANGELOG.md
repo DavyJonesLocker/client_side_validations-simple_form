@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.8.0 / 2018-12-12
+
+* [FEATURE] Add ClientSideValidations 12.0 compatibility
+* [ENHANCEMENT] Update QUnit to 2.8.0
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.7.0 / 2018-09-09
 
 * [FEATURE] Add Bootstrap 4 support

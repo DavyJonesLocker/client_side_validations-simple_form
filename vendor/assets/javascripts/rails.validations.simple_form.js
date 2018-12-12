@@ -1,6 +1,6 @@
 
 /*!
- * Client Side Validations - SimpleForm - v6.7.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations - SimpleForm - v6.8.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2018 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
  */
