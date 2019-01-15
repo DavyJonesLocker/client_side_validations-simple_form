@@ -1,5 +1,10 @@
 # Changelog
 
+## master / unreleased
+
+* [ENHANCEMENT] Test against Ruby 2.6.0
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.8.0 / 2018-12-12
 
 * [FEATURE] Add ClientSideValidations 12.0 compatibility
