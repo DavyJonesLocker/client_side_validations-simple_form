@@ -1,8 +1,10 @@
 # Changelog
 
-## master / unreleased
+## 6.9.0 / 2019-03-02
 
-* [ENHANCEMENT] Test against Ruby 2.6.0
+* [FEATURE] Add ClientSideValidations 13.0 compatibility
+* [ENHANCEMENT] Test against Ruby 2.6.1
+* [ENHANCEMENT] Update QUnit to 2.9.2
 * [ENHANCEMENT] Update development dependencies
 
 ## 6.8.0 / 2018-12-12
