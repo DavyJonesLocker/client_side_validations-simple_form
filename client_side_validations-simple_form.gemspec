@@ -20,17 +20,17 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {CHANGELOG.md,LICENSE.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'client_side_validations', '>= 9.3.2', '< 13'
+  spec.add_dependency 'client_side_validations', '>= 9.3.2', '< 14'
   spec.add_dependency 'simple_form', '>= 3.5', '< 5'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
-  spec.add_development_dependency 'byebug', '~> 10.0'
+  spec.add_development_dependency 'byebug', '>= 10', '< 12'
   spec.add_development_dependency 'coveralls_reborn', '~> 0.12.0'
   spec.add_development_dependency 'm', '~> 1.5'
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'mocha', '~> 1.8'
   spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rubocop', '~> 0.63.1'
+  spec.add_development_dependency 'rubocop', '~> 0.65.0'
   spec.add_development_dependency 'simplecov', '~> 0.16.1'
 
   # For QUnit testing
