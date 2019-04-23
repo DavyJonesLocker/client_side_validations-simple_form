@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.10.0 / 2019-04-23
+
+* [FEATURE] Add ClientSideValidations 14.0 compatibility
+* [ENHANCEMENT] Test against Ruby 2.6.3
+* [ENHANCEMENT] Test against jQuery 3.4.0 by default
+* [ENHANCEMENT] Update QUnit to 2.9.2
+* [ENHANCEMENT] Update development dependencies
+
 ## 6.9.0 / 2019-03-02
 
 * [FEATURE] Add ClientSideValidations 13.0 compatibility
