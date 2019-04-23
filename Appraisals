@@ -20,6 +20,10 @@ appraise 'csv-13.0' do
   gem 'client_side_validations', '~> 13.0'
 end
 
+appraise 'csv-14.0' do
+  gem 'client_side_validations', '~> 14.0'
+end
+
 appraise 'simple_form-3.5' do
   gem 'simple_form', '~> 3.5'
 end
