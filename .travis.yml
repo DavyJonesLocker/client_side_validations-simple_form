@@ -15,3 +15,7 @@ gemfile:
   - gemfiles/csv_14.0.gemfile
   - gemfiles/simple_form_3.5.gemfile
   - gemfiles/simple_form_4.0.gemfile
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+  fast_finish: true
