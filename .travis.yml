@@ -7,12 +7,7 @@ rvm:
   - 2.6.3
   - ruby-head
 gemfile:
-  - gemfiles/csv_9.0.gemfile
-  - gemfiles/csv_10.0.gemfile
-  - gemfiles/csv_11.0.gemfile
-  - gemfiles/csv_12.0.gemfile
-  - gemfiles/csv_13.0.gemfile
-  - gemfiles/csv_14.0.gemfile
+  - gemfiles/csv_15.0.gemfile
   - gemfiles/simple_form_3.5.gemfile
   - gemfiles/simple_form_4.0.gemfile
 matrix:

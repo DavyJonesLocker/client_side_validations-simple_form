@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {CHANGELOG.md,LICENSE.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'client_side_validations', '>= 9.3.2', '< 15'
+  spec.add_dependency 'client_side_validations', '~> 15.0'
   spec.add_dependency 'simple_form', '>= 3.5', '< 5'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'

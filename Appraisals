@@ -1,27 +1,7 @@
 # frozen_string_literal: true
 
-appraise 'csv-9.0' do
-  gem 'client_side_validations', '~> 9.0'
-end
-
-appraise 'csv-10.0' do
-  gem 'client_side_validations', '~> 10.0'
-end
-
-appraise 'csv-11.0' do
-  gem 'client_side_validations', '~> 11.0'
-end
-
-appraise 'csv-12.0' do
-  gem 'client_side_validations', '~> 12.0'
-end
-
-appraise 'csv-13.0' do
-  gem 'client_side_validations', '~> 13.0'
-end
-
-appraise 'csv-14.0' do
-  gem 'client_side_validations', '~> 14.0'
+appraise 'csv-15.0' do
+  gem 'client_side_validations', '~> 15.0'
 end
 
 appraise 'simple_form-3.5' do
