@@ -1,5 +1,12 @@
 # Changelog
 
+## 7.0.0 / 2019-05-14
+
+* [FEATURE] Add ClientSideValidations 15.0 compatibility
+* [FEATURE] Drop Ruby 2.2 support
+* [FEATURE] Drop ClientSideValidations < 15.0 compatibility
+* [ENHANCEMENT] Test against jQuery 3.4.1 by default
+
 ## 6.10.0 / 2019-04-23
 
 * [FEATURE] Add ClientSideValidations 14.0 compatibility
