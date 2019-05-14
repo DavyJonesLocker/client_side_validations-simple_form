@@ -4,7 +4,7 @@ require:
 AllCops:
   Exclude:
     - 'vendor/bundle/**/*'
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.3
 
 Metrics/AbcSize:
   Max: 23.02
@@ -37,11 +37,6 @@ Rails:
 
 Style/Documentation:
   Enabled: false
-
-# TODO: Remove when targeting Ruby 2.3 because it is already enabled.
-Style/FrozenStringLiteralComment:
-  Enabled: true
-  EnforcedStyle: always
 
 Style/IfUnlessModifier:
   Enabled: false

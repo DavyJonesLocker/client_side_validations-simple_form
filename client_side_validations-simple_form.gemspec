@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z -- {CHANGELOG.md,LICENSE.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
+  spec.required_ruby_version = '~> 2.3'
+
   spec.add_dependency 'client_side_validations', '~> 15.0'
   spec.add_dependency 'simple_form', '>= 3.5', '< 5'
 
@@ -30,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'mocha', '~> 1.8'
   spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rubocop', '~> 0.68.1'
-  spec.add_development_dependency 'rubocop-performance', '~> 1.2'
+  spec.add_development_dependency 'rubocop', '~> 0.69.0'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.3'
   spec.add_development_dependency 'simplecov', '~> 0.16.1'
 
   # For QUnit testing
