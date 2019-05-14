@@ -1,7 +1,7 @@
 ###!
  * Client Side Validations - SimpleForm - v<%= ClientSideValidations::SimpleForm::VERSION %> (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) <%= DateTime.now.year %> Geremia Taglialatela, Brian Cardarella
- * Licensed under MIT (http://opensource.org/licenses/mit-license.php)
+ * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
 ###
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] =

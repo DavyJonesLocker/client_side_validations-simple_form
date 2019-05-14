@@ -1,6 +1,6 @@
 # ClientSideValidations-SimpleForm #
 
-[![Gem Version](https://badge.fury.io/rb/client_side_validations-simple_form.svg)](http://badge.fury.io/rb/client_side_validations-simple_form)
+[![Gem Version](https://badge.fury.io/rb/client_side_validations-simple_form.svg)](https://badge.fury.io/rb/client_side_validations-simple_form)
 [![Build Status](https://secure.travis-ci.org/DavyJonesLocker/client_side_validations-simple_form.svg?branch=master)](https://travis-ci.org/DavyJonesLocker/client_side_validations-simple_form)
 [![Code Climate](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/badges/gpa.svg)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=master)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=master)
@@ -74,7 +74,7 @@ Per-input options are done with `:validate`
 
 ## Versioning ##
 
-This gem follows [Semantic Versioning](http://semver.org)
+This gem follows [Semantic Versioning](https://semver.org)
 
 ## Want to help? ##
 
@@ -88,4 +88,4 @@ on how to properly submit issues and pull requests.
 
 [@dockyard](https://twitter.com/dockyard)
 
-[Licensed under the MIT license](http://opensource.org/licenses/mit-license.php)
+[Licensed under the MIT license](https://opensource.org/licenses/mit-license.php)
