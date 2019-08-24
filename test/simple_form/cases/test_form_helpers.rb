@@ -25,16 +25,16 @@ module ClientSideValidations
 
         csv_data = {
           html_settings: {
-            type: 'SimpleForm::FormBuilder',
-            error_class: 'error',
-            error_tag: 'span',
+            type:                'SimpleForm::FormBuilder',
+            error_class:         'error',
+            error_tag:           'span',
             wrapper_error_class: 'field_with_errors',
-            wrapper_tag: 'div',
-            wrapper_class: 'input',
-            wrapper: 'default'
+            wrapper_tag:         'div',
+            wrapper_class:       'input',
+            wrapper:             'default'
           },
           number_format: { separator: '.', delimiter: ',' },
-          validators: {
+          validators:    {
             'post[cost]' => {
               presence: [{ message: "can't be blank" }]
             }
@@ -58,16 +58,16 @@ module ClientSideValidations
 
         csv_data = {
           html_settings: {
-            type: 'SimpleForm::FormBuilder',
-            error_class: 'error',
-            error_tag: 'span',
+            type:                'SimpleForm::FormBuilder',
+            error_class:         'error',
+            error_tag:           'span',
             wrapper_error_class: 'field_with_errors',
-            wrapper_tag: 'div',
-            wrapper_class: 'input',
-            wrapper: 'default'
+            wrapper_tag:         'div',
+            wrapper_class:       'input',
+            wrapper:             'default'
           },
           number_format: { separator: '.', delimiter: ',' },
-          validators: {
+          validators:    {
             'post[category_attributes][title]' => {
               presence: [{ message: "can't be blank" }]
             }
@@ -86,16 +86,16 @@ module ClientSideValidations
 
         csv_data = {
           html_settings: {
-            type: 'SimpleForm::FormBuilder',
-            error_class: 'error',
-            error_tag: 'span',
+            type:                'SimpleForm::FormBuilder',
+            error_class:         'error',
+            error_tag:           'span',
             wrapper_error_class: 'field_with_errors',
-            wrapper_tag: 'div',
-            wrapper_class: 'input',
-            wrapper: 'default'
+            wrapper_tag:         'div',
+            wrapper_class:       'input',
+            wrapper:             'default'
           },
           number_format: { separator: '.', delimiter: ',' },
-          validators: {}
+          validators:    {}
         }
 
         expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input aria-required="true" class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)

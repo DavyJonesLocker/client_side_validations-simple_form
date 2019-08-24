@@ -5,13 +5,13 @@ module ClientSideValidations
     module FormBuilder
       def client_side_form_settings(options, _form_helper)
         {
-          type: self.class.to_s,
-          error_class: wrapper.find(:error).defaults[:class].first,
-          error_tag: wrapper.find(:error).defaults[:tag],
+          type:                self.class.to_s,
+          error_class:         wrapper.find(:error).defaults[:class].first,
+          error_tag:           wrapper.find(:error).defaults[:tag],
           wrapper_error_class: wrapper.defaults[:error_class],
-          wrapper_tag: wrapper.defaults[:tag],
-          wrapper_class: wrapper.defaults[:class].first,
-          wrapper: options[:wrapper] || ::SimpleForm.default_wrapper
+          wrapper_tag:         wrapper.defaults[:tag],
+          wrapper_class:       wrapper.defaults[:class].first,
+          wrapper:             options[:wrapper] || ::SimpleForm.default_wrapper
         }
       end
 

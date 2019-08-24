@@ -1,10 +1,17 @@
 require:
   - rubocop-performance
+  - rubocop-rails
 
 AllCops:
-  Exclude:
-    - 'vendor/bundle/**/*'
+  TargetRailsVersion: 5.0
   TargetRubyVersion: 2.3
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/bundle/**/*'
+
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
 
 Metrics/AbcSize:
   Max: 23.02
@@ -31,9 +38,6 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'test/**/*'
-
-Rails:
-  Enabled: true
 
 Style/Documentation:
   Enabled: false
