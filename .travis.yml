@@ -7,7 +7,6 @@ rvm:
   - ruby-head
 gemfile:
   - gemfiles/csv_15.0.gemfile
-  - gemfiles/simple_form_3.5.gemfile
   - gemfiles/simple_form_4.0.gemfile
 matrix:
   allow_failures:
