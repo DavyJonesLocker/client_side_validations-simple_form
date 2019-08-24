@@ -1,6 +1,7 @@
 # ClientSideValidations-SimpleForm #
 
 [![Gem Version](https://badge.fury.io/rb/client_side_validations-simple_form.svg)](https://badge.fury.io/rb/client_side_validations-simple_form)
+[![npm version](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form.svg)](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form)
 [![Build Status](https://secure.travis-ci.org/DavyJonesLocker/client_side_validations-simple_form.svg?branch=master)](https://travis-ci.org/DavyJonesLocker/client_side_validations-simple_form)
 [![Code Climate](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/badges/gpa.svg)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=master)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=master)
@@ -22,9 +23,41 @@ required **before** `ClientSideValidations-SimpleForm`.
 
 [Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/master/README.md)
 
-According to the web framework you are using, add **one** of the following lines to `app/assets/javascripts/application.js`
+### JavaScript file ###
 
-```javascript
+Instructions depend on your technology stack.
+
+####  When using Webpacker ####
+
+Make sure that you are requiring jQuery and Client Side Validations.
+
+Add the following package:
+
+```sh
+yarn add @client-side-validations/simple-form
+```
+
+Then, according to the web framework you are using, add **one** of the following
+lines to your `app/javascript/packs/application.js` pack, **after**
+`import '@client-side-validations/client-side-validations'`:
+
+```js
+// No framework / Generic frameworks / Bootstrap 3
+import '@client-side-validations/simple-form'
+
+// Bootstrap 4
+import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
+```
+
+####  When using Sprockets ####
+
+Make sure that you are requiring jQuery and Client Side Validations.
+
+According to the web framework you are using, add **one** of the following
+lines to your `app/assets/javascripts/application.js`, **after**
+`//= require rails.validations`
+
+```js
 // No framework / Generic frameworks / Bootstrap 3
 //= require rails.validations.simple_form
 
@@ -32,21 +65,13 @@ According to the web framework you are using, add **one** of the following lines
 //= require rails.validations.simple_form.bootstrap4
 ```
 
-Again, order matters. You should add this line after the require for `rails.validations` as described in the `ClientSideValidations` installation instructions.
-
-If the asset pipeline is disabled the asset file will be copied
-into `public/javascripts` when the `ClientSideValidations` install generator is run.
-
-At any time you can copy the asset file into your project by running:
+If you need to copy the asset files from the gem into your project, run:
 
 ```
 rails g client_side_validations:copy_assets
 ```
 
-If the asset pipeline is disabled the asset file will be copied
-into `public/javascripts`. Otherwise the asset file will be copied into
-`app/assets/javascripts` (or whatever asset directory you have
-defined)
+Note: If you run `copy_assets`, you will need to run it again each time you update this project.
 
 ## Usage ##
 
