@@ -1,5 +1,13 @@
 # Changelog
 
+## 8.0.0 / 2019-08-25
+
+* [FEATURE] Move to ES6
+* [FEATURE] Add ClientSideValidations 16.0 compatibility
+* [FEATURE] Add Webpacker compatibility
+* [FEATURE] Drop Simple Form 3.5 compatibility
+* [ENHANCEMENT] Update development dependencies
+
 ## 7.0.0 / 2019-05-14
 
 * [FEATURE] Add ClientSideValidations 15.0 compatibility
