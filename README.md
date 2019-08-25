@@ -6,7 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/badges/gpa.svg)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=master)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=master)
 
-[SimpleForm](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
+[Simple Form](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
 
 ## Installation ##
 
@@ -18,8 +18,8 @@ gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 ```
 
-Order matters here. `SimpleForm` and `ClientSideValidations` need to be
-required **before** `ClientSideValidations-SimpleForm`.
+Order matters here. `simple_form` and `client_side_validations` need to be
+required **before** `client_side_validations-simple_form`.
 
 [Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/master/README.md)
 
@@ -37,7 +37,7 @@ Add the following package:
 yarn add @client-side-validations/simple-form
 ```
 
-Then, according to the web framework you are using, add **one** of the following
+Then, according to the CSS framework you are using, add **one** of the following
 lines to your `app/javascript/packs/application.js` pack, **after**
 `import '@client-side-validations/client-side-validations'`:
 
