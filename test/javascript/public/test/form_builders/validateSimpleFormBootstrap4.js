@@ -34,31 +34,36 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
           id: 'new_user'
         })
           .append(
-            $('<div />', { class: 'form-group' })
+            $('<div />', { 'class': 'form-group' })
               .append(
                 $('<label for="user_name" class="string form-control-label">Name</label>'))
               .append(
-                $('<input />', { class: 'form-control', name: 'user[name]', id: 'user_name', type: 'text' })))
+                $('<input />', { 'class': 'form-control', name: 'user[name]', id: 'user_name', type: 'text' })))
           .append(
-            $('<div />', { class: 'form-group' })
+            $('<div />', { 'class': 'form-group' })
               .append(
                 $('<label for="user_username" class="string control-label">Username</label>'))
               .append(
-                $('<div />', { class: 'input-group' })
+                $('<div />', { 'class': 'input-group' })
                   .append(
-                    $('<div />', { class: 'input-group-prepend' })
+                    $('<div />', { 'class': 'input-group-prepend' })
                       .append(
-                        $('<span />', { class: 'input-group-text', text: '@' })))
+                        $('<span />', { 'class': 'input-group-text', text: '@' })))
                   .append(
-                    $('<input />', { class: 'form-control', name: 'user[username]', id: 'user_username', type: 'text' })))))
+                    $('<input />', { 'class': 'form-control', name: 'user[username]', id: 'user_username', type: 'text' })))))
 
     $('form#new_user').validate()
   }
 })
 
-for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
+var wrappers = ['horizontal_form', 'vertical_form', 'inline_form']
+
+for (var i = 0; i < wrappers.length; i++) {
+  var wrapper = wrappers[i]
+
   QUnit.test(wrapper + ' - Validate error attaching and detaching', function (assert) {
-    var form = $('form#new_user'); var input = form.find('input#user_name')
+    var form = $('form#new_user')
+    var input = form.find('input#user_name')
     var label = $('label[for="user_name"]')
     form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
 

@@ -25,32 +25,34 @@ QUnit.module('Validate SimpleForm Bootstrap', {
       }))
       .find('form')
       .append($('<div />', {
-        class: 'form-inputs'
+        'class': 'form-inputs'
       }))
       .find('div')
       .append($('<div />', {
-        class: 'control-group control-group-2 control-group-3 control-group-user-name'
+        'class': 'control-group control-group-2 control-group-3 control-group-user-name'
       }))
       .find('div.control-group-user-name')
       .append($('<label for="user_name" class="string control-label">Name</label>'))
       .append($('<div />', {
-        class: 'controls'
-      })).find('div')
+        'class': 'controls'
+      }))
+      .find('div')
       .append($('<input />', {
         name: 'user[name]',
         id: 'user_name',
         type: 'text'
       }))
       .append($('<div />', {
-        class: 'control-group control-group-2 control-group-3 control-group-user-username'
+        'class': 'control-group control-group-2 control-group-3 control-group-user-username'
       }))
       .find('div.control-group-user-username')
       .append($('<label for="user_username" class="string control-label">Username</label>'))
       .append($('<div />', {
-        class: 'input-group'
-      })).find('div')
+        'class': 'input-group'
+      }))
+      .find('div')
       .append($('<span />', {
-        class: 'input-group-addon',
+        'class': 'input-group-addon',
         text: '@'
       }))
       .append($('<input />', {
@@ -63,7 +65,11 @@ QUnit.module('Validate SimpleForm Bootstrap', {
   }
 })
 
-for (wrapper of ['horizontal_form', 'vertical_form', 'inline_form']) {
+var wrappers = ['horizontal_form', 'vertical_form', 'inline_form']
+
+for (var i = 0; i < wrappers.length; i++) {
+  var wrapper = wrappers[i]
+
   QUnit.test(wrapper + ' - Validate error attaching and detaching', function (assert) {
     var form = $('form#new_user'); var input = form.find('input#user_name')
     var label = $('label[for="user_name"]')
