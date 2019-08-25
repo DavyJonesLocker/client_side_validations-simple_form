@@ -5,9 +5,6 @@ Bundler.setup
 require 'sinatra'
 require 'json'
 require 'byebug'
-require File.join(File.expand_path('../..', __dir__), 'coffeescript/processor')
-
-ClientSideValidations::Processor.run
 
 rails_validations_path = Bundler.load.specs.find { |s| s.name == 'client_side_validations' }
 raise 'Client Side Validations bundle not found' if rails_validations_path.nil?

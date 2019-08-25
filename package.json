@@ -1,10 +1,64 @@
 {
-  "name": "client-side-validations_simple-form",
-  "private": true,
+  "name": "@client-side-validations/simple-form",
+  "description": "Client Side Validations Simple Form plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavyJonesLocker/client_side_validations-simple_form.git"
+  },
+  "keywords": [
+    "rails",
+    "browser",
+    "client side validations",
+    "simple form"
+  ],
+  "author": "Geremia Taglialatela <tagliala.dev@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues"
+  },
+  "homepage": "https://github.com/DavyJonesLocker/client_side_validations-simple_form",
   "scripts": {
-    "lint": "coffeelint -- coffeescript/*.coffee"
+    "build": "standard --verbose && rollup -c"
   },
   "devDependencies": {
-    "coffeelint": "^2.1.0"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "rollup": "^1.20.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "standard": "^14.0.2"
+  },
+  "dependencies": {
+    "@client-side-validations/client-side-validations": "^0.0.4"
+  },
+  "peerDependencies": {
+    "jquery": ">= 1.12.4 < 4.0.0"
+  },
+  "main": "dist/simple-form.js",
+  "module": "dist/simple-form.esm.js",
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=0.25.2"
+  },
+  "browserslist": [
+    ">= 1%",
+    "IE >= 8"
+  ],
+  "files": [
+    "dist"
+  ],
+  "standard": {
+    "ignore": [
+      "/dist/",
+      "/test/",
+      "/vendor/"
+    ]
+  },
+  "version": "0.0.1",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }
