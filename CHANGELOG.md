@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.0.0 / 2019-09-30
+
+* [FEATURE] Drop Simple Form 4.x compatibility
+* [ENHANCEMENT] Test against latest Ruby versions
+* [ENHANCEMENT] Update development dependencies
+
 ## 8.0.0 / 2019-08-25
 
 * [FEATURE] Move to ES6
