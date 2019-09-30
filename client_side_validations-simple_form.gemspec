@@ -29,13 +29,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'byebug', '>= 10', '< 12'
   spec.add_development_dependency 'coveralls_reborn', '~> 0.13.1'
   spec.add_development_dependency 'm', '~> 1.5'
-  spec.add_development_dependency 'minitest', '~> 5.11'
+  spec.add_development_dependency 'minitest', '~> 5.12'
   spec.add_development_dependency 'mocha', '~> 1.9'
-  spec.add_development_dependency 'rake', '~> 12.3'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 0.74.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.4'
   spec.add_development_dependency 'rubocop-rails', '~> 2.3'
-  spec.add_development_dependency 'simplecov', '~> 0.17.0'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
 
   # For QUnit testing
   spec.add_development_dependency 'shotgun', '~> 0.9.2'
