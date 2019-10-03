@@ -28,4 +28,4 @@ module ClientSideValidations
   end
 end
 
-SimpleForm::FormBuilder.send(:prepend, ClientSideValidations::SimpleForm::FormBuilder)
+SimpleForm::FormBuilder.prepend ClientSideValidations::SimpleForm::FormBuilder
