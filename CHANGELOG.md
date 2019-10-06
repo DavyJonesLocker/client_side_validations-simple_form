@@ -1,5 +1,11 @@
 # Changelog
 
+## 9.1.0 / 2019-10-06
+
+* [FEATURE] Add ClientSideValidations JS 0.1.0 compatibility
+* [ENHANCEMENT] Test against latest Ruby versions
+* [ENHANCEMENT] Update development dependencies
+
 ## 9.0.0 / 2019-09-30
 
 * [FEATURE] Drop Simple Form 4.x compatibility
