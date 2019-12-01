@@ -8,7 +8,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery'), require('@client-side-validations/client-side-validations')) :
   typeof define === 'function' && define.amd ? define(['jquery', '@client-side-validations/client-side-validations'], factory) :
   (global = global || self, factory(global.$, global.ClientSideValidations));
-}(this, function ($, ClientSideValidations) { 'use strict';
+}(this, (function ($, ClientSideValidations) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
   ClientSideValidations = ClientSideValidations && ClientSideValidations.hasOwnProperty('default') ? ClientSideValidations['default'] : ClientSideValidations;
@@ -50,4 +50,4 @@
     }
   };
 
-}));
+})));
