@@ -1,5 +1,10 @@
 # Changelog
 
+## 9.2.0 / 2019-12-25
+
+* [FEATURE] Ruby 2.7 support
+* [ENHANCEMENT] Update development dependencies
+
 ## 9.1.0 / 2019-10-06
 
 * [FEATURE] Add ClientSideValidations JS 0.1.0 compatibility
