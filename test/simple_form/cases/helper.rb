@@ -12,10 +12,21 @@ ensure
   SimpleForm.wrappers[name.to_s] = old
 end
 
-def custom_wrapper_with_multiple_classes
+def custom_wrapper_with_full_error
+  SimpleForm.build tag: :div, class: :input, error_class: :field_with_errors do |b|
+    b.use :full_error, wrap_with: { tag: :span, class: :full_error }
+  end
+end
+
+def custom_wrapper_with_error_and_full_error
+  SimpleForm.build tag: :div, class: :input, error_class: :field_with_errors do |b|
+    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :full_error, wrap_with: { tag: :span, class: :full_error }
+  end
+end
+
+def custom_wrapper_with_multiple_css_classes
   SimpleForm.build tag: :div, class: %i[input input2], error_class: :field_with_errors do |b|
-    b.wrapper :error_wrapper, tag: :div, class: 'error_wrapper' do |be|
-      be.use :error, wrap_with: { tag: :span, class: %i[error error2] }
-    end
+    b.use :error, wrap_with: { tag: :span, class: %i[error error2] }
   end
 end
