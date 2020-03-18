@@ -1,5 +1,11 @@
 # Changelog
 
+## 10.0.0 / 2020-03-18
+
+* [FEATURE] Fallback on `full_error` if `error` component is not found ([#75](https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues/75))
+* [FEATURE] Support multiple css classes in error element and input wrappers
+* [ENHANCEMENT] Update development dependencies
+
 ## 9.2.0 / 2019-12-25
 
 * [FEATURE] Ruby 2.7 support
