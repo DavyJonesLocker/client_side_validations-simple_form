@@ -15,9 +15,9 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
   spec.license     = 'MIT'
 
+  spec.metadata['bug_tracker_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues'
   spec.metadata['changelog_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/blob/master/CHANGELOG.md'
   spec.metadata['source_code_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
-  spec.metadata['bug_tracker_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues'
 
   spec.platform    = Gem::Platform::RUBY
 
