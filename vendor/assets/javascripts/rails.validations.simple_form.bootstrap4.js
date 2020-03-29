@@ -10,8 +10,8 @@
   (global = global || self, factory(global.$, global.ClientSideValidations));
 }(this, (function ($, ClientSideValidations) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-  ClientSideValidations = ClientSideValidations && ClientSideValidations.hasOwnProperty('default') ? ClientSideValidations['default'] : ClientSideValidations;
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
+  ClientSideValidations = ClientSideValidations && Object.prototype.hasOwnProperty.call(ClientSideValidations, 'default') ? ClientSideValidations['default'] : ClientSideValidations;
 
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function add(element, settings, message) {
