@@ -16,14 +16,13 @@ Gem::Specification.new do |spec|
   spec.license     = 'MIT'
 
   spec.metadata['bug_tracker_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues'
-  spec.metadata['changelog_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/blob/master/CHANGELOG.md'
+  spec.metadata['changelog_uri']   = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form/blob/master/CHANGELOG.md'
   spec.metadata['source_code_uri'] = 'https://github.com/DavyJonesLocker/client_side_validations-simple_form'
-
-  spec.platform    = Gem::Platform::RUBY
 
   spec.files         = `git ls-files -z -- {CHANGELOG.md,LICENSE.md,README.md,lib,vendor}`.split("\x0")
   spec.require_paths = ['lib']
 
+  spec.platform              = Gem::Platform::RUBY
   spec.required_ruby_version = '~> 2.3'
 
   spec.add_dependency 'client_side_validations', '>= 15.0', '< 17.0'
@@ -38,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubocop', '~> 0.80.1'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
-  spec.add_development_dependency 'rubocop-rails', '~> 2.4'
+  spec.add_development_dependency 'rubocop-rails', '~> 2.5'
   spec.add_development_dependency 'simplecov', '>= 0.17.1', '< 0.19'
 
   # For QUnit testing
