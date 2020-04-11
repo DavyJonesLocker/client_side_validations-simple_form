@@ -30,7 +30,7 @@
           var errorElement = wrapper.find(settings.error_tag + '.' + settings.error_class.replace(/ /g, '.'));
 
           if (!errorElement.length) {
-            errorElement = $('<' + settings.error_tag + '/>', {
+            errorElement = $('<' + settings.error_tag + '>', {
               "class": settings.error_class,
               text: message
             });
