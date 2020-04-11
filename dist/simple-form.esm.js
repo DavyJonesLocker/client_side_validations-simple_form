@@ -1,5 +1,5 @@
 /*!
- * Client Side Validations Simple Form JS (Default) - v0.1.1 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Default) - v0.1.2 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2020 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
@@ -24,7 +24,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         var errorElement = wrapper.find(settings.error_tag + '.' + settings.error_class.replace(/ /g, '.'));
 
         if (!errorElement.length) {
-          errorElement = $('<' + settings.error_tag + '/>', {
+          errorElement = $('<' + settings.error_tag + '>', {
             "class": settings.error_class,
             text: message
           });

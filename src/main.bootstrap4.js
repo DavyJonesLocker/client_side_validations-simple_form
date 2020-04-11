@@ -19,7 +19,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         let errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
 
         if (!errorElement.length) {
-          errorElement = $('<' + settings.error_tag + '/>', { class: 'invalid-feedback', text: message })
+          errorElement = $('<' + settings.error_tag + '>', { class: 'invalid-feedback', text: message })
           wrapperElement.append(errorElement)
         }
 

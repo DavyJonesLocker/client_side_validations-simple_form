@@ -1,12 +1,11 @@
 QUnit.module('Validate SimpleForm Bootstrap 4', {
   before: function () {
-    oldCSV = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
-    $('body').append($('<script id="twbs4_script" src="/vendor/assets/javascripts/rails.validations.simple_form.bootstrap4.js"><\/script>'))
+    currentFormBuilder = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = BS4_FORM_BUILDER
   },
 
   after: function () {
-    $('#twbs4_script').remove()
-    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = oldCSV
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = currentFormBuilder
   },
 
   beforeEach: function () {
@@ -27,28 +26,28 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
 
     $('#qunit-fixture')
       .append(
-        $('<form />', {
+        $('<form>', {
           action: '/users',
           'data-client-side-validations': JSON.stringify(dataCsv),
           method: 'post',
           id: 'new_user'
         })
           .append(
-            $('<div />', { 'class': 'form-group' })
+            $('<div>', { 'class': 'form-group' })
               .append(
                 $('<label for="user_name" class="string form-control-label">Name</label>'))
               .append(
                 $('<input />', { 'class': 'form-control', name: 'user[name]', id: 'user_name', type: 'text' })))
           .append(
-            $('<div />', { 'class': 'form-group' })
+            $('<div>', { 'class': 'form-group' })
               .append(
                 $('<label for="user_username" class="string control-label">Username</label>'))
               .append(
-                $('<div />', { 'class': 'input-group' })
+                $('<div>', { 'class': 'input-group' })
                   .append(
-                    $('<div />', { 'class': 'input-group-prepend' })
+                    $('<div>', { 'class': 'input-group-prepend' })
                       .append(
-                        $('<span />', { 'class': 'input-group-text', text: '@' })))
+                        $('<span>', { 'class': 'input-group-text', text: '@' })))
                   .append(
                     $('<input />', { 'class': 'form-control', name: 'user[username]', id: 'user_username', type: 'text' })))))
 
