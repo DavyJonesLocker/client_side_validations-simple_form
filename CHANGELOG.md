@@ -1,5 +1,11 @@
 # Changelog
 
+## 10.1.0 / 2020-04-10
+
+* [FEATURE] Add jQuery 3.5.0 compatibility ([#77](https://github.com/DavyJonesLocker/client_side_validations-simple_form/pull/77))
+* [ENHANCEMENT] Test against latest Ruby versions
+* [ENHANCEMENT] Update development dependencies
+
 ## 10.0.0 / 2020-03-18
 
 * [FEATURE] Fallback on `full_error` if `error` component is not found ([#75](https://github.com/DavyJonesLocker/client_side_validations-simple_form/issues/75))
