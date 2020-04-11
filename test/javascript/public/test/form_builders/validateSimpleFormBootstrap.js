@@ -1,4 +1,13 @@
 QUnit.module('Validate SimpleForm Bootstrap', {
+  before: function () {
+    currentFormBuilder = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = DEFAULT_FORM_BUILDER
+  },
+
+  after: function () {
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = currentFormBuilder
+  },
+
   beforeEach: function () {
     dataCsv = {
       html_settings: {
@@ -17,23 +26,23 @@ QUnit.module('Validate SimpleForm Bootstrap', {
     }
 
     $('#qunit-fixture')
-      .append($('<form />', {
+      .append($('<form>', {
         action: '/users',
         'data-client-side-validations': JSON.stringify(dataCsv),
         method: 'post',
         id: 'new_user'
       }))
       .find('form')
-      .append($('<div />', {
+      .append($('<div>', {
         'class': 'form-inputs'
       }))
       .find('div')
-      .append($('<div />', {
+      .append($('<div>', {
         'class': 'control-group control-group-2 control-group-3 control-group-user-name'
       }))
       .find('div.control-group-user-name')
       .append($('<label for="user_name" class="string control-label">Name</label>'))
-      .append($('<div />', {
+      .append($('<div>', {
         'class': 'controls'
       }))
       .find('div')
@@ -42,16 +51,16 @@ QUnit.module('Validate SimpleForm Bootstrap', {
         id: 'user_name',
         type: 'text'
       }))
-      .append($('<div />', {
+      .append($('<div>', {
         'class': 'control-group control-group-2 control-group-3 control-group-user-username'
       }))
       .find('div.control-group-user-username')
       .append($('<label for="user_username" class="string control-label">Username</label>'))
-      .append($('<div />', {
+      .append($('<div>', {
         'class': 'input-group'
       }))
       .find('div')
-      .append($('<span />', {
+      .append($('<span>', {
         'class': 'input-group-addon',
         text: '@'
       }))

@@ -1,4 +1,13 @@
 QUnit.module('Validate SimpleForm', {
+  before: function () {
+    currentFormBuilder = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = DEFAULT_FORM_BUILDER
+  },
+
+  after: function () {
+    window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = currentFormBuilder
+  },
+
   beforeEach: function () {
     dataCsv = {
       html_settings: {
@@ -16,14 +25,14 @@ QUnit.module('Validate SimpleForm', {
     }
 
     $('#qunit-fixture')
-      .append($('<form />', {
+      .append($('<form>', {
         action: '/users',
         'data-client-side-validations': JSON.stringify(dataCsv),
         method: 'post',
         id: 'new_user'
       }))
       .find('form')
-      .append($('<div class="input"/>'))
+      .append($('<div class="input">'))
       .find('div')
       .append($('<input />', {
         name: 'user[name]',
