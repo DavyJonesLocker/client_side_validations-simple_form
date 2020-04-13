@@ -15,7 +15,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   wrappers: {
     default: {
       add (element, settings, message) {
-        const wrapperElement = element.parent()
+        const wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/\ /g, '.'));
         let errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
 
         if (!errorElement.length) {
@@ -29,7 +29,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
       },
 
       remove (element, settings) {
-        const wrapperElement = element.parent()
+        const wrapperElement = settings.wrapper_tag + "." + settings.wrapper_class.replace(/\ /g, ".")
         const errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
 
         wrapperElement.removeClass(settings.wrapper_error_class)
