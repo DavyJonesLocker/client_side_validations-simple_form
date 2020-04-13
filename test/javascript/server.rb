@@ -60,3 +60,7 @@ end
 get '/' do
   erb :index
 end
+
+get '/favicon.ico' do
+  halt 200
+end
