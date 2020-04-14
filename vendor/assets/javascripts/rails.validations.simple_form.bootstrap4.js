@@ -15,13 +15,16 @@
 
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function add(element, settings, message) {
-      this.wrapper(settings.wrapper).add.call(this, element, settings, message);
+      this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message);
     },
     remove: function remove(element, settings) {
-      this.wrapper(settings.wrapper).remove.call(this, element, settings);
+      this.wrapper(this.wrapperName(element, settings)).remove.call(this, element, settings);
     },
     wrapper: function wrapper(name) {
       return this.wrappers[name] || this.wrappers["default"];
+    },
+    wrapperName: function wrapperName(element, settings) {
+      return element.data('clientSideValidationsWrapper') || settings.wrapper;
     },
     wrappers: {
       "default": {
