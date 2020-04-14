@@ -102,6 +102,30 @@ module ClientSideValidations
 
         assert_dom_equal expected, output_buffer
       end
+
+      def test_input_override_with_custom_wrapper_name
+        simple_form_for(@post, validate: true, wrapper: :default) do |f|
+          concat f.input(:cost, validate: false, wrapper: :custom_date_wrapper)
+        end
+
+        csv_data = {
+          html_settings: {
+            type:                'SimpleForm::FormBuilder',
+            error_class:         'error',
+            error_tag:           'span',
+            wrapper_error_class: 'field_with_errors',
+            wrapper_tag:         'div',
+            wrapper_class:       'input',
+            wrapper:             'default'
+          },
+          number_format: { separator: '.', delimiter: ',' },
+          validators:    {}
+        }
+
+        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" /><div class="string required post_cost"><input class="form-control string required" data-client-side-validations-wrapper="custom_date_wrapper" type="text" name="post[cost]" id="post_cost" /></div></form>)
+
+        assert_dom_equal expected, output_buffer
+      end
     end
   end
 end
