@@ -23,22 +23,22 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '~> 2.3'
+  spec.required_ruby_version = '~> 2.4'
 
   spec.add_dependency 'client_side_validations', '>= 15.0', '< 17.0'
   spec.add_dependency 'simple_form', '~> 5.0'
 
   spec.add_development_dependency 'appraisal', '~> 2.2'
-  spec.add_development_dependency 'byebug', '>= 10.0', '< 12'
-  spec.add_development_dependency 'coveralls_reborn', '>= 0.14.0', '< 0.16'
+  spec.add_development_dependency 'byebug', '~> 11.1'
+  spec.add_development_dependency 'coveralls_reborn', '~> 0.15.1'
   spec.add_development_dependency 'm', '~> 1.5'
   spec.add_development_dependency 'minitest', '~> 5.14'
   spec.add_development_dependency 'mocha', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rubocop', '~> 0.81.0'
+  spec.add_development_dependency 'rubocop', '~> 0.82.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.5'
   spec.add_development_dependency 'rubocop-rails', '~> 2.5'
-  spec.add_development_dependency 'simplecov', '>= 0.17.1', '< 0.19'
+  spec.add_development_dependency 'simplecov', '~> 0.18.5'
 
   # For QUnit testing
   spec.add_development_dependency 'shotgun', '~> 0.9.2'
