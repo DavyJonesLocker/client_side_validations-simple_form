@@ -38,16 +38,22 @@ Add the following package:
 yarn add @client-side-validations/simple-form
 ```
 
-Then, according to the CSS framework you are using, add **one** of the following
-lines to your `app/javascript/packs/application.js` pack, **after**
-`import '@client-side-validations/client-side-validations'`:
+Then, according to the CSS framework and module system you are using, add
+**one** of the following lines to your `app/javascript/packs/application.js`
+pack, **after** `'@client-side-validations/client-side-validations'`:
 
 ```js
-// No framework / Generic frameworks / Bootstrap 3
+// No framework / Generic frameworks / Bootstrap 3 with `import` syntax
 import '@client-side-validations/simple-form'
 
-// Bootstrap 4
+// Bootstrap 4 with `import` syntax
 import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
+
+// No framework / Generic frameworks / Bootstrap 3 with `require` syntax
+require('@client-side-validations/simple-form')
+
+// Bootstrap 4 with `require` syntax
+require('@client-side-validations/simple-form/dist/simple-form.bootstrap4')
 ```
 
 ####  When using Sprockets ####
