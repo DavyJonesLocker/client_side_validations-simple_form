@@ -29,6 +29,7 @@
     wrappers: {
       "default": {
         add: function add(element, settings, message) {
+          alert('bla');
           var wrapperElement = element.parent();
           var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
 
