@@ -37,6 +37,40 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         wrapper.removeClass(settings.wrapper_error_class)
         return errorElement.remove()
       }
+    },
+    get horizontal_multi_select () {
+      return this.multi_select
+    },
+    get vertical_multi_select () {
+      return this.multi_select
+    },
+    multi_select: {
+      add (element, settings, message) {
+        const wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'))
+        const parentElement = element.parent()
+        var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
+
+        if (!errorElement.length) {
+          errorElement = $('<' + settings.error_tag + '>', { class: 'invalid-feedback d-block', text: message })
+          parentElement.after(errorElement)
+        }
+
+        wrapperElement.addClass(settings.wrapper_error_class)
+        element.addClass('is-invalid')
+        errorElement.text(message)
+      },
+      remove (element, settings) {
+        const wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'))
+        const errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
+
+        const invalidSiblingExists = element.siblings('.is-invalid').length
+        if (!invalidSiblingExists) {
+          wrapperElement.removeClass(settings.wrapper_error_class)
+          errorElement.remove()
+        }
+
+        element.removeClass('is-invalid')
+      }
     }
   }
 }

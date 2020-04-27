@@ -49,6 +49,46 @@
           wrapper.removeClass(settings.wrapper_error_class);
           return errorElement.remove();
         }
+      },
+
+      get horizontal_multi_select() {
+        return this.multi_select;
+      },
+
+      get vertical_multi_select() {
+        return this.multi_select;
+      },
+
+      multi_select: {
+        add: function add(element, settings, message) {
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
+          var parentElement = element.parent();
+          var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
+
+          if (!errorElement.length) {
+            errorElement = $('<' + settings.error_tag + '>', {
+              "class": 'invalid-feedback d-block',
+              text: message
+            });
+            parentElement.after(errorElement);
+          }
+
+          wrapperElement.addClass(settings.wrapper_error_class);
+          element.addClass('is-invalid');
+          errorElement.text(message);
+        },
+        remove: function remove(element, settings) {
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
+          var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
+          var invalidSiblingExists = element.siblings('.is-invalid').length;
+
+          if (!invalidSiblingExists) {
+            wrapperElement.removeClass(settings.wrapper_error_class);
+            errorElement.remove();
+          }
+
+          element.removeClass('is-invalid');
+        }
       }
     }
   };
