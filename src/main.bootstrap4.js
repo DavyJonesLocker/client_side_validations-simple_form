@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import ClientSideValidations from '@client-side-validations/client-side-validations'
+import './radio_checkbox_validators'
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   add: function (element, settings, message) {
@@ -39,6 +40,33 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         element.removeClass('is-invalid')
         errorElement.remove()
       }
+    },
+    get horizontal_collection () {
+      return this.vertical_collection
+    },
+    vertical_collection: {
+      add (element, settings, message) {
+        const wrapperElement = element.closest('.' + settings.wrapper_class.replace(/ /g, '.'))
+        var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
+
+        if (!errorElement.length) {
+          errorElement = $('<' + settings.error_tag + '>', { class: 'invalid-feedback d-block', text: message })
+          element.closest('.form-check').siblings('.form-check:last').after(errorElement)
+        }
+
+        wrapperElement.addClass(settings.wrapper_error_class)
+        wrapperElement.find('input:visible').addClass('is-invalid')
+        errorElement.text(message)
+      },
+      remove (element, settings) {
+        const wrapperElement = element.closest('.' + settings.wrapper_class.replace(/ /g, '.'))
+        const errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback')
+
+        wrapperElement.removeClass(settings.wrapper_error_class)
+        errorElement.remove()
+        wrapperElement.find('input:visible').removeClass('is-invalid')
+      }
+
     }
   }
 }

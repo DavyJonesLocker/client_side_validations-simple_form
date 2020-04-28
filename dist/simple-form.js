@@ -13,6 +13,25 @@
   $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
   ClientSideValidations = ClientSideValidations && Object.prototype.hasOwnProperty.call(ClientSideValidations, 'default') ? ClientSideValidations['default'] : ClientSideValidations;
 
+  var originalPresenceValidator = ClientSideValidations.validators.local.presence;
+
+  function checkedCheckboxesCount(element, formSettings) {
+    var wrapperClass = formSettings.html_settings.wrapper_class;
+    return element.closest(".".concat(wrapperClass.replace(/ /g, '.'))).find('input[type="checkbox"]:checked').length;
+  }
+
+  ClientSideValidations.validators.local.presence = function (element, options) {
+    if (element.attr('type') === 'checkbox') {
+      var formSettings = element.closest('form[data-client-side-validations]').data('clientSideValidations');
+
+      if (checkedCheckboxesCount(element, formSettings) === 0) {
+        return options.message;
+      }
+    } else {
+      return originalPresenceValidator(element, options);
+    }
+  };
+
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function add(element, settings, message) {
       this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message);
@@ -37,7 +56,12 @@
               "class": settings.error_class,
               text: message
             });
-            wrapper.append(errorElement);
+
+            if (wrapper.hasClass('check_boxes')) {
+              element.closest('.checkbox').siblings('.checkbox:last').after(errorElement);
+            } else {
+              wrapper.append(errorElement);
+            }
           }
 
           wrapper.addClass(settings.wrapper_error_class);

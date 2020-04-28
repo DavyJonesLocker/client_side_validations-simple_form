@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import ClientSideValidations from '@client-side-validations/client-side-validations'
+import './radio_checkbox_validators'
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   add: function (element, settings, message) {
@@ -23,7 +24,12 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
 
         if (!errorElement.length) {
           errorElement = $('<' + settings.error_tag + '>', { class: settings.error_class, text: message })
-          wrapper.append(errorElement)
+
+          if (wrapper.hasClass('check_boxes')) {
+            element.closest('.checkbox').siblings('.checkbox:last').after(errorElement)
+          } else {
+            wrapper.append(errorElement)
+          }
         }
 
         wrapper.addClass(settings.wrapper_error_class)

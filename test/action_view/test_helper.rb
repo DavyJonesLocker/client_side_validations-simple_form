@@ -26,6 +26,7 @@ module ActionViewTestSetup
 
   Routes.draw do
     resources :posts
+    resources :users
   end
 
   def default_url_options

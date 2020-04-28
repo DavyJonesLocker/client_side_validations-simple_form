@@ -20,7 +20,8 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
       },
       validators: {
         'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] },
-        'user[username]': { presence: [{ message: 'must be present' }] }
+        'user[username]': { presence: [{ message: 'must be present' }] },
+        'user[role_ids]': { presence: [{ message: 'must be present' }] }
       }
     }
 
@@ -50,15 +51,130 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                         $('<span>', { 'class': 'input-group-text', text: '@' })))
                   .append(
                     $('<input />', { 'class': 'form-control', name: 'user[username]', id: 'user_username', type: 'text' })))))
+        .append(
+          $('<form>', {
+            action: '/users',
+            'data-client-side-validations': JSON.stringify(dataCsv),
+            method: 'post',
+            id: 'new_user_vertical_form'
+          })
+            .append(
+              $('<fieldset>', { 'class': 'form-group check_boxes required user_roles' })
+                .append(
+                  $('<legend class="col-form-label pt-0">Check roles <abbr title="required">*</abbr></legend>'))
+                .append(
+                  $('<input type="hidden" name="user[role_ids][]" value="">'))
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input check_boxes required',
+                        name: 'user[role_ids][]',
+                        id: 'user_role_ids_1',
+                        value: 1,
+                        type: 'checkbox',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Manager</label>')
+                )
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input check_boxes required',
+                        name: 'user[role_ids][]',
+                        id: 'user_role_ids_2',
+                        value: 2,
+                        type: 'checkbox',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Technical support</label>')
+                )
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input check_boxes required',
+                        name: 'user[role_ids][]',
+                        id: 'user_role_ids_3',
+                        value: 3,
+                        type: 'checkbox',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Tester</label>')
+                )
+
+            )
+        )
+        .append(
+          $('<form>', {
+            action: '/users',
+            'data-client-side-validations': JSON.stringify(dataCsv),
+            method: 'post',
+            id: 'new_user_horizontal_form'
+          })
+            .append(
+              $('<div>', { 'class': 'form-group row check_boxes required user_roles' })
+                .append(
+                  $('<label class="col-sm-3 col-form-label check_boxes required">Check roles <abbr title="required">*</abbr></label>'))
+                .append($('<div>', { class: 'col-sm-9' })
+                  .append(
+                    $('<input type="hidden" name="user[role_ids][]" value="">'))
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input check_boxes required',
+                          name: 'user[role_ids][]',
+                          id: 'user_role_ids_1',
+                          value: 1,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection' }
+                        ))
+                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Manager</label>')
+                  )
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input check_boxes required',
+                          name: 'user[role_ids][]',
+                          id: 'user_role_ids_2',
+                          value: 2,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection' }
+                        ))
+                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Technical support</label>')
+                  )
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input check_boxes required',
+                          name: 'user[role_ids][]',
+                          id: 'user_role_ids_3',
+                          value: 3,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection' }
+                        ))
+                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Tester</label>')
+                  )
+
+              )
+
+            )
+        )
 
     $('form#new_user').validate()
+    $('form#new_user_vertical_form').validate()
+    $('form#new_user_horizontal_form').validate()
   }
 })
 
 var wrappers = ['horizontal_form', 'vertical_form', 'inline_form']
 
 for (var i = 0; i < wrappers.length; i++) {
-  var wrapper = wrappers[i]
+  const wrapper = wrappers[i]
 
   QUnit.test(wrapper + ' - Validate error attaching and detaching', function (assert) {
     var form = $('form#new_user')
@@ -116,4 +232,59 @@ for (var i = 0; i < wrappers.length; i++) {
     input.trigger('focusout')
     assert.ok(input.closest('.input-group').find('div.invalid-feedback').length === 0)
   })
+
+  QUnit.test(wrapper + ' - Validate associations checkboxes', function (assert) {
+    var form = $('form#new_user_' +  wrapper)[0] || $('form#new_user_vertical_form')[0]
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
+
+    form = $(form)
+
+    var wrapperElement = form.find('.form-group.user_roles')
+    var checkbox1 = form.find('input#user_role_ids_1')
+    var checkbox2 = form.find('input#user_role_ids_2')
+    var checkbox3 = form.find('input#user_role_ids_3')
+
+    assert.ok(wrapperElement.find('div.invalid-feedback').length === 0)
+
+    checkbox1.trigger('change')
+    checkbox1.trigger('focusout')
+
+    assert.ok(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(checkbox1.hasClass('is-invalid'))
+    assert.ok(checkbox3.hasClass('is-invalid'))
+
+    assert.ok(checkbox3.closest('.form-check').next('.invalid-feedback').length === 1)
+    assert.ok(wrapperElement.find('div.invalid-feedback').length === 1)
+
+    checkbox2.attr('checked', true)
+    checkbox2.trigger('change')
+    checkbox2.trigger('focusout')
+
+    assert.notOk(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(wrapperElement.find('.is-invalid').length===0)
+    assert.ok(wrapperElement.find('.invalid-feedback').length === 0)
+  })
+
+  QUnit.test(wrapper + ' - Validate associations checkboxes server feedback reused', function (assert) {
+    var form = $('form#new_user_' +  wrapper)[0] || $('form#new_user_vertical_form')[0]
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
+
+    form = $(form)
+
+    var wrapperElement = form.find('.form-group.user_roles')
+    var checkbox3 = form.find('input#user_role_ids_3')
+
+    assert.ok(wrapperElement.find('.invalid-feedback').length === 0)
+    checkbox3.closest('.form-check').after($('<div class="invalid-feedback">Error from Server</span>'))
+
+    checkbox3.trigger('change')
+    checkbox3.trigger('focusout')
+
+    assert.ok(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(wrapperElement.find('input.is-invalid').length === 3)
+    assert.ok(wrapperElement.find('.invalid-feedback').length === 1)
+  })
+
+
+
 }

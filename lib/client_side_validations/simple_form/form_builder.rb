@@ -27,6 +27,16 @@ module ClientSideValidations
         super(attribute_name, options, &block)
       end
 
+      # these methods don't call `super` in SimpleForm and therefore don't use overriden CSV FromBuilder methods
+      # and therefore aren't included in CSV validations hash.. we add them to the hash here
+      %i[collection_check_boxes collection_radio_buttons].each do |method_name|
+        define_method method_name do |method, collection, value_method, text_method, options = {}, html_options = {}, &block| # rubocop:disable Metrics/ParameterLists
+          build_validation_options method, html_options.merge(name: options[:name])
+          add_field_specific_wrapper_name_to_field_options(method_name, options, &block)
+          super(method, collection, value_method, text_method, options, html_options, &block)
+        end
+      end
+
       private
 
       def wrapper_error_component
