@@ -24,7 +24,8 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
         'user[role_ids]': {
           presence: [{ message: 'must be present' }],
           length:[{ messages: { maximum: 'is too long (maximum is 2 characters)' }, maximum: 2 }]
-        }
+        },
+        'user[department_id]': { presence: [{ message: 'must be present' }] },
       }
     }
 
@@ -78,7 +79,7 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                         type: 'checkbox',
                         'data-client-side-validations-wrapper': 'vertical_collection' }
                       ))
-                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Manager</label>')
+                    .append('<label class="collection_check_boxes" for="user_role_ids_1">Manager</label>')
                 )
                 .append(
                   $('<div>', { 'class': 'form-check' })
@@ -91,7 +92,7 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                         type: 'checkbox',
                         'data-client-side-validations-wrapper': 'vertical_collection' }
                       ))
-                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Technical support</label>')
+                    .append('<label class="collection_check_boxes" for="user_role_ids_2">Technical support</label>')
                 )
                 .append(
                   $('<div>', { 'class': 'form-check' })
@@ -104,9 +105,54 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                         type: 'checkbox',
                         'data-client-side-validations-wrapper': 'vertical_collection' }
                       ))
-                    .append('<label class="collection_check_boxes" for="user_roles_ids_1">Tester</label>')
+                    .append('<label class="collection_check_boxes" for="user_role_ids_3">Tester</label>')
                 )
-
+            )
+            .append(
+              $('<fieldset>', { 'class': 'form-group radio_buttons required user_department' })
+                .append(
+                  $('<legend class="col-form-label pt-0">Radio department <abbr title="required">*</abbr></legend>'))
+                .append(
+                  $('<input type="hidden" name="user[department_id]" value="">'))
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input radio_buttons required',
+                        name: 'user[department_id]',
+                        id: 'user_department_id_1',
+                        value: 1,
+                        type: 'radio',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_department_id_1">IT</label>')
+                )
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input radio_buttons required',
+                        name: 'user[department_id]',
+                        id: 'user_department_id_2',
+                        value: 2,
+                        type: 'radio',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_department_id_2">HR</label>')
+                )
+                .append(
+                  $('<div>', { 'class': 'form-check' })
+                    .append(
+                      $('<input />', {
+                        class: 'form-check-input radio_buttons required',
+                        name: 'user[department_id]',
+                        id: 'user_department_id_3',
+                        value: 3,
+                        type: 'radio',
+                        'data-client-side-validations-wrapper': 'vertical_collection' }
+                      ))
+                    .append('<label class="collection_check_boxes" for="user_department_id_3">PR</label>')
+                )
             )
         )
         .append(
@@ -134,7 +180,7 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                           type: 'checkbox',
                           'data-client-side-validations-wrapper': 'horizontal_collection' }
                         ))
-                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Manager</label>')
+                      .append('<label class="collection_check_boxes" for="user_role_ids_1">Manager</label>')
                   )
                   .append(
                     $('<div>', { 'class': 'form-check' })
@@ -147,7 +193,7 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                           type: 'checkbox',
                           'data-client-side-validations-wrapper': 'horizontal_collection' }
                         ))
-                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Technical support</label>')
+                      .append('<label class="collection_check_boxes" for="user_role_ids_2">Technical support</label>')
                   )
                   .append(
                     $('<div>', { 'class': 'form-check' })
@@ -160,11 +206,61 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                           type: 'checkbox',
                           'data-client-side-validations-wrapper': 'horizontal_collection' }
                         ))
-                      .append('<label class="collection_check_boxes" for="user_roles_ids_1">Tester</label>')
+                      .append('<label class="collection_check_boxes" for="user_role_ids_3">Tester</label>')
                   )
 
               )
-
+            )
+            .append(
+              $('<div>', { 'class': 'form-group row radio_buttons required user_department' })
+                .append(
+                  $('<label class="col-sm-3 col-form-label radio_buttons required">Radio department<abbr title="required">*</abbr></label>'))
+                .append($('<div>', { class: 'col-sm-9' })
+                  .append(
+                    $('<input type="hidden" name="user[department_ids]" value="">'))
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input radio_buttons required',
+                          name: 'user[department_id]',
+                          id: 'user_department_id_1',
+                          value: 1,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection',
+                          'data-validate': true }
+                        ))
+                      .append('<label class="collection_radio_buttons" for="user_department_id_1">IT</label>')
+                  )
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input radio_buttons required',
+                          name: 'user[department_id]',
+                          id: 'user_department_id_2',
+                          value: 2,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection',
+                          'data-validate': true }
+                        ))
+                      .append('<label class="collection_radio_buttons" for="user_department_id_2">HR</label>')
+                  )
+                  .append(
+                    $('<div>', { 'class': 'form-check' })
+                      .append(
+                        $('<input />', {
+                          class: 'form-check-input radio_buttons required',
+                          name: 'user[department_id]',
+                          id: 'user_department_id_3',
+                          value: 3,
+                          type: 'checkbox',
+                          'data-client-side-validations-wrapper': 'horizontal_collection',
+                          'data-validate': true }
+                        ))
+                      .append('<label class="collection_radio_buttons" for="user_department_id_3">PR</label>')
+                  )
+              )
             )
         )
 
@@ -296,6 +392,35 @@ for (var i = 0; i < wrappers.length; i++) {
     assert.ok(wrapperElement.find('.invalid-feedback').length === 1)
   })
 
+  QUnit.test(wrapper + ' - Validate associations radio_buttons', function (assert) {
+    var form = $('form#new_user_' +  wrapper)[0] || $('form#new_user_vertical_form')[0]
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
 
+    form = $(form)
+
+    var wrapperElement = form.find('.form-group.user_department')
+    var radio1 = form.find('input#user_department_id_1')
+    var radio3 = form.find('input#user_department_id_3')
+
+    assert.ok(wrapperElement.find('div.invalid-feedback').length === 0)
+
+    radio1.trigger('change')
+    radio1.trigger('focusout')
+
+    assert.ok(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(radio1.hasClass('is-invalid'))
+    assert.ok(radio3.hasClass('is-invalid'))
+
+    assert.ok(radio3.closest('.form-check').next('.invalid-feedback').length === 1)
+    assert.ok(wrapperElement.find('div.invalid-feedback').length === 1)
+
+    radio1.attr('checked', true)
+    radio1.trigger('change')
+    radio1.trigger('focusout')
+
+    assert.notOk(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(wrapperElement.find('.is-invalid').length===0)
+    assert.ok(wrapperElement.find('.invalid-feedback').length === 0)
+  })
 
 }

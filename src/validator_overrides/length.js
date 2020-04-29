@@ -1,5 +1,5 @@
 import ClientSideValidations from '@client-side-validations/client-side-validations'
-import { checkedCheckboxesCount } from './helper'
+import { checkedInputsCount } from './helper'
 
 const originalLengthValidator = ClientSideValidations.validators.local.length
 
@@ -28,7 +28,7 @@ const runValidations = (valueLength, options) => {
 
 ClientSideValidations.validators.local.length = (element, options) => {
   if (element.attr('type') === 'checkbox') {
-    const count = checkedCheckboxesCount(element)
+    const count = checkedInputsCount(element)
     if (options.allow_blank && count === 0) {
       return
     }

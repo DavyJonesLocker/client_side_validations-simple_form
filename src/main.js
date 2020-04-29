@@ -25,8 +25,8 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         if (!errorElement.length) {
           errorElement = $('<' + settings.error_tag + '>', { class: settings.error_class, text: message })
 
-          if (wrapper.hasClass('check_boxes')) {
-            element.closest('.checkbox').parent().children('.checkbox:last').after(errorElement)
+          if (wrapper.hasClass('check_boxes') || wrapper.hasClass('radio_buttons')) {
+            element.closest('.checkbox,.radio').parent().children('.checkbox:last, .radio:last').after(errorElement)
           } else {
             wrapper.append(errorElement)
           }

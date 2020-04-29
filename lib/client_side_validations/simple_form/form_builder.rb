@@ -27,7 +27,7 @@ module ClientSideValidations
         super(attribute_name, options, &block)
       end
 
-      # these methods don't call `super` in SimpleForm and therefore don't use overriden CSV FromBuilder methods
+      # these methods don't call `super` in SimpleForm and therefore don't use overriden CSV FormBuilder methods
       # and therefore aren't included in CSV validations hash.. we add them to the hash here
       %i[collection_check_boxes collection_radio_buttons].each do |method_name|
         define_method method_name do |method, collection, value_method, text_method, options = {}, html_options = {}, &block| # rubocop:disable Metrics/ParameterLists

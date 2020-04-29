@@ -52,6 +52,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         if (!errorElement.length) {
           errorElement = $('<' + settings.error_tag + '>', { class: 'invalid-feedback d-block', text: message })
           element.closest('.form-check').parent().children('.form-check:last').after(errorElement)
+          element.closest('.form-check').parent().children('.form-check:last').after(errorElement)
         }
 
         wrapperElement.addClass(settings.wrapper_error_class)

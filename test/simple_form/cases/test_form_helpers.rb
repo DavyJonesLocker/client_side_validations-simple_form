@@ -166,9 +166,9 @@ module ClientSideValidations
               'user[role_ids]' => {
                 length: [{
                   messages: {
-                    maximum: 'is too long (maximum is 99 characters)'
+                    maximum: 'is too long (maximum is 2 characters)'
                   },
-                  maximum:  99
+                  maximum:  2
                 }]
               }
             }
