@@ -21,7 +21,10 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
       validators: {
         'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] },
         'user[username]': { presence: [{ message: 'must be present' }] },
-        'user[role_ids]': { presence: [{ message: 'must be present' }] }
+        'user[role_ids]': {
+          presence: [{ message: 'must be present' }],
+          length:[{ messages: { maximum: 'is too long (maximum is 2 characters)' }, maximum: 2 }]
+        }
       }
     }
 
@@ -246,8 +249,8 @@ for (var i = 0; i < wrappers.length; i++) {
 
     assert.ok(wrapperElement.find('div.invalid-feedback').length === 0)
 
-    checkbox1.trigger('change')
-    checkbox1.trigger('focusout')
+    checkbox3.trigger('change')
+    checkbox3.trigger('focusout')
 
     assert.ok(wrapperElement.hasClass('form-group-invalid'))
     assert.ok(checkbox1.hasClass('is-invalid'))
@@ -256,13 +259,21 @@ for (var i = 0; i < wrappers.length; i++) {
     assert.ok(checkbox3.closest('.form-check').next('.invalid-feedback').length === 1)
     assert.ok(wrapperElement.find('div.invalid-feedback').length === 1)
 
-    checkbox2.attr('checked', true)
-    checkbox2.trigger('change')
-    checkbox2.trigger('focusout')
+    checkbox1.attr('checked', true)
+    checkbox1.trigger('change')
+    checkbox1.trigger('focusout')
 
     assert.notOk(wrapperElement.hasClass('form-group-invalid'))
     assert.ok(wrapperElement.find('.is-invalid').length===0)
     assert.ok(wrapperElement.find('.invalid-feedback').length === 0)
+
+    checkbox2.attr('checked', true)
+    checkbox3.attr('checked', true)
+    checkbox3.trigger('change')
+    checkbox3.trigger('focusout')
+
+    assert.ok(wrapperElement.hasClass('form-group-invalid'))
+    assert.ok(wrapperElement.find('.invalid-feedback').html().includes('is too long'))
   })
 
   QUnit.test(wrapper + ' - Validate associations checkboxes server feedback reused', function (assert) {

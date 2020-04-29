@@ -7,18 +7,55 @@
 import $ from 'jquery';
 import ClientSideValidations from '@client-side-validations/client-side-validations';
 
-var originalPresenceValidator = ClientSideValidations.validators.local.presence;
-
-function checkedCheckboxesCount(element, formSettings) {
+function checkedCheckboxesCount(element) {
+  var formSettings = element.closest('form[data-client-side-validations]').data('clientSideValidations');
   var wrapperClass = formSettings.html_settings.wrapper_class;
   return element.closest(".".concat(wrapperClass.replace(/ /g, '.'))).find('input[type="checkbox"]:checked').length;
 }
 
+var originalLengthValidator = ClientSideValidations.validators.local.length;
+var VALIDATIONS = {
+  is: function is(a, b) {
+    return a === parseInt(b, 10);
+  },
+  minimum: function minimum(a, b) {
+    return a >= parseInt(b, 10);
+  },
+  maximum: function maximum(a, b) {
+    return a <= parseInt(b, 10);
+  }
+};
+
+var runValidations = function runValidations(valueLength, options) {
+  for (var validation in VALIDATIONS) {
+    var validationOption = options[validation];
+    var validationFunction = VALIDATIONS[validation];
+
+    if (validationOption && !validationFunction(valueLength, validationOption)) {
+      return options.messages[validation];
+    }
+  }
+};
+
+ClientSideValidations.validators.local.length = function (element, options) {
+  if (element.attr('type') === 'checkbox') {
+    var count = checkedCheckboxesCount(element);
+
+    if (options.allow_blank && count === 0) {
+      return;
+    }
+
+    return runValidations(count, options);
+  } else {
+    return originalLengthValidator(element, options);
+  }
+};
+
+var originalPresenceValidator = ClientSideValidations.validators.local.presence;
+
 ClientSideValidations.validators.local.presence = function (element, options) {
   if (element.attr('type') === 'checkbox') {
-    var formSettings = element.closest('form[data-client-side-validations]').data('clientSideValidations');
-
-    if (checkedCheckboxesCount(element, formSettings) === 0) {
+    if (checkedCheckboxesCount(element) === 0) {
       return options.message;
     }
   } else {
@@ -80,7 +117,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
             "class": 'invalid-feedback d-block',
             text: message
           });
-          element.closest('.form-check').siblings('.form-check:last').after(errorElement);
+          element.closest('.form-check').parent().children('.form-check:last').after(errorElement);
         }
 
         wrapperElement.addClass(settings.wrapper_error_class);

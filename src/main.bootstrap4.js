@@ -1,6 +1,6 @@
 import $ from 'jquery'
 import ClientSideValidations from '@client-side-validations/client-side-validations'
-import './radio_checkbox_validators'
+import './validator_overrides/index'
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
   add: function (element, settings, message) {
@@ -51,7 +51,7 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
 
         if (!errorElement.length) {
           errorElement = $('<' + settings.error_tag + '>', { class: 'invalid-feedback d-block', text: message })
-          element.closest('.form-check').siblings('.form-check:last').after(errorElement)
+          element.closest('.form-check').parent().children('.form-check:last').after(errorElement)
         }
 
         wrapperElement.addClass(settings.wrapper_error_class)
