@@ -12,7 +12,7 @@ QUnit.module('Validate SimpleForm', {
     dataCsv = {
       html_settings: {
         type: 'SimpleForm::FormBuilder',
-        error_class: 'error',
+        error_class: 'error small', // 'small' class is present to test 399f389
         error_tag: 'span',
         wrapper_error_class: 'field_with_errors',
         wrapper_tag: 'div',

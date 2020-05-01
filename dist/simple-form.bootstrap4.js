@@ -13,7 +13,7 @@
   $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
   ClientSideValidations = ClientSideValidations && Object.prototype.hasOwnProperty.call(ClientSideValidations, 'default') ? ClientSideValidations['default'] : ClientSideValidations;
 
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
+  var simpleFormFormBuilder = {
     add: function add(element, settings, message) {
       this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message);
     },
@@ -52,15 +52,6 @@
           errorElement.remove();
         }
       },
-
-      get horizontal_multi_select() {
-        return this.multi_select;
-      },
-
-      get vertical_multi_select() {
-        return this.multi_select;
-      },
-
       multi_select: {
         add: function add(element, settings, message) {
           var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
@@ -94,5 +85,8 @@
       }
     }
   };
+  simpleFormFormBuilder.wrappers.horizontal_multi_select = simpleFormFormBuilder.wrappers.multi_select;
+  simpleFormFormBuilder.wrappers.vertical_multi_select = simpleFormFormBuilder.wrappers.multi_select;
+  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = simpleFormFormBuilder;
 
 })));

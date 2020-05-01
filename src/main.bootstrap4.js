@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import ClientSideValidations from '@client-side-validations/client-side-validations'
 
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
+const simpleFormFormBuilder = {
   add: function (element, settings, message) {
     this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message)
   },
@@ -40,12 +40,6 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         errorElement.remove()
       }
     },
-    get horizontal_multi_select () {
-      return this.multi_select
-    },
-    get vertical_multi_select () {
-      return this.multi_select
-    },
     multi_select: {
       add (element, settings, message) {
         const wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'))
@@ -77,3 +71,8 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     }
   }
 }
+
+simpleFormFormBuilder.wrappers.horizontal_multi_select = simpleFormFormBuilder.wrappers.multi_select
+simpleFormFormBuilder.wrappers.vertical_multi_select = simpleFormFormBuilder.wrappers.multi_select
+
+ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = simpleFormFormBuilder
