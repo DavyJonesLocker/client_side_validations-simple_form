@@ -13,15 +13,18 @@
   $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
   ClientSideValidations = ClientSideValidations && Object.prototype.hasOwnProperty.call(ClientSideValidations, 'default') ? ClientSideValidations['default'] : ClientSideValidations;
 
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
+  var simpleFormFormBuilder = {
     add: function add(element, settings, message) {
-      this.wrapper(settings.wrapper).add.call(this, element, settings, message);
+      this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message);
     },
     remove: function remove(element, settings) {
-      this.wrapper(settings.wrapper).remove.call(this, element, settings);
+      this.wrapper(this.wrapperName(element, settings)).remove.call(this, element, settings);
     },
     wrapper: function wrapper(name) {
       return this.wrappers[name] || this.wrappers["default"];
+    },
+    wrapperName: function wrapperName(element, settings) {
+      return element.data('clientSideValidationsWrapper') || settings.wrapper;
     },
     wrappers: {
       "default": {
@@ -48,8 +51,42 @@
           element.removeClass('is-invalid');
           errorElement.remove();
         }
+      },
+      multi_select: {
+        add: function add(element, settings, message) {
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
+          var parentElement = element.parent();
+          var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
+
+          if (!errorElement.length) {
+            errorElement = $('<' + settings.error_tag + '>', {
+              "class": 'invalid-feedback d-block',
+              text: message
+            });
+            parentElement.after(errorElement);
+          }
+
+          wrapperElement.addClass(settings.wrapper_error_class);
+          element.addClass('is-invalid');
+          errorElement.text(message);
+        },
+        remove: function remove(element, settings) {
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
+          var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
+          var invalidSiblingExists = element.siblings('.is-invalid').length;
+
+          if (!invalidSiblingExists) {
+            wrapperElement.removeClass(settings.wrapper_error_class);
+            errorElement.remove();
+          }
+
+          element.removeClass('is-invalid');
+        }
       }
     }
   };
+  simpleFormFormBuilder.wrappers.horizontal_multi_select = simpleFormFormBuilder.wrappers.multi_select;
+  simpleFormFormBuilder.wrappers.vertical_multi_select = simpleFormFormBuilder.wrappers.multi_select;
+  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = simpleFormFormBuilder;
 
 })));

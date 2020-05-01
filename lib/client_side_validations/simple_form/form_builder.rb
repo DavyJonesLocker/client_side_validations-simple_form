@@ -22,6 +22,8 @@ module ClientSideValidations
           options.delete(:validate)
         end
 
+        add_field_specific_wrapper_name_to_field_options(attribute_name, options, &block)
+
         super(attribute_name, options, &block)
       end
 
@@ -33,6 +35,14 @@ module ClientSideValidations
         else
           wrapper.find(:full_error)
         end
+      end
+
+      def add_field_specific_wrapper_name_to_field_options(attribute_name, options, &block)
+        wrapper_name = options[:wrapper] || find_wrapper_mapping(find_input(attribute_name, options, &block).input_type)
+        return if wrapper_name.nil?
+
+        options[:input_html] ||= {}
+        options[:input_html][:'data-client-side-validations-wrapper'] = wrapper_name
       end
     end
   end

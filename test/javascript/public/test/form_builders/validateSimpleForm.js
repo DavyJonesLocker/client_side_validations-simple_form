@@ -12,7 +12,7 @@ QUnit.module('Validate SimpleForm', {
     dataCsv = {
       html_settings: {
         type: 'SimpleForm::FormBuilder',
-        error_class: 'error small',
+        error_class: 'error small', // 'small' class is present to test 399f389
         error_tag: 'span',
         wrapper_error_class: 'field_with_errors',
         wrapper_tag: 'div',
@@ -20,7 +20,8 @@ QUnit.module('Validate SimpleForm', {
         wrapper: 'default'
       },
       validators: {
-        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] }
+        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] },
+        'user[date_of_birth]': { presence: [{ message: 'must be present' }] }
       }
     }
 
@@ -40,6 +41,12 @@ QUnit.module('Validate SimpleForm', {
         type: 'text'
       }))
       .append($('<label for="user_name">Name</label>'))
+      .append($('<input />', {
+        name: 'user[date_of_birth]',
+        id: 'date_of_birth',
+        type: 'text',
+        'data-client-side-validations-wrapper': 'custom_date_wrapper'
+      }))
     $('form#new_user').validate()
   }
 })
@@ -81,4 +88,23 @@ QUnit.test('Validate pre-existing error blocks are re-used', function (assert) {
   assert.ok(label.parent().hasClass('field_with_errors'))
   assert.ok(input.parent().find('span.error:contains("is invalid")').length === 1)
   assert.ok(form.find('span.error').length === 1)
+})
+
+QUnit.test('Validate correct JS Builder\'s wrapper is called for custom_wrapper', function (assert) {
+  const oldWrappers = $.extend({}, ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers)
+
+  // It would be probably better to use some stub library but I want to keep it simple
+  let customWrapperCalled = false;
+
+  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers['custom_date_wrapper'] = {
+    add: function(element, settings, message) { customWrapperCalled=true; },
+    remove: function(element, settings) {}
+  }
+
+  var form = $('form#new_user');
+  var input = form.find('input#date_of_birth')
+  input.trigger('focusout')
+
+  assert.ok(customWrapperCalled);
+  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'].wrappers = oldWrappers
 })
