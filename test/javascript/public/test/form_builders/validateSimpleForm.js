@@ -12,7 +12,7 @@ QUnit.module('Validate SimpleForm', {
     dataCsv = {
       html_settings: {
         type: 'SimpleForm::FormBuilder',
-        error_class: 'error small',
+        error_class: 'error',
         error_tag: 'span',
         wrapper_error_class: 'field_with_errors',
         wrapper_tag: 'div',
@@ -81,4 +81,55 @@ QUnit.test('Validate pre-existing error blocks are re-used', function (assert) {
   assert.ok(label.parent().hasClass('field_with_errors'))
   assert.ok(input.parent().find('span.error:contains("is invalid")').length === 1)
   assert.ok(form.find('span.error').length === 1)
+})
+
+QUnit.test("Display error messages when wrapper and error tags have more than two css classes", function (assert) {
+  dataCsv = {
+    html_settings: {
+      type: 'SimpleForm::FormBuilder',
+      error_class: 'error error_class_one error_class_two',
+      error_tag: 'span',
+      wrapper_error_class: 'field_with_errors',
+      wrapper_tag: 'div',
+      wrapper_class: 'input wrapper_class_one wrapper_class_two',
+      wrapper: 'default'
+    },
+    validators: {
+      'user_2[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] }
+    }
+  }
+
+  $('#qunit-fixture')
+    .html('')
+    .append($('<form>', {
+      action: '/users',
+      'data-client-side-validations': JSON.stringify(dataCsv),
+      method: 'post',
+      id: 'new_user_2'
+    }))
+    .find('form')
+    .append($('<div class="input wrapper_class_one wrapper_class_two">'))
+    .find('div')
+    .append($('<input />', {
+      name: 'user_2[name]',
+      id: 'user_2_name',
+      type: 'text'
+    }))
+    .append($('<label for="user_2_name">Name</label>'))
+  $('form#new_user_2').validate()
+
+  var form = $('form#new_user_2')
+  var input = form.find('input#user_2_name')
+
+  input.val('')
+  input.trigger('focusout')
+
+  assert.ok(input.parent().hasClass('field_with_errors'))
+
+  input.val('123')
+  input.trigger('change')
+  input.trigger('focusout')
+
+  assert.notOk(input.parent().hasClass('field_with_errors'))
+  assert.notOk(form.find('span.error').length)
 })
