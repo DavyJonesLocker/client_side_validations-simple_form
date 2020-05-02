@@ -91,7 +91,7 @@ window.ClientSideValidations.enablers.input = function (input) {
   });
 };
 
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
+var simpleFormFormBuilder = {
   add: function add(element, settings, message) {
     this.wrapper(this.wrapperName(element, settings)).add.call(this, element, settings, message);
   },
@@ -130,11 +130,6 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         errorElement.remove();
       }
     },
-
-    get horizontal_collection() {
-      return this.vertical_collection;
-    },
-
     vertical_collection: {
       add: function add(element, settings, message) {
         var wrapperElement = element.closest('.' + settings.wrapper_class.replace(/ /g, '.'));
@@ -163,3 +158,5 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     }
   }
 };
+simpleFormFormBuilder.wrappers.horizontal_collection = simpleFormFormBuilder.wrappers.vertical_collection;
+ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = simpleFormFormBuilder;
