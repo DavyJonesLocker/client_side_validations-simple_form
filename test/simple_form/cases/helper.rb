@@ -3,6 +3,7 @@
 require 'base_helper'
 require 'action_view'
 require 'client_side_validations/simple_form'
+require 'simple_form/models'
 
 def swap_wrapper(wrapper, name = :default)
   old = SimpleForm.wrappers[name.to_s]
