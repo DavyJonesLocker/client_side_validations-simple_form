@@ -79,6 +79,7 @@
     var $input = $(input);
     var form = input.form;
     var eventsToBind = window.ClientSideValidations.eventsToBind.input(form);
+    var wrapperClass = form.ClientSideValidations.settings.html_settings.wrapper_class;
 
     for (var eventName in eventsToBind) {
       var eventFunction = eventsToBind[eventName];
@@ -86,6 +87,14 @@
         return $(this).attr('data-validate', true);
       }).on(eventName, eventFunction);
     }
+
+    $input.filter(':radio').on('change.ClientSideValidations', function () {
+      $(this).isValid(form.ClientSideValidations.settings.validators);
+    }); // when we change radio/check mark also all sibling radios/checkboxes as changed to revalidate on submit
+
+    $input.filter(':radio,:checkbox').on('change.ClientSideValidations', function () {
+      $(this).closest(".".concat(wrapperClass.replace(/ /g, '.'))).find(':radio,:checkbox').data('changed', true);
+    });
   };
 
   ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
