@@ -7,6 +7,7 @@ class Post
   include ActiveModel::Conversion
 
   attr_accessor :title, :author_name, :body, :secret, :written_on, :cost
+
   validates :cost, presence: true
 
   def initialize(params = {})
@@ -20,8 +21,10 @@ class Post
   end
 
   attr_accessor :comments, :comment_ids
+
   def comments_attributes=(attributes); end
 
   attr_accessor :category
+
   def category_attributes=(attributes); end
 end
