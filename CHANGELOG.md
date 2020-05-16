@@ -3,6 +3,7 @@
 ## master / unreleased
 
 * [FEATURE] Drop Ruby 2.3 support
+* [FEATURE] Add Client Side Validations 17.0 compatibility
 * [ENHANCEMENT] Test against jQuery 3.5.1 by default
 
 ## 10.1.0 / 2020-04-10

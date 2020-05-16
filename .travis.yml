@@ -15,6 +15,7 @@ addons:
 gemfile:
   - gemfiles/csv_15.0.gemfile
   - gemfiles/csv_16.0.gemfile
+  - gemfiles/csv_17.0.gemfile
 
 cache:
   bundler: true
