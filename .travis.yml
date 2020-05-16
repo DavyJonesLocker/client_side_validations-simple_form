@@ -16,6 +16,7 @@ gemfile:
   - gemfiles/csv_15.0.gemfile
   - gemfiles/csv_16.0.gemfile
   - gemfiles/csv_17.0.gemfile
+  - gemfiles/csv_edge.gemfile
 
 cache:
   bundler: true
@@ -35,6 +36,7 @@ before_install:
 jobs:
   allow_failures:
     - rvm: ruby-head
+    - gemfile: gemfiles/csv_edge.gemfile
   fast_finish: true
 
 script: bundle exec rake test:all
