@@ -1,6 +1,6 @@
 # Changelog
 
-## master / unreleased
+## 11.0.0 / 2020-05-16
 
 * [FEATURE] Drop Ruby 2.3 support
 * [FEATURE] Add Client Side Validations 17.0 compatibility
