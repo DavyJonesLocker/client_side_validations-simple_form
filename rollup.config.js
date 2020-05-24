@@ -28,7 +28,7 @@ const umdModuleConfig = (inputFileName, outputModuleFileName, outputVendorFileNa
   ],
   plugins: [
     resolve(),
-    babel(),
+    babel({ babelHelpers: 'bundled' }),
     copy({
       targets: [
         { src: outputModuleFileName, dest: 'vendor/assets/javascripts/', rename: outputVendorFileName }
@@ -50,7 +50,7 @@ const esModuleConfig = (inputFileName, outputModuleFileName, formBuilderName) =>
     }
   ],
   plugins: [
-    babel()
+    babel({ babelHelpers: 'bundled' })
   ]
 })
 
