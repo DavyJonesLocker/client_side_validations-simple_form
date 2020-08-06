@@ -7,7 +7,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery'), require('@client-side-validations/client-side-validations')) :
   typeof define === 'function' && define.amd ? define(['jquery', '@client-side-validations/client-side-validations'], factory) :
-  (global = global || self, factory(global.$, global.ClientSideValidations));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.$, global.ClientSideValidations));
 }(this, (function ($, ClientSideValidations) { 'use strict';
 
   $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
