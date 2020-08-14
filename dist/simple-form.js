@@ -10,10 +10,12 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.$, global.ClientSideValidations));
 }(this, (function ($, ClientSideValidations) { 'use strict';
 
-  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
-  ClientSideValidations = ClientSideValidations && Object.prototype.hasOwnProperty.call(ClientSideValidations, 'default') ? ClientSideValidations['default'] : ClientSideValidations;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
+  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
+  var ClientSideValidations__default = /*#__PURE__*/_interopDefaultLegacy(ClientSideValidations);
+
+  ClientSideValidations__default['default'].formBuilders['SimpleForm::FormBuilder'] = {
     add: function add(element, settings, message) {
       this.wrapper(settings.wrapper).add.call(this, element, settings, message);
     },
@@ -30,7 +32,7 @@
           var errorElement = wrapper.find(settings.error_tag + '.' + settings.error_class.replace(/ /g, '.'));
 
           if (!errorElement.length) {
-            errorElement = $('<' + settings.error_tag + '>', {
+            errorElement = $__default['default']('<' + settings.error_tag + '>', {
               "class": settings.error_class,
               text: message
             });
