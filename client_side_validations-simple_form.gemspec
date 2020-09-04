@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.90.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.8'
   spec.add_development_dependency 'rubocop-rails', '~> 2.8'
-  spec.add_development_dependency 'simplecov', '~> 0.19.0'
+  spec.add_development_dependency 'simplecov', '>= 0.18.5', '< 0.20.0'
 
   # For QUnit testing
   spec.add_development_dependency 'shotgun', '~> 0.9.2'
