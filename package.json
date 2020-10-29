@@ -31,7 +31,7 @@
     "puppeteer-core": "^5.4.0",
     "rollup": "^2.32.1",
     "rollup-plugin-copy": "^3.3.0",
-    "standard": "^15.0.0"
+    "standard": "^16.0.0"
   },
   "peerDependencies": {
     "@client-side-validations/client-side-validations": "^0.1.0",
