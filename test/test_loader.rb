@@ -6,6 +6,7 @@ require 'base_helper'
 require 'client_side_validations/simple_form'
 
 SimpleForm.setup do
+  # Sanity check
 end
 
 TestApp::Application.initialize!
