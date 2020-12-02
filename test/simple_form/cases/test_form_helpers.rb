@@ -9,10 +9,6 @@ module ClientSideValidations
       include ::ActionViewTestSetup
       include ::SimpleForm::ActionViewExtensions::FormHelper
 
-      def client_side_form_settings_helper
-        ''
-      end
-
       def setup
         super
         ::ActionView::TestCase::TestController.any_instance.stubs(:action_name).returns('edit')
@@ -101,6 +97,12 @@ module ClientSideValidations
         expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input aria-required="true" class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)
 
         assert_dom_equal expected, output_buffer
+      end
+
+      private
+
+      def client_side_form_settings_helper
+        ''
       end
     end
   end

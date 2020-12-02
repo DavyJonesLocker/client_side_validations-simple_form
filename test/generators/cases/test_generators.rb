@@ -19,6 +19,8 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
     assert_file 'public/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
 
+  private
+
   def stub_configuration
     Rails.stubs(:configuration).returns(mock('Configuration'))
   end

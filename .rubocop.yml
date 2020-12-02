@@ -1,6 +1,8 @@
 require:
+  - rubocop-minitest
   - rubocop-performance
   - rubocop-rails
+  - rubocop-rake
 
 AllCops:
   TargetRailsVersion: 5.0
@@ -40,6 +42,9 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'test/**/*'
+
+Minitest/MultipleAssertions:
+  Enabled: false
 
 Rails/RakeEnvironment:
   Enabled: false
