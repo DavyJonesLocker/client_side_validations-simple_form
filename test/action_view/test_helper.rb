@@ -52,8 +52,6 @@ module ActionViewTestSetup
     end
   end
 
-  protected
-
   def posts_path(_options = {})
     '/posts'
   end
