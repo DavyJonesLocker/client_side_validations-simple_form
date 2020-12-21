@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.platform              = Gem::Platform::RUBY
-  spec.required_ruby_version = '~> 2.4'
+  spec.required_ruby_version = '>= 2.4'
 
   spec.add_dependency 'client_side_validations', '>= 15.0', '< 18.0'
   spec.add_dependency 'simple_form', '~> 5.0'
