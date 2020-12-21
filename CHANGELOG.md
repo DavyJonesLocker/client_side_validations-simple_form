@@ -1,5 +1,11 @@
 # Changelog
 
+## 11.2.0 / 2020-12-21
+
+* [FEATURE] Allow Ruby 3.0.0 (really)
+* [ENHANCEMENT] Replace Thin with Webrick
+* [ENHANCEMENT] Update development dependencies
+
 ## 11.1.0 / 2020-10-10
 
 * [FEATURE] Allow Ruby 3.0.0
