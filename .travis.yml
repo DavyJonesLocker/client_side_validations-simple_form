@@ -38,6 +38,15 @@ jobs:
   allow_failures:
     - rvm: ruby-head
     - gemfile: gemfiles/csv_edge.gemfile
+  exclude:
+    - rvm: ruby-3.0.0
+      gemfile: gemfiles/csv_15.0.gemfile
+    - rvm: ruby-3.0.0
+      gemfile: gemfiles/csv_16.0.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/csv_15.0.gemfile
+    - rvm: ruby-head
+      gemfile: gemfiles/csv_16.0.gemfile
   fast_finish: true
 
 script: bundle exec rake test:all
