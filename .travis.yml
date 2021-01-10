@@ -39,9 +39,9 @@ jobs:
     - rvm: ruby-head
     - gemfile: gemfiles/csv_edge.gemfile
   exclude:
-    - rvm: ruby-3.0.0
+    - rvm: 3.0.0
       gemfile: gemfiles/csv_15.0.gemfile
-    - rvm: ruby-3.0.0
+    - rvm: 3.0.0
       gemfile: gemfiles/csv_16.0.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/csv_15.0.gemfile
