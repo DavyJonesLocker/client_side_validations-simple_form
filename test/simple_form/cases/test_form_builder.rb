@@ -35,6 +35,13 @@ module ClientSideValidations
         end
       end
 
+      def test_client_side_form_js_hash_with_nested_error
+        swap_wrapper(custom_wrapper_with_nested_error) do
+          builder = ::SimpleForm::FormBuilder.new(:user, nil, {}, {})
+          assert_equal expected_hash, builder.client_side_form_settings({}, nil)
+        end
+      end
+
       def test_client_side_form_js_hash_with_custom_wrapper
         expected = expected_hash.merge(wrapper: :bootstrap)
 
