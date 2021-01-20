@@ -28,11 +28,23 @@ module ClientSideValidations
       private
 
       def wrapper_error_component
-        if wrapper.components.map(&:namespace).include?(:error)
+        if wrapper_namespaces(wrapper, []).include?(:error)
           wrapper.find(:error)
         else
           wrapper.find(:full_error)
         end
+      end
+
+      def wrapper_namespaces(component, namespaces)
+        return namespaces if component.instance_of?(::SimpleForm::Wrappers::Leaf)
+
+        namespaces << component.namespace
+
+        child_component_namespaces = component.components.map do |child_component|
+          wrapper_namespaces(child_component, namespaces)
+        end
+
+        namespaces + child_component_namespaces
       end
     end
   end
