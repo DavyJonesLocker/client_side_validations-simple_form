@@ -1,5 +1,12 @@
 # Changelog
 
+## 12.0.0 / 2020-01-23
+
+* [FEATURE] Allow nested `:error` component [#111](https://github.com/DavyJonesLocker/client_side_validations-simple_form/pull/111) **POSSIBLE BREAKING CHANGE!**
+* [ENHANCEMENT] Default branch is now `main` **POSSIBLE BREAKING CHANGE!**
+* [ENHANCEMENT] Update QUnit to 2.14.0
+* [ENHANCEMENT] Update development dependencies
+
 ## 11.2.0 / 2020-12-21
 
 * [FEATURE] Allow Ruby 3.0.0 (really)

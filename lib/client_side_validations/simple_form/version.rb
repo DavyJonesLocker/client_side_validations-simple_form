@@ -2,6 +2,6 @@
 
 module ClientSideValidations
   module SimpleForm
-    VERSION = '11.2.0'
+    VERSION = '12.0.0'
   end
 end
