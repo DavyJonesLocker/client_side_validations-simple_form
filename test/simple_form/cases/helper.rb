@@ -18,6 +18,14 @@ def custom_wrapper_with_full_error
   end
 end
 
+def custom_wrapper_with_nested_error
+  SimpleForm.build tag: :div, class: :input, error_class: :field_with_errors do |b|
+    b.wrapper tag: :div do |b_nested|
+      b_nested.use :error, wrap_with: { tag: :span, class: :error }
+    end
+  end
+end
+
 def custom_wrapper_with_error_and_full_error
   SimpleForm.build tag: :div, class: :input, error_class: :field_with_errors do |b|
     b.use :error, wrap_with: { tag: :span, class: :error }
