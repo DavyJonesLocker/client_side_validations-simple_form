@@ -1,5 +1,10 @@
 # Changelog
 
+## 12.1.0 / 2020-02-13
+
+* Add CSV 18.0 compatibility
+* [ENHANCEMENT] Update development dependencies
+
 ## 12.0.0 / 2020-01-23
 
 * [FEATURE] Allow nested `:error` component [#111](https://github.com/DavyJonesLocker/client_side_validations-simple_form/pull/111) **POSSIBLE BREAKING CHANGE!**

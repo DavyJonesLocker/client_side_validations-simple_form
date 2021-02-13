@@ -22,7 +22,7 @@ gem 'client_side_validations-simple_form'
 Order matters here. `simple_form` and `client_side_validations` need to be
 required **before** `client_side_validations-simple_form`.
 
-[Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/master/README.md)
+[Follow the remaining installation instructions for ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations/blob/main/README.md)
 
 ### JavaScript file ###
 

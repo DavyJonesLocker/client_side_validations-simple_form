@@ -12,6 +12,10 @@ appraise 'csv-17.0' do
   gem 'client_side_validations', '~> 17.0'
 end
 
+appraise 'csv-18.0' do
+  gem 'client_side_validations', '~> 18.0'
+end
+
 appraise 'csv-edge' do
-  gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+  gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations.git', branch: 'main'
 end

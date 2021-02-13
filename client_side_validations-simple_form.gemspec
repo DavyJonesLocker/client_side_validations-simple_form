@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.platform              = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 2.4'
 
-  spec.add_dependency 'client_side_validations', '>= 15.0', '< 18.0'
+  spec.add_dependency 'client_side_validations', '>= 15.0', '< 19.0'
   spec.add_dependency 'simple_form', '~> 5.0'
 
   spec.add_development_dependency 'appraisal', '~> 2.3'
@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '~> 5.14'
   spec.add_development_dependency 'mocha', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'rubocop', '~> 1.8'
+  spec.add_development_dependency 'rubocop', '~> 1.9'
   spec.add_development_dependency 'rubocop-minitest', '~> 0.10.3'
   spec.add_development_dependency 'rubocop-performance', '~> 1.9'
   spec.add_development_dependency 'rubocop-rails', '~> 2.9'
