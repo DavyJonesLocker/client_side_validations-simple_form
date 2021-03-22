@@ -28,7 +28,8 @@
     wrappers: {
       "default": {
         add: function add(element, settings, message) {
-          var wrapperElement = element.parent();
+          var parentElement = element.parent();
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
           var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
 
           if (!errorElement.length) {
@@ -36,7 +37,7 @@
               "class": 'invalid-feedback',
               text: message
             });
-            wrapperElement.append(errorElement);
+            parentElement.append(errorElement);
           }
 
           wrapperElement.addClass(settings.wrapper_error_class);
@@ -44,7 +45,7 @@
           errorElement.text(message);
         },
         remove: function remove(element, settings) {
-          var wrapperElement = element.parent();
+          var wrapperElement = element.closest(settings.wrapper_tag + '.' + settings.wrapper_class.replace(/ /g, '.'));
           var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
           wrapperElement.removeClass(settings.wrapper_error_class);
           element.removeClass('is-invalid');
