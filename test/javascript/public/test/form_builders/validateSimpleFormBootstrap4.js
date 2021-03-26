@@ -20,7 +20,8 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
       },
       validators: {
         'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] },
-        'user[username]': { presence: [{ message: 'must be present' }] }
+        'user[username]': { presence: [{ message: 'must be present' }] },
+        'user[password]': { presence: [{ message: 'must be present' }] }
       }
     }
 
@@ -38,6 +39,14 @@ QUnit.module('Validate SimpleForm Bootstrap 4', {
                 $('<label for="user_name" class="string form-control-label">Name</label>'))
               .append(
                 $('<input />', { 'class': 'form-control', name: 'user[name]', id: 'user_name', type: 'text' })))
+          .append(
+            $('<div>', { 'class': 'form-group' })
+              .append(
+                $('<label for="user_password" class="string form-control-label">Password</label>'))
+              .append(
+                $('<input />', { 'class': 'form-control', name: 'user[password]', id: 'user_password', type: 'password' }))
+              .append(
+                $('<small />', { 'class': 'form-text text-muted', text: 'Minimum 8 characters' })))
           .append(
             $('<div>', { 'class': 'form-group' })
               .append(
@@ -115,5 +124,14 @@ for (var i = 0; i < wrappers.length; i++) {
     input.trigger('change')
     input.trigger('focusout')
     assert.ok(input.closest('.input-group').find('div.invalid-feedback').length === 0)
+  })
+
+  QUnit.test(wrapper + ' - Inserts before form texts', function (assert) {
+    var form = $('form#new_user')
+    var input = form.find('input#user_password')
+    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
+
+    input.trigger('focusout')
+    assert.ok(input.parent().find('.invalid-feedback:contains("must be present") + .form-text')[0])
   })
 }

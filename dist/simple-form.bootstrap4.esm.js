@@ -1,5 +1,5 @@
 /*!
- * Client Side Validations Simple Form JS (Default) - v0.1.3 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Default) - v0.2.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2021 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
@@ -24,11 +24,17 @@ ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
         var errorElement = wrapperElement.find(settings.error_tag + '.invalid-feedback');
 
         if (!errorElement.length) {
+          var formTextElement = wrapperElement.find('.form-text');
           errorElement = $('<' + settings.error_tag + '>', {
             "class": 'invalid-feedback',
             text: message
           });
-          wrapperElement.append(errorElement);
+
+          if (formTextElement.length) {
+            formTextElement.before(errorElement);
+          } else {
+            wrapperElement.append(errorElement);
+          }
         }
 
         wrapperElement.addClass(settings.wrapper_error_class);
