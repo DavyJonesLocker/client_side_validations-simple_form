@@ -2,7 +2,8 @@
 
 ## main / unreleased
 
-* Add CSV 18.0 compatibility
+* [FEATURE] Insert validation feedback before help text [#116](https://github.com/DavyJonesLocker/client_side_validations-simple_form/pull/116) **POSSIBLE BREAKING CHANGE!**
+* [ENHANCEMENT] Test against jQuery 3.6.0 by default
 * [ENHANCEMENT] Update development dependencies
 
 ## 12.1.0 / 2020-02-13
