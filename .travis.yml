@@ -4,10 +4,10 @@ language: ruby
 
 rvm:
   - 2.4.10
-  - 2.5.8
-  - 2.6.6
-  - 2.7.2
-  - 3.0.0
+  - 2.5.9
+  - 2.6.7
+  - 2.7.3
+  - 3.0.1
   - ruby-head
 
 addons:
@@ -39,10 +39,15 @@ jobs:
   allow_failures:
     - rvm: ruby-head
     - gemfile: gemfiles/csv_edge.gemfile
+  include:
+    - rvm: 2.4.10
+      gemfile: Gemfile
+      script: bundle exec rake rubocop
+      name: RuboCop
   exclude:
-    - rvm: 3.0.0
+    - rvm: 3.0.1
       gemfile: gemfiles/csv_15.0.gemfile
-    - rvm: 3.0.0
+    - rvm: 3.0.1
       gemfile: gemfiles/csv_16.0.gemfile
     - rvm: ruby-head
       gemfile: gemfiles/csv_15.0.gemfile
@@ -50,4 +55,4 @@ jobs:
       gemfile: gemfiles/csv_16.0.gemfile
   fast_finish: true
 
-script: bundle exec rake test:all
+script: bundle exec rake test:ruby test:js
