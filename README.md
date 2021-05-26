@@ -46,13 +46,13 @@ pack, **after** `'@client-side-validations/client-side-validations'`:
 // No framework / Generic frameworks / Bootstrap 3 with `import` syntax
 import '@client-side-validations/simple-form'
 
-// Bootstrap 4 with `import` syntax
+// Bootstrap 4+ with `import` syntax
 import '@client-side-validations/simple-form/dist/simple-form.bootstrap4'
 
 // No framework / Generic frameworks / Bootstrap 3 with `require` syntax
 require('@client-side-validations/simple-form')
 
-// Bootstrap 4 with `require` syntax
+// Bootstrap 4+ with `require` syntax
 require('@client-side-validations/simple-form/dist/simple-form.bootstrap4')
 ```
 
@@ -68,7 +68,7 @@ lines to your `app/assets/javascripts/application.js`, **after**
 // No framework / Generic frameworks / Bootstrap 3
 //= require rails.validations.simple_form
 
-// Bootstrap 4
+// Bootstrap 4+
 //= require rails.validations.simple_form.bootstrap4
 ```
 
