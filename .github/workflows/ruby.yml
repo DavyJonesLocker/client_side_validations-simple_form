@@ -12,19 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.4', '2.5', '2.6', '2.7', '3.0']
-        gemfile: [ csv_15.0, csv_16.0, csv_17.0, csv_18.0 ]
+        ruby-version: ['2.5', '2.6', '2.7', '3.0']
+        gemfile: [ csv_19.0 ]
         experimental: [false]
 
         include:
           - ruby-version: 'head'
-            gemfile: csv_17.0
-            experimental: true
-          - ruby-version: 'head'
-            gemfile: csv_18.0
-            experimental: true
-          - ruby-version: '2.4'
-            gemfile: csv_edge
+            gemfile: csv_19.0
             experimental: true
           - ruby-version: '2.5'
             gemfile: csv_edge
@@ -41,12 +35,6 @@ jobs:
           - ruby-version: 'head'
             gemfile: csv_edge
             experimental: true
-
-        exclude:
-          - ruby-version: '3.0'
-            gemfile: csv_15.0
-          - ruby-version: '3.0'
-            gemfile: csv_16.0
 
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
