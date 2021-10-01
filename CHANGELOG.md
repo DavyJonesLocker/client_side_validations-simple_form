@@ -1,10 +1,17 @@
 # Changelog
 
-## main / unreleased
+## 13.0.0 / 2021-10-01
 
 * [FEATURE] Insert validation feedback before help text [#116](https://github.com/DavyJonesLocker/client_side_validations-simple_form/pull/116) **POSSIBLE BREAKING CHANGE!**
+* [FEATURE] Drop Ruby 2.4 support
+* [FEATURE] Drop Rails 5.0 and 5.1 support
+* [FEATURE] Drop legacy browsers support (including IE8 and IE9)
+* [FEATURE] Drop Yarn < 1.19 and Node < 12.0 support
+* [FEATURE] Add JavaScript sources to node package
+* [ENHANCEMENT] Minor JS Refactor
 * [ENHANCEMENT] Test against jQuery 3.6.0 by default
 * [ENHANCEMENT] Update development dependencies
+* [ENHANCEMENT] Update QUnit to 2.17.2
 
 ## 12.1.0 / 2020-02-13
 

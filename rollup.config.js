@@ -21,7 +21,7 @@ const umdModuleConfig = (inputFileName, outputModuleFileName, outputVendorFileNa
       banner: banner(formBuilderName),
       format: 'umd',
       globals: {
-        jquery: '$',
+        jquery: 'jQuery',
         '@client-side-validations/client-side-validations': 'ClientSideValidations'
       }
     }
@@ -55,8 +55,8 @@ const esModuleConfig = (inputFileName, outputModuleFileName, formBuilderName) =>
 })
 
 export default [
-  umdModuleConfig('main.js', pkg.main, 'rails.validations.simple_form.js', 'Default'),
-  umdModuleConfig('main.bootstrap4.js', 'dist/simple-form.bootstrap4.js', 'rails.validations.simple_form.bootstrap4.js', 'Bootstrap 4'),
-  esModuleConfig('main.js', pkg.module, 'Default'),
-  esModuleConfig('main.bootstrap4.js', 'dist/simple-form.bootstrap4.esm.js', 'Default')
+  umdModuleConfig('index.js', pkg.main, 'rails.validations.simple_form.js', 'Default'),
+  umdModuleConfig('index.bootstrap4.js', 'dist/simple-form.bootstrap4.js', 'rails.validations.simple_form.bootstrap4.js', 'Bootstrap 4+'),
+  esModuleConfig('index.js', pkg.module, 'Default'),
+  esModuleConfig('index.bootstrap4.js', 'dist/simple-form.bootstrap4.esm.js', 'Default')
 ]
