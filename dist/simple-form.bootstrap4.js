@@ -1,5 +1,5 @@
 /*!
- * Client Side Validations Simple Form JS (Bootstrap 4+) - v0.3.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Bootstrap 4+) - v0.3.1 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2021 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
