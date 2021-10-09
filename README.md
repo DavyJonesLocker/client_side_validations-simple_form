@@ -3,7 +3,8 @@
 [![Gem Version](https://badge.fury.io/rb/client_side_validations-simple_form.svg)](https://badge.fury.io/rb/client_side_validations-simple_form)
 [![npm version](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form.svg)](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form)
 [![SemVer](https://api.dependabot.com/badges/compatibility_score?dependency-name=client_side_validations-simple_form&package-manager=bundler&version-scheme=semver)](https://dependabot.com/compatibility-score.html?dependency-name=client_side_validations-simple_form&package-manager=bundler&version-scheme=semver)
-[![Build Status](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions/workflows/ruby.yml/badge.svg)](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions)
+[![Ruby Build Status](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions/workflows/ruby.yml/badge.svg)](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions)
+[![JavaScript Build Status](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions/workflows/javascript.yml/badge.svg)](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9e9cbbd0d9f454adba7/maintainability)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=main)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=main)
 
