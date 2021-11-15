@@ -23,15 +23,15 @@
     "test": "test/javascript/run-qunit.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@rollup/plugin-node-resolve": "^13.0.6",
     "chrome-launcher": "^0.15.0",
     "puppeteer-core": "^11.0.0",
-    "rollup": "^2.57.0",
+    "rollup": "^2.60.0",
     "rollup-plugin-copy": "^3.4.0",
-    "standard": "^16.0.3"
+    "standard": "^16.0.4"
   },
   "peerDependencies": {
     "@client-side-validations/client-side-validations": ">= 0.2.0 < 0.4.0",
