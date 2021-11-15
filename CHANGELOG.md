@@ -1,5 +1,10 @@
 # Changelog
 
+## 14.0.1 / 2021-11-15
+
+* [ENHANCEMENT] Require MFA to publish gems
+* [ENHANCEMENT] Update development dependencies
+
 ## 14.0.0 / 2021-10-01
 
 * [FEATURE] Drop Ruby 2.4 support
