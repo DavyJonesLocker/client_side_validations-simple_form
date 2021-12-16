@@ -1,5 +1,10 @@
 # Changelog
 
+## 14.1.0 / 2021-12-16
+
+* [FEATURE] Add Client Side Validations 20.0 compatibility
+* [ENHANCEMENT] Update development dependencies
+
 ## 14.0.1 / 2021-11-15
 
 * [ENHANCEMENT] Require MFA to publish gems
