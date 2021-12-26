@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.5', '2.6', '2.7', '3.0']
+        ruby-version: ['2.5', '2.6', '2.7', '3.0', '3.1']
         gemfile: [ csv_19.0, csv_20.0 ]
         experimental: [false]
 
@@ -33,6 +33,9 @@ jobs:
             gemfile: csv_edge
             experimental: true
           - ruby-version: '3.0'
+            gemfile: csv_edge
+            experimental: true
+          - ruby-version: '3.1'
             gemfile: csv_edge
             experimental: true
           - ruby-version: 'head'
