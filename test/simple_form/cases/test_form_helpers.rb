@@ -15,7 +15,12 @@ module ClientSideValidations
       end
 
       def autocomplete_attribute
-        "autocomplete='off'" if ::ActionView.version >= Gem::Version.new('7')
+        @autocomplete_attribute ||=
+          if hidden_field_tag(:test).include?('autocomplete')
+            'autocomplete="off"'
+          else
+            ''
+          end
       end
 
       def test_simple_form_for
