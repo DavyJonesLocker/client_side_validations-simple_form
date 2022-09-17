@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.0.0 / 2022-09-18
+
+* [FEATURE] Drop Ruby 2.5 support
+* [FEATURE] Drop Client Side Validations < 21.0 compatibility
+
 ## 14.1.0 / 2021-12-16
 
 * [FEATURE] Add Client Side Validations 20.0 compatibility
