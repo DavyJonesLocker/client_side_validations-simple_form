@@ -1,5 +1,13 @@
 # Changelog
 
+## 15.0.0 / 2022-09-18
+
+* [FEATURE] Drop Ruby 2.5 support
+* [FEATURE] Drop Client Side Validations < 21.0 compatibility
+* [ENHANCEMENT] Test against jQuery 3.6.1 by default
+* [ENHANCEMENT] Update QUnit to 2.19.1
+* [ENHANCEMENT] Update development dependencies
+
 ## 14.1.0 / 2021-12-16
 
 * [FEATURE] Add Client Side Validations 20.0 compatibility
