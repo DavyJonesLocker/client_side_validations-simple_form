@@ -30,21 +30,18 @@
         add: function add($element, settings, message) {
           var $wrapperElement = $element.parent();
           var $errorElement = $wrapperElement.find("".concat(settings.error_tag, ".invalid-feedback"));
-
           if (!$errorElement.length) {
             var $formTextElement = $wrapperElement.find('.form-text');
             $errorElement = jQuery__default["default"]("<".concat(settings.error_tag, ">"), {
               class: 'invalid-feedback',
               text: message
             });
-
             if ($formTextElement.length) {
               $formTextElement.before($errorElement);
             } else {
               $wrapperElement.append($errorElement);
             }
           }
-
           $wrapperElement.addClass(settings.wrapper_error_class);
           $element.addClass('is-invalid');
           $errorElement.text(message);

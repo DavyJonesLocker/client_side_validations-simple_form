@@ -34,13 +34,13 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'byebug', '~> 11.1'
   spec.add_development_dependency 'm', '~> 1.6'
   spec.add_development_dependency 'minitest', '~> 5.16'
-  spec.add_development_dependency 'mocha', '~> 1.14'
+  spec.add_development_dependency 'mocha', '~> 1.15'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'simplecov', '~> 0.21.2'
   spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
 
   # For QUnit testing
   spec.add_development_dependency 'shotgun', '~> 0.9.2'
-  spec.add_development_dependency 'sinatra', '~> 2.2'
+  spec.add_development_dependency 'sinatra', '~> 3.0'
   spec.add_development_dependency 'webrick', '~> 1.7'
 end

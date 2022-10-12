@@ -30,7 +30,6 @@
         add: function add($element, settings, message) {
           var $wrapperElement = $element.closest("".concat(settings.wrapper_tag, ".").concat(settings.wrapper_class.replace(/ /g, '.')));
           var $errorElement = $wrapperElement.find("".concat(settings.error_tag, ".").concat(settings.error_class.replace(/ /g, '.')));
-
           if (!$errorElement.length) {
             $errorElement = jQuery__default["default"]("<".concat(settings.error_tag, ">"), {
               class: settings.error_class,
@@ -38,7 +37,6 @@
             });
             $wrapperElement.append($errorElement);
           }
-
           $wrapperElement.addClass(settings.wrapper_error_class);
           $errorElement.text(message);
         },
