@@ -15,6 +15,7 @@ class CopyAssetsGeneratorTest < Rails::Generators::TestCase
   test 'Assert file is properly created when no asset pipeline present' do
     stub_configuration
     run_generator
+
     assert_file 'public/javascripts/rails.validations.simple_form.js'
     assert_file 'public/javascripts/rails.validations.simple_form.bootstrap4.js'
   end
