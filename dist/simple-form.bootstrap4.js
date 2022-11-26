@@ -10,12 +10,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.jQuery, global.ClientSideValidations));
 })(this, (function (jQuery, ClientSideValidations) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-  var jQuery__default = /*#__PURE__*/_interopDefaultLegacy(jQuery);
-  var ClientSideValidations__default = /*#__PURE__*/_interopDefaultLegacy(ClientSideValidations);
-
-  ClientSideValidations__default["default"].formBuilders['SimpleForm::FormBuilder'] = {
+  ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
     add: function add($element, settings, message) {
       this.wrapper(settings.wrapper).add.call(this, $element, settings, message);
     },
@@ -32,7 +27,7 @@
           var $errorElement = $wrapperElement.find("".concat(settings.error_tag, ".invalid-feedback"));
           if (!$errorElement.length) {
             var $formTextElement = $wrapperElement.find('.form-text');
-            $errorElement = jQuery__default["default"]("<".concat(settings.error_tag, ">"), {
+            $errorElement = jQuery("<".concat(settings.error_tag, ">"), {
               class: 'invalid-feedback',
               text: message
             });
