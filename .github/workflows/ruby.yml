@@ -17,39 +17,38 @@ jobs:
       matrix:
         ruby-version: ['2.6', '2.7', '3.0', '3.1', '3.2']
         gemfile: [ csv_21.0 ]
-        experimental: [false]
+        channel: ['stable']
 
         include:
           - ruby-version: 'head'
             gemfile: csv_21.0
-            experimental: true
+            channel: 'experimental'
           - ruby-version: '2.6'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
           - ruby-version: '2.7'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
           - ruby-version: '3.0'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
           - ruby-version: '3.1'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
           - ruby-version: '3.2'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
           - ruby-version: 'head'
             gemfile: csv_edge
-            experimental: true
+            channel: 'experimental'
 
     env:
       BUNDLE_GEMFILE: gemfiles/${{ matrix.gemfile }}.gemfile
 
-    continue-on-error: ${{ matrix.experimental }}
+    continue-on-error: ${{ matrix.channel != 'stable' }}
 
     steps:
     - uses: actions/checkout@v3
-    - uses: nanasess/setup-chromedriver@v1
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
