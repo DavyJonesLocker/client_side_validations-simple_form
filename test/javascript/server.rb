@@ -6,6 +6,8 @@ require 'sinatra'
 require 'json'
 require 'byebug'
 
+disable :logging
+
 rails_validations_path = Bundler.load.specs.find { |s| s.name == 'client_side_validations' }
 raise 'Client Side Validations bundle not found' if rails_validations_path.nil?
 
