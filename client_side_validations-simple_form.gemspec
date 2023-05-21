@@ -29,18 +29,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'client_side_validations', '~> 21.0'
   spec.add_dependency 'simple_form', '~> 5.0'
-
-  spec.add_development_dependency 'appraisal', '~> 2.4'
-  spec.add_development_dependency 'byebug', '~> 11.1'
-  spec.add_development_dependency 'm', '~> 1.6'
-  spec.add_development_dependency 'minitest', '~> 5.18'
-  spec.add_development_dependency 'mocha', '~> 2.0'
-  spec.add_development_dependency 'rake', '~> 13.0'
-  spec.add_development_dependency 'simplecov', '~> 0.22.0'
-  spec.add_development_dependency 'simplecov-lcov', '~> 0.8.0'
-
-  # For QUnit testing
-  spec.add_development_dependency 'shotgun', '~> 0.9.2'
-  spec.add_development_dependency 'sinatra', '~> 3.0'
-  spec.add_development_dependency 'webrick', '~> 1.8'
 end
