@@ -20,7 +20,7 @@
   "homepage": "https://github.com/DavyJonesLocker/client_side_validations-simple_form",
   "scripts": {
     "build": "standard --verbose && rollup -c",
-    "test": "test/javascript/run-qunit.js"
+    "test": "test/javascript/run-qunit.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
