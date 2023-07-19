@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'appraisal', '~> 2.4'
+gem 'appraisal', '~> 2.5'
 gem 'byebug', '~> 11.1'
 gem 'm', '~> 1.6'
 gem 'minitest', '~> 5.18'
