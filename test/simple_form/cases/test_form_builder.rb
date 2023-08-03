@@ -4,7 +4,7 @@ require 'simple_form/cases/helper'
 
 module ClientSideValidations
   module SimpleForm
-    class FormBuilderTest < MiniTest::Test
+    class FormBuilderTest < Minitest::Test
       def test_client_side_form_js_hash
         builder = ::SimpleForm::FormBuilder.new(:user, nil, {}, {})
 
