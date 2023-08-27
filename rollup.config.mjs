@@ -18,14 +18,13 @@ const banner = (formBuilderName) => `/*!
 
 const umdModuleConfig = (inputFileName, outputModuleFileName, outputVendorFileName, formBuilderName) => ({
   input: `src/${inputFileName}`,
-  external: ['jquery', '@client-side-validations/client-side-validations'],
+  external: ['@client-side-validations/client-side-validations'],
   output: [
     {
       file: outputModuleFileName,
       banner: banner(formBuilderName),
       format: 'umd',
       globals: {
-        jquery: 'jQuery',
         '@client-side-validations/client-side-validations': 'ClientSideValidations'
       }
     }
@@ -45,7 +44,7 @@ const umdModuleConfig = (inputFileName, outputModuleFileName, outputVendorFileNa
 
 const esModuleConfig = (inputFileName, outputModuleFileName, formBuilderName) => ({
   input: `src/${inputFileName}`,
-  external: ['jquery', '@client-side-validations/client-side-validations'],
+  external: ['@client-side-validations/client-side-validations'],
   output: [
     {
       file: outputModuleFileName,
