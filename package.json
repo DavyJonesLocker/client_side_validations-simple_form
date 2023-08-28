@@ -34,8 +34,7 @@
     "standard": "^17.1.0"
   },
   "peerDependencies": {
-    "@client-side-validations/client-side-validations": ">= 0.2.0 < 0.4.0",
-    "jquery": ">= 1.12.4 < 4.0.0"
+    "@client-side-validations/client-side-validations": ">= 0.2.0 < 0.4.0"
   },
   "main": "dist/simple-form.js",
   "module": "dist/simple-form.esm.js",
@@ -68,7 +67,7 @@
       "/vendor/"
     ]
   },
-  "version": "0.3.1",
+  "version": "0.4.0",
   "directories": {
     "lib": "lib",
     "test": "test"

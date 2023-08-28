@@ -2,8 +2,8 @@
 
 ## main / unreleased
 
+* [FEATURE] Do not require jQuery
 * [ENHANCEMENT] Test against Ruby 3.2
-* [ENHANCEMENT] Test against jQuery 3.7.0 by default
 * [ENHANCEMENT] Update QUnit to 2.19.4
 
 ## 15.0.0 / 2022-09-18
