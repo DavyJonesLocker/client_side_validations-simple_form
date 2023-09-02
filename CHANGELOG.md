@@ -1,10 +1,12 @@
 # Changelog
 
-## main / unreleased
+## 16.0.0 / 2023-09-02
 
 * [FEATURE] Do not require jQuery
 * [ENHANCEMENT] Test against Ruby 3.2
 * [ENHANCEMENT] Update QUnit to 2.19.4
+* [FEATURE] Drop support to Ruby 2.6
+* [FEATURE] Drop support to CSV < 22.0
 
 ## 15.0.0 / 2022-09-18
 
