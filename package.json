@@ -29,7 +29,7 @@
     "@rollup/plugin-node-resolve": "^15.2.1",
     "chrome-launcher": "^1.0.0",
     "puppeteer-core": "^21.3.3",
-    "rollup": "^3.29.2",
+    "rollup": "^4.0.0",
     "rollup-plugin-copy": "^3.5.0",
     "standard": "^17.1.0"
   },
