@@ -1,5 +1,10 @@
 # Changelog
 
+## main / unreleased
+
+* [ENHANCEMENT] Test against Ruby 3.3
+* [ENHANCEMENT] Update QUnit to 2.20.0
+
 ## 16.0.0 / 2023-09-02
 
 * [FEATURE] Do not require jQuery
