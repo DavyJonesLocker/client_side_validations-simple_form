@@ -22,7 +22,7 @@ module ClientSideValidations
           options.delete(:validate)
         end
 
-        super(attribute_name, options, &block)
+        super
       end
 
       private
