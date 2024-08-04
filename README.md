@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b9e9cbbd0d9f454adba7/maintainability)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=main)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=main)
 
-[Simple Form](https://github.com/plataformatec/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
+[Simple Form](https://github.com/heartcombo/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
 
 ## Installation ##
 
@@ -120,4 +120,4 @@ on how to properly submit issues and pull requests.
 
 [@dockyard](https://twitter.com/dockyard)
 
-[Licensed under the MIT license](https://opensource.org/licenses/mit-license.php)
+[Licensed under the MIT license](https://opensource.org/licenses/mit)
