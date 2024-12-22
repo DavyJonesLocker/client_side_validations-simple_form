@@ -15,7 +15,7 @@ module ClientSideValidations
         }
       end
 
-      def input(attribute_name, options = {}, &block)
+      def input(attribute_name, options = {}, &)
         if options.key?(:validate)
           options[:input_html] ||= {}
           options[:input_html][:validate] = options[:validate]

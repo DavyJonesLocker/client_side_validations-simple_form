@@ -29,9 +29,10 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "chrome-launcher": "^1.1.2",
     "eslint": "^9.17.0",
+    "eslint-plugin-compat": "^6.0.2",
     "neostandard": "^0.12.0",
-    "puppeteer-core": "^23.10.4",
-    "rollup": "^4.28.1",
+    "puppeteer-core": "^23.11.1",
+    "rollup": "^4.29.1",
     "rollup-plugin-copy": "^3.5.0"
   },
   "peerDependencies": {
@@ -45,17 +46,14 @@
   },
   "packageManager": "pnpm@^9.12.1",
   "browserslist": [
-    ">= 1%",
-    "last 1 major version",
+    ">= 0.5%",
+    "last 2 major versions",
     "not dead",
-    "Chrome >= 45",
-    "Firefox >= 38",
-    "Edge >= 12",
-    "Explorer >= 10",
-    "iOS >= 9",
-    "Safari >= 9",
-    "Android >= 4.4",
-    "Opera >= 30"
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Firefox ESR",
+    "iOS >= 12",
+    "Safari >= 12"
   ],
   "files": [
     "dist",
@@ -69,7 +67,7 @@
       "/vendor/"
     ]
   },
-  "version": "0.4.0",
+  "version": "0.5.0",
   "directories": {
     "lib": "lib",
     "test": "test"
