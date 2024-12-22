@@ -1,9 +1,10 @@
 # Changelog
 
-## main / unreleased
+## 17.0.0 / unreleased
 
+* [FEATURE] Drop Internet Explorer and other older browsers support
 * [ENHANCEMENT] Test against Ruby 3.3
-* [ENHANCEMENT] Update QUnit to 2.21.0
+* [ENHANCEMENT] Update QUnit to 2.23.0
 
 ## 16.0.0 / 2023-09-02
 
