@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form.svg)](https://badge.fury.io/js/%40client-side-validations%2Fsimple-form)
 [![Ruby Build Status](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions/workflows/ruby.yml/badge.svg)](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions)
 [![JavaScript Build Status](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions/workflows/javascript.yml/badge.svg)](https://github.com/DavyJonesLocker/client_side_validations-simple_form/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b9e9cbbd0d9f454adba7/maintainability)](https://codeclimate.com/github/DavyJonesLocker/client_side_validations-simple_form/maintainability)
+[![Maintainability](https://qlty.sh/gh/DavyJonesLocker/projects/client_side_validations-simple_form/maintainability.svg)](https://qlty.sh/gh/DavyJonesLocker/projects/client_side_validations-simple_form)
 [![Coverage Status](https://coveralls.io/repos/github/DavyJonesLocker/client_side_validations-simple_form/badge.svg?branch=main)](https://coveralls.io/github/DavyJonesLocker/client_side_validations-simple_form?branch=main)
 
 [Simple Form](https://github.com/heartcombo/simple_form) plugin for [ClientSideValidations](https://github.com/DavyJonesLocker/client_side_validations)
