@@ -46,7 +46,7 @@ module ClientSideValidations
           }
         }
 
-        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input aria-required="true" class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)
+        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)
 
         assert_dom_equal expected, output_buffer
       end
@@ -79,7 +79,7 @@ module ClientSideValidations
           }
         }
 
-        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_category_title"><label class="string required" for="post_category_attributes_title"><abbr title="required">*</abbr> Title</label><input class="string required" required="required" aria-required="true" type="text" name="post[category_attributes][title]" id="post_category_attributes_title" /></div></form>)
+        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_category_title"><label class="string required" for="post_category_attributes_title"><abbr title="required">*</abbr> Title</label><input class="string required" required="required" type="text" name="post[category_attributes][title]" id="post_category_attributes_title" /></div></form>)
 
         assert_dom_equal expected, output_buffer
       end
@@ -103,7 +103,7 @@ module ClientSideValidations
           validators:    {}
         }
 
-        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input aria-required="true" class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)
+        expected = %(<form accept-charset="UTF-8" action="/posts" class="simple_form new_post" data-client-side-validations="#{CGI.escapeHTML(csv_data.to_json)}" id="new_post" method="post" novalidate="novalidate"><input name="utf8" type="hidden" value="&#x2713;" #{autocomplete_attribute} /><div class="input string required post_cost"><label class="string required" for="post_cost"><abbr title="required">*</abbr> Cost</label><input class="string required" id="post_cost" name="post[cost]" required="required" type="text" /></div></form>)
 
         assert_dom_equal expected, output_buffer
       end
