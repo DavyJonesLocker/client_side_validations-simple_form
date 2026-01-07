@@ -3,8 +3,9 @@
 ## 17.0.0 / unreleased
 
 * [FEATURE] Drop Internet Explorer and other older browsers support
-* [ENHANCEMENT] Test against Ruby 3.3 and 3.4
-* [ENHANCEMENT] Update QUnit to 2.24.3
+* [FEATURE] Drop CSV < 22 compatibility
+* [ENHANCEMENT] Test against Ruby 3.3, 3.4, and 4.0
+* [ENHANCEMENT] Update QUnit to 2.25.0
 
 ## 16.0.0 / 2023-09-02
 
