@@ -36,7 +36,7 @@
     "rollup-plugin-copy": "^3.5.0"
   },
   "peerDependencies": {
-    "@client-side-validations/client-side-validations": "^0.4.0"
+    "@client-side-validations/client-side-validations": ">=23.0.0"
   },
   "main": "dist/simple-form.js",
   "module": "dist/simple-form.esm.js",
@@ -66,7 +66,7 @@
       "/vendor/"
     ]
   },
-  "version": "0.5.0",
+  "version": "17.0.0",
   "directories": {
     "lib": "lib",
     "test": "test"
