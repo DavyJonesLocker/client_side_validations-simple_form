@@ -19,6 +19,6 @@ gem "simplecov"
 gem "simplecov-lcov"
 gem "sinatra"
 gem "webrick"
-gem "client_side_validations", git: "https://github.com/DavyJonesLocker/client_side_validations.git", branch: "main"
+gem "client_side_validations", "~> 23.0"
 
 gemspec path: "../"

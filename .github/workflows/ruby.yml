@@ -16,12 +16,12 @@ jobs:
     strategy:
       matrix:
         ruby-version: ['3.2', '3.3', '3.4', '4.0']
-        gemfile: [ csv_22.0 ]
+        gemfile: [ csv_23.0 ]
         channel: ['stable']
 
         include:
           - ruby-version: 'head'
-            gemfile: csv_22.0
+            gemfile: csv_23.0
             channel: 'experimental'
           - ruby-version: '3.2'
             gemfile: csv_edge

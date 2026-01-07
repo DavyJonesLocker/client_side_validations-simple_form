@@ -1,11 +1,13 @@
 # Changelog
 
-## 17.0.0 / unreleased
+## 17.0.0 / 2026-01-07
 
 * [FEATURE] Drop Internet Explorer and other older browsers support
-* [FEATURE] Drop CSV < 22 compatibility
+* [FEATURE] Drop CSV < 23 compatibility
+* [FEATURE] Drop Ruby < 3.2 compatibility
 * [ENHANCEMENT] Test against Ruby 3.3, 3.4, and 4.0
 * [ENHANCEMENT] Update QUnit to 2.25.0
+* [ENHANCEMENT] Match node package version with gem version
 
 ## 16.0.0 / 2023-09-02
 
