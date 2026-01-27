@@ -1,5 +1,9 @@
 # Changelog
 
+## main / unreleased
+
+* [ENHANCEMENT] Test against jQuery 4.0.0
+
 ## 17.0.0 / 2026-01-07
 
 * [FEATURE] Drop Internet Explorer and other older browsers support
