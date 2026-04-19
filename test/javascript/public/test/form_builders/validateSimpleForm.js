@@ -1,3 +1,5 @@
+var currentFormBuilder
+
 QUnit.module('Validate SimpleForm', {
   before: function () {
     currentFormBuilder = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
@@ -9,6 +11,12 @@ QUnit.module('Validate SimpleForm', {
   },
 
   beforeEach: function () {
+    var fixture = document.getElementById('qunit-fixture')
+    var form = document.createElement('form')
+    var wrapper = document.createElement('div')
+    var input = document.createElement('input')
+    var label = document.createElement('label')
+
     dataCsv = {
       html_settings: {
         type: 'SimpleForm::FormBuilder',
@@ -20,70 +28,92 @@ QUnit.module('Validate SimpleForm', {
         wrapper: 'default'
       },
       validators: {
-        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] }
+        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', with: { options: 'g', source: '\\d+' } }] }
       }
     }
 
-    $('#qunit-fixture')
-      .append($('<form>', {
-        action: '/users',
-        'data-client-side-validations': JSON.stringify(dataCsv),
-        method: 'post',
-        id: 'new_user'
-      }))
-      .find('form')
-      .append($('<div class="input">'))
-      .find('div')
-      .append($('<input />', {
-        name: 'user[name]',
-        id: 'user_name',
-        type: 'text'
-      }))
-      .append($('<label for="user_name">Name</label>'))
-    $('form#new_user').validate()
+    form.action = '/users'
+    form.dataset.clientSideValidations = JSON.stringify(dataCsv)
+    form.method = 'post'
+    form.id = 'new_user'
+
+    wrapper.className = 'input'
+
+    input.name = 'user[name]'
+    input.id = 'user_name'
+    input.type = 'text'
+
+    label.htmlFor = 'user_name'
+    label.textContent = 'Name'
+
+    wrapper.appendChild(input)
+    wrapper.appendChild(label)
+    form.appendChild(wrapper)
+    fixture.appendChild(form)
+
+    ClientSideValidations.validate(form)
+  },
+
+  afterEach: function () {
+    document.getElementById('qunit-fixture').replaceChildren()
   }
 })
 
 QUnit.test('Validate error attaching and detaching', function (assert) {
-  var form = $('form#new_user'); var input = form.find('input#user_name')
-  var label = $('label[for="user_name"]')
+  var form = document.getElementById('new_user')
+  var input = document.getElementById('user_name')
+  var label = form.querySelector('label[for="user_name"]')
 
-  input.trigger('focusout')
-  assert.ok(input.parent().hasClass('field_with_errors'))
-  assert.ok(label.parent().hasClass('field_with_errors'))
-  assert.ok(input.parent().find('span.error:contains("must be present")')[0])
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+  assert.ok(input.parentElement.classList.contains('field_with_errors'))
+  assert.ok(label.parentElement.classList.contains('field_with_errors'))
+  assert.ok(input.parentElement.querySelector('span.error').textContent.includes('must be present'))
 
-  input.val('abc')
-  input.trigger('change')
-  input.trigger('focusout')
-  assert.ok(input.parent().hasClass('field_with_errors'))
-  assert.ok(label.parent().hasClass('field_with_errors'))
-  assert.ok(input.parent().find('span.error:contains("is invalid")')[0])
+  input.value = 'abc'
+  input.dispatchEvent(new Event('change', { bubbles: true }))
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+  assert.ok(input.parentElement.classList.contains('field_with_errors'))
+  assert.ok(label.parentElement.classList.contains('field_with_errors'))
+  assert.ok(input.parentElement.querySelector('span.error').textContent.includes('is invalid'))
 
-  input.val('123')
-  input.trigger('change')
-  input.trigger('focusout')
-  assert.notOk(input.parent().hasClass('field_with_errors'))
-  assert.notOk(label.parent().hasClass('field_with_errors'))
-  assert.notOk(form.find('span.error')[0])
+  input.value = '123'
+  input.dispatchEvent(new Event('change', { bubbles: true }))
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+  assert.notOk(input.parentElement.classList.contains('field_with_errors'))
+  assert.notOk(label.parentElement.classList.contains('field_with_errors'))
+  assert.notOk(form.querySelector('span.error'))
 })
 
 QUnit.test('Validate pre-existing error blocks are re-used', function (assert) {
-  var form = $('form#new_user'); var input = form.find('input#user_name')
-  var label = $('label[for="user_name"]')
+  var form = document.getElementById('new_user')
+  var input = document.getElementById('user_name')
+  var label = form.querySelector('label[for="user_name"]')
+  var errorElement = document.createElement('span')
 
-  input.parent().append($('<span class="error small">Error from Server</span>'))
-  assert.ok(input.parent().find('span.error:contains("Error from Server")')[0])
-  input.val('abc')
-  input.trigger('change')
-  input.trigger('focusout')
-  assert.ok(input.parent().hasClass('field_with_errors'))
-  assert.ok(label.parent().hasClass('field_with_errors'))
-  assert.ok(input.parent().find('span.error:contains("is invalid")').length === 1)
-  assert.ok(form.find('span.error').length === 1)
+  errorElement.className = 'error small'
+  errorElement.textContent = 'Error from Server'
+  input.parentElement.appendChild(errorElement)
+
+  assert.ok(input.parentElement.querySelector('span.error').textContent.includes('Error from Server'))
+
+  input.value = 'abc'
+  input.dispatchEvent(new Event('change', { bubbles: true }))
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+
+  assert.ok(input.parentElement.classList.contains('field_with_errors'))
+  assert.ok(label.parentElement.classList.contains('field_with_errors'))
+  assert.equal(input.parentElement.querySelectorAll('span.error').length, 1)
+  assert.equal(form.querySelectorAll('span.error').length, 1)
+  assert.ok(input.parentElement.querySelector('span.error').textContent.includes('is invalid'))
 })
 
-QUnit.test("Display error messages when wrapper and error tags have more than two css classes", function (assert) {
+QUnit.test('Display error messages when wrapper and error tags have more than two css classes', function (assert) {
+  var fixture = document.getElementById('qunit-fixture')
+  var form = document.createElement('form')
+  var wrapper = document.createElement('div')
+  var input = document.createElement('input')
+  var label = document.createElement('label')
+
   dataCsv = {
     html_settings: {
       type: 'SimpleForm::FormBuilder',
@@ -95,41 +125,41 @@ QUnit.test("Display error messages when wrapper and error tags have more than tw
       wrapper: 'default'
     },
     validators: {
-      'user_2[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] }
+      'user_2[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', with: { options: 'g', source: '\\d+' } }] }
     }
   }
 
-  $('#qunit-fixture')
-    .html('')
-    .append($('<form>', {
-      action: '/users',
-      'data-client-side-validations': JSON.stringify(dataCsv),
-      method: 'post',
-      id: 'new_user_2'
-    }))
-    .find('form')
-    .append($('<div class="input wrapper_class_one wrapper_class_two">'))
-    .find('div')
-    .append($('<input />', {
-      name: 'user_2[name]',
-      id: 'user_2_name',
-      type: 'text'
-    }))
-    .append($('<label for="user_2_name">Name</label>'))
-  $('form#new_user_2').validate()
+  fixture.replaceChildren()
 
-  var form = $('form#new_user_2')
-  var input = form.find('input#user_2_name')
+  form.action = '/users'
+  form.dataset.clientSideValidations = JSON.stringify(dataCsv)
+  form.method = 'post'
+  form.id = 'new_user_2'
 
-  input.val('')
-  input.trigger('focusout')
+  wrapper.className = 'input wrapper_class_one wrapper_class_two'
 
-  assert.ok(input.parent().hasClass('field_with_errors'))
+  input.name = 'user_2[name]'
+  input.id = 'user_2_name'
+  input.type = 'text'
 
-  input.val('123')
-  input.trigger('change')
-  input.trigger('focusout')
+  label.htmlFor = 'user_2_name'
+  label.textContent = 'Name'
 
-  assert.notOk(input.parent().hasClass('field_with_errors'))
-  assert.notOk(form.find('span.error').length)
+  wrapper.appendChild(input)
+  wrapper.appendChild(label)
+  form.appendChild(wrapper)
+  fixture.appendChild(form)
+
+  ClientSideValidations.validate(form)
+
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+
+  assert.ok(input.parentElement.classList.contains('field_with_errors'))
+
+  input.value = '123'
+  input.dispatchEvent(new Event('change', { bubbles: true }))
+  input.dispatchEvent(new Event('focusout', { bubbles: true }))
+
+  assert.notOk(input.parentElement.classList.contains('field_with_errors'))
+  assert.notOk(form.querySelector('span.error'))
 })

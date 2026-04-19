@@ -2,11 +2,11 @@ import ClientSideValidations from '@client-side-validations/client-side-validati
 import { addClass, removeClass } from './utils'
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
-  add: function ($element, settings, message) {
-    this.wrapper(settings.wrapper).add.call(this, $element[0], settings, message)
+  add: function (element, settings, message) {
+    this.wrapper(settings.wrapper).add.call(this, element, settings, message)
   },
-  remove: function ($element, settings) {
-    this.wrapper(settings.wrapper).remove.call(this, $element[0], settings)
+  remove: function (element, settings) {
+    this.wrapper(settings.wrapper).remove.call(this, element, settings)
   },
   wrapper: function (name) {
     return this.wrappers[name] || this.wrappers.default

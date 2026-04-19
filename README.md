@@ -28,9 +28,11 @@ required **before** `client_side_validations-simple_form`.
 
 Instructions depend on your technology stack.
 
+This package extends the jQuery-free, DOM-first `ClientSideValidations` runtime.
+
 ####  When using Webpacker ####
 
-Make sure that you are requiring jQuery and Client Side Validations.
+Make sure that you are requiring Client Side Validations before the Simple Form plugin.
 
 Add the following package:
 
@@ -58,7 +60,7 @@ require('@client-side-validations/simple-form/dist/simple-form.bootstrap4.esm')
 
 ####  When using Sprockets ####
 
-Make sure that you are requiring jQuery and Client Side Validations.
+Make sure that you are requiring Client Side Validations before the Simple Form plugin.
 
 According to the web framework you are using, add **one** of the following
 lines to your `app/assets/javascripts/application.js`, **after**
@@ -79,6 +81,18 @@ rails g client_side_validations:copy_assets
 ```
 
 Note: If you run `copy_assets`, you will need to run it again each time you update this project.
+
+## Migration Guide ##
+
+### Removing jQuery Dependency ###
+
+`client_side_validations-simple_form` now plugs into the DOM-first `ClientSideValidations` runtime and no longer assumes jQuery is present.
+
+Follow the main `ClientSideValidations` migration guide for the public API changes. In particular, load the current DOM-first `ClientSideValidations` bundle before loading this package, and update any custom code that still expects jQuery-wrapped objects.
+
+Custom Simple Form builders now receive native DOM elements in their `add` and `remove` hooks, so custom overrides should use DOM APIs such as `.closest()`, `.querySelector()`, and `.classList`.
+
+If you vendor the compiled assets with `rails g client_side_validations:copy_assets`, run that generator again after upgrading so the copied Simple Form assets stay in sync with the current `ClientSideValidations` bundle.
 
 ## Usage ##
 
