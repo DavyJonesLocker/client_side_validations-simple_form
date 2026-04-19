@@ -1,3 +1,5 @@
+var currentFormBuilder
+
 QUnit.module('Validate SimpleForm Bootstrap', {
   before: function () {
     currentFormBuilder = window.ClientSideValidations.formBuilders['SimpleForm::FormBuilder']
@@ -9,6 +11,19 @@ QUnit.module('Validate SimpleForm Bootstrap', {
   },
 
   beforeEach: function () {
+    var fixture = document.getElementById('qunit-fixture')
+    var form = document.createElement('form')
+    var formInputs = document.createElement('div')
+    var nameGroup = document.createElement('div')
+    var nameLabel = document.createElement('label')
+    var nameControls = document.createElement('div')
+    var nameInput = document.createElement('input')
+    var usernameGroup = document.createElement('div')
+    var usernameLabel = document.createElement('label')
+    var inputGroup = document.createElement('div')
+    var inputGroupAddon = document.createElement('span')
+    var usernameInput = document.createElement('input')
+
     dataCsv = {
       html_settings: {
         type: 'SimpleForm::FormBuilder',
@@ -20,118 +35,133 @@ QUnit.module('Validate SimpleForm Bootstrap', {
         wrapper: 'bootstrap'
       },
       validators: {
-        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', 'with': { options: 'g', source: '\\d+' } }] },
+        'user[name]': { presence: [{ message: 'must be present' }], format: [{ message: 'is invalid', with: { options: 'g', source: '\\d+' } }] },
         'user[username]': { presence: [{ message: 'must be present' }] }
       }
     }
 
-    $('#qunit-fixture')
-      .append($('<form>', {
-        action: '/users',
-        'data-client-side-validations': JSON.stringify(dataCsv),
-        method: 'post',
-        id: 'new_user'
-      }))
-      .find('form')
-      .append($('<div>', {
-        'class': 'form-inputs'
-      }))
-      .find('div')
-      .append($('<div>', {
-        'class': 'control-group control-group-2 control-group-3 control-group-user-name'
-      }))
-      .find('div.control-group-user-name')
-      .append($('<label for="user_name" class="string control-label">Name</label>'))
-      .append($('<div>', {
-        'class': 'controls'
-      }))
-      .find('div')
-      .append($('<input />', {
-        name: 'user[name]',
-        id: 'user_name',
-        type: 'text'
-      }))
-      .append($('<div>', {
-        'class': 'control-group control-group-2 control-group-3 control-group-user-username'
-      }))
-      .find('div.control-group-user-username')
-      .append($('<label for="user_username" class="string control-label">Username</label>'))
-      .append($('<div>', {
-        'class': 'input-group'
-      }))
-      .find('div')
-      .append($('<span>', {
-        'class': 'input-group-addon',
-        text: '@'
-      }))
-      .append($('<input />', {
-        name: 'user[username]',
-        id: 'user_username',
-        type: 'text'
-      }))
+    form.action = '/users'
+    form.dataset.clientSideValidations = JSON.stringify(dataCsv)
+    form.method = 'post'
+    form.id = 'new_user'
 
-    $('form#new_user').validate()
+    formInputs.className = 'form-inputs'
+
+    nameGroup.className = 'control-group control-group-2 control-group-3 control-group-user-name'
+    nameLabel.htmlFor = 'user_name'
+    nameLabel.className = 'string control-label'
+    nameLabel.textContent = 'Name'
+    nameControls.className = 'controls'
+    nameInput.name = 'user[name]'
+    nameInput.id = 'user_name'
+    nameInput.type = 'text'
+
+    usernameGroup.className = 'control-group control-group-2 control-group-3 control-group-user-username'
+    usernameLabel.htmlFor = 'user_username'
+    usernameLabel.className = 'string control-label'
+    usernameLabel.textContent = 'Username'
+    inputGroup.className = 'input-group'
+    inputGroupAddon.className = 'input-group-addon'
+    inputGroupAddon.textContent = '@'
+    usernameInput.name = 'user[username]'
+    usernameInput.id = 'user_username'
+    usernameInput.type = 'text'
+
+    nameControls.appendChild(nameInput)
+    nameGroup.appendChild(nameLabel)
+    nameGroup.appendChild(nameControls)
+
+    inputGroup.appendChild(inputGroupAddon)
+    inputGroup.appendChild(usernameInput)
+    usernameGroup.appendChild(usernameLabel)
+    usernameGroup.appendChild(inputGroup)
+
+    formInputs.appendChild(nameGroup)
+    formInputs.appendChild(usernameGroup)
+    form.appendChild(formInputs)
+    fixture.appendChild(form)
+
+    ClientSideValidations.validate(form)
+  },
+
+  afterEach: function () {
+    document.getElementById('qunit-fixture').replaceChildren()
   }
 })
 
 var wrappers = ['horizontal_form', 'vertical_form', 'inline_form']
 
-for (var i = 0; i < wrappers.length; i++) {
-  var wrapper = wrappers[i]
-
+for (const wrapper of wrappers) {
   QUnit.test(wrapper + ' - Validate error attaching and detaching', function (assert) {
-    var form = $('form#new_user'); var input = form.find('input#user_name')
-    var label = $('label[for="user_name"]')
-    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
+    var form = document.getElementById('new_user')
+    var input = document.getElementById('user_name')
+    var label = form.querySelector('label[for="user_name"]')
+    var wrapperElement = input.closest('.control-group-user-name')
 
-    input.trigger('focusout')
-    assert.ok(input.parent().parent().hasClass('error'))
-    assert.ok(label.parent().hasClass('error'))
-    assert.ok(input.parent().parent().find('span.help-inline:contains("must be present")')[0])
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
 
-    input.val('abc')
-    input.trigger('change')
-    input.trigger('focusout')
-    assert.ok(input.parent().parent().hasClass('error'))
-    assert.ok(input.parent().parent().find('span.help-inline:contains("is invalid")')[0])
-    assert.ok(label.parent().hasClass('error'))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+    assert.ok(wrapperElement.classList.contains('error'))
+    assert.ok(label.parentElement.classList.contains('error'))
+    assert.ok(wrapperElement.querySelector('span.help-inline').textContent.includes('must be present'))
 
-    input.val('123')
-    input.trigger('change')
-    input.trigger('focusout')
-    assert.notOk(input.parent().parent().hasClass('error'))
-    assert.notOk(input.parent().parent().find('span.help-inline')[0])
-    assert.notOk(label.parent().hasClass('error'))
+    input.value = 'abc'
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+    assert.ok(wrapperElement.classList.contains('error'))
+    assert.ok(wrapperElement.querySelector('span.help-inline').textContent.includes('is invalid'))
+    assert.ok(label.parentElement.classList.contains('error'))
+
+    input.value = '123'
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+    assert.notOk(wrapperElement.classList.contains('error'))
+    assert.notOk(wrapperElement.querySelector('span.help-inline'))
+    assert.notOk(label.parentElement.classList.contains('error'))
   })
 
   QUnit.test(wrapper + ' - Validate pre-existing error blocks are re-used', function (assert) {
-    var form = $('form#new_user'); var input = form.find('input#user_name')
-    var label = $('label[for="user_name"]')
-    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
+    var form = document.getElementById('new_user')
+    var input = document.getElementById('user_name')
+    var label = form.querySelector('label[for="user_name"]')
+    var wrapperElement = input.closest('.control-group-user-name')
+    var errorElement = document.createElement('span')
 
-    input.parent().append($('<span class="help-inline">Error from Server</span>'))
-    assert.ok(input.parent().find('span.help-inline:contains("Error from Server")')[0])
-    input.val('abc')
-    input.trigger('change')
-    input.trigger('focusout')
-    assert.ok(input.parent().parent().hasClass('error'))
-    assert.ok(label.parent().hasClass('error'))
-    assert.ok(input.parent().find('span.help-inline:contains("is invalid")').length === 1)
-    assert.ok(form.find('span.help-inline').length === 1)
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
+
+    errorElement.className = 'help-inline'
+    errorElement.textContent = 'Error from Server'
+    input.parentElement.appendChild(errorElement)
+
+    assert.ok(input.parentElement.querySelector('span.help-inline').textContent.includes('Error from Server'))
+
+    input.value = 'abc'
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+
+    assert.ok(wrapperElement.classList.contains('error'))
+    assert.ok(label.parentElement.classList.contains('error'))
+    assert.equal(wrapperElement.querySelectorAll('span.help-inline').length, 1)
+    assert.equal(form.querySelectorAll('span.help-inline').length, 1)
+    assert.ok(wrapperElement.querySelector('span.help-inline').textContent.includes('is invalid'))
   })
 
   QUnit.test(wrapper + ' - Validate input-group', function (assert) {
-    var form = $('form#new_user'); var input = form.find('input#user_username')
-    form[0].ClientSideValidations.settings.html_settings.wrapper = wrapper
+    var form = document.getElementById('new_user')
+    var input = document.getElementById('user_username')
+    var wrapperElement = input.closest('.control-group-user-username')
+    var inputGroup = input.closest('.input-group')
 
-    input.trigger('change')
-    input.trigger('focusout')
-    assert.ok(input.closest('.input-group').find('span.help-inline').length === 0)
-    assert.ok(input.closest('.control-group').find('span.help-inline').length === 1)
+    form.ClientSideValidations.settings.html_settings.wrapper = wrapper
 
-    input.val('abc')
-    input.trigger('change')
-    input.trigger('focusout')
-    assert.ok(input.closest('.control-group').find('span.help-inline').length === 0)
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+    assert.equal(inputGroup.querySelectorAll('span.help-inline').length, 0)
+    assert.equal(wrapperElement.querySelectorAll('span.help-inline').length, 1)
+
+    input.value = 'abc'
+    input.dispatchEvent(new Event('change', { bubbles: true }))
+    input.dispatchEvent(new Event('focusout', { bubbles: true }))
+    assert.equal(wrapperElement.querySelectorAll('span.help-inline').length, 0)
   })
 }

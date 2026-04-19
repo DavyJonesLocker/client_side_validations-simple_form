@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.platform              = Gem::Platform::RUBY
   spec.required_ruby_version = '>= 3.2'
 
-  spec.add_dependency 'client_side_validations', '>= 23.0'
+  spec.add_dependency 'client_side_validations', '>= 24.0'
   spec.add_dependency 'simple_form', '>= 5.4'
 end

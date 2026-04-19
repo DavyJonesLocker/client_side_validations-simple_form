@@ -19,6 +19,6 @@ gem "simplecov"
 gem "simplecov-lcov"
 gem "sinatra"
 gem "webrick"
-gem "client_side_validations", "~> 23.0"
+gem "client_side_validations", "~> 24.0"
 
 gemspec path: "../"

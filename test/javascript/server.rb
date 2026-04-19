@@ -30,17 +30,11 @@ class AssetPath < Rack::Static
 end
 
 use AssetPath, urls: ['/vendor/assets/javascripts'], root: File.expand_path('../..', settings.root)
-use AssetPath, urls: ['/vendor/assets/javascripts'], root: File.expand_path('../', $LOAD_PATH.find { |p| p.include?('jquery-rails') })
 use AssetPath, urls: ['/vendor/assets/javascripts'], root: rails_validations_path.full_gem_path
 
-DEFAULT_JQUERY_VERSION = '3.7.1.slim'
-QUNIT_VERSION          = '2.25.0'
+QUNIT_VERSION = '2.25.0'
 
 helpers do
-  def jquery_version
-    params[:jquery] || DEFAULT_JQUERY_VERSION
-  end
-
   def qunit_version
     QUNIT_VERSION
   end

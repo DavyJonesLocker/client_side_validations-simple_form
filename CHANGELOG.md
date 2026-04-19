@@ -1,5 +1,10 @@
 # Changelog
 
+## 18.0.0 / 2026-04-19
+
+* [FEATURE] Breaking change: Align the Simple Form JavaScript hooks with the DOM-first `ClientSideValidations` runtime
+* [ENHANCEMENT] Remove jQuery-specific assumptions from the browser test harness and documentation
+
 ## 17.0.0 / 2026-01-07
 
 * [FEATURE] Drop Internet Explorer and other older browsers support

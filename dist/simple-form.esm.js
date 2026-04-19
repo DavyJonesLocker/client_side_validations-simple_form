@@ -1,5 +1,5 @@
 /*!
- * Client Side Validations Simple Form JS (Default) - v17.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Default) - v18.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2026 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
@@ -18,11 +18,11 @@ const removeClass = (element, customClass) => {
 };
 
 ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
-  add: function ($element, settings, message) {
-    this.wrapper(settings.wrapper).add.call(this, $element[0], settings, message);
+  add: function (element, settings, message) {
+    this.wrapper(settings.wrapper).add.call(this, element, settings, message);
   },
-  remove: function ($element, settings) {
-    this.wrapper(settings.wrapper).remove.call(this, $element[0], settings);
+  remove: function (element, settings) {
+    this.wrapper(settings.wrapper).remove.call(this, element, settings);
   },
   wrapper: function (name) {
     return this.wrappers[name] || this.wrappers.default;
