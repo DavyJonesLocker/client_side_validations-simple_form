@@ -46,10 +46,10 @@ pack:
 
 ```js
 // No framework / Generic frameworks / Bootstrap 3 with `import` syntax
-import '@client-side-validations/simple-form/src'
+import '@client-side-validations/simple-form'
 
 // Bootstrap 4+ with `import` syntax
-import '@client-side-validations/simple-form/src/index.bootstrap4'
+import '@client-side-validations/simple-form/dist/simple-form.bootstrap4.esm'
 
 // No framework / Generic frameworks / Bootstrap 3 with `require` syntax
 require('@client-side-validations/simple-form')
