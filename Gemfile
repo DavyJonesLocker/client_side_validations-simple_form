@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'appraisal'
+gem 'appraisal2'
 gem 'byebug'
 gem 'm'
 gem 'minitest'
