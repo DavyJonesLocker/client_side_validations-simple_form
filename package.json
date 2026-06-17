@@ -29,7 +29,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "chrome-launcher": "^1.2.1",
     "eslint": "^9.39.2",
-    "eslint-plugin-compat": "^6.0.2",
+    "eslint-plugin-compat": "^7.0.2",
     "neostandard": "^0.13.0",
     "puppeteer-core": "^24.41.0",
     "rollup": "^4.60.2",
