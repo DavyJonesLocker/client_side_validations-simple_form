@@ -1,61 +1,51 @@
 /*!
- * Client Side Validations Simple Form JS (Default) - v18.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Bootstrap 4+) - v19.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2026 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
-
-import ClientSideValidations from '@client-side-validations/client-side-validations';
-
+import ClientSideValidations from "@client-side-validations/client-side-validations";
+//#region src/utils.js
 const addClass = (element, customClass) => {
-  if (customClass) {
-    element.classList.add(...customClass.split(' '));
-  }
+	if (customClass) element.classList.add(...customClass.split(" "));
 };
 const removeClass = (element, customClass) => {
-  if (customClass) {
-    element.classList.remove(...customClass.split(' '));
-  }
+	if (customClass) element.classList.remove(...customClass.split(" "));
 };
-
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
-  add: function (element, settings, message) {
-    this.wrapper(settings.wrapper).add.call(this, element, settings, message);
-  },
-  remove: function (element, settings) {
-    this.wrapper(settings.wrapper).remove.call(this, element, settings);
-  },
-  wrapper: function (name) {
-    return this.wrappers[name] || this.wrappers.default;
-  },
-  wrappers: {
-    default: {
-      add(element, settings, message) {
-        const wrapperElement = element.parentElement;
-        let errorElement = wrapperElement.querySelector("".concat(settings.error_tag, ".invalid-feedback"));
-        if (!errorElement) {
-          const formTextElement = wrapperElement.querySelector('.form-text');
-          errorElement = document.createElement(settings.error_tag);
-          addClass(errorElement, 'invalid-feedback');
-          errorElement.textContent = message;
-          if (formTextElement) {
-            formTextElement.before(errorElement);
-          } else {
-            wrapperElement.appendChild(errorElement);
-          }
-        }
-        addClass(wrapperElement, settings.wrapper_error_class);
-        addClass(element, 'is-invalid');
-        errorElement.textContent = message;
-      },
-      remove(element, settings) {
-        const wrapperElement = element.parentElement;
-        const errorElement = wrapperElement.querySelector("".concat(settings.error_tag, ".invalid-feedback"));
-        removeClass(wrapperElement, settings.wrapper_error_class);
-        removeClass(element, 'is-invalid');
-        if (errorElement) {
-          errorElement.remove();
-        }
-      }
-    }
-  }
+//#endregion
+//#region src/index.bootstrap4.js
+ClientSideValidations.formBuilders["SimpleForm::FormBuilder"] = {
+	add: function(element, settings, message) {
+		this.wrapper(settings.wrapper).add.call(this, element, settings, message);
+	},
+	remove: function(element, settings) {
+		this.wrapper(settings.wrapper).remove.call(this, element, settings);
+	},
+	wrapper: function(name) {
+		return this.wrappers[name] || this.wrappers.default;
+	},
+	wrappers: { default: {
+		add(element, settings, message) {
+			const wrapperElement = element.parentElement;
+			let errorElement = wrapperElement.querySelector(`${settings.error_tag}.invalid-feedback`);
+			if (!errorElement) {
+				const formTextElement = wrapperElement.querySelector(".form-text");
+				errorElement = document.createElement(settings.error_tag);
+				addClass(errorElement, "invalid-feedback");
+				errorElement.textContent = message;
+				if (formTextElement) formTextElement.before(errorElement);
+				else wrapperElement.appendChild(errorElement);
+			}
+			addClass(wrapperElement, settings.wrapper_error_class);
+			addClass(element, "is-invalid");
+			errorElement.textContent = message;
+		},
+		remove(element, settings) {
+			const wrapperElement = element.parentElement;
+			const errorElement = wrapperElement.querySelector(`${settings.error_tag}.invalid-feedback`);
+			removeClass(wrapperElement, settings.wrapper_error_class);
+			removeClass(element, "is-invalid");
+			if (errorElement) errorElement.remove();
+		}
+	} }
 };
+//#endregion
