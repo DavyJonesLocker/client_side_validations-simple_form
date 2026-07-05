@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-appraise 'csv-24.0' do
-  gem 'client_side_validations', '~> 24.0'
+appraise 'csv-25.0' do
+  gem 'client_side_validations', '~> 25.0'
 end
 
 appraise 'csv-edge' do

@@ -1,5 +1,13 @@
 # Changelog
 
+## 19.0.0 / 2026-07-05
+
+* [FEATURE] Breaking change: Replace Rollup with Rolldown v1 for bundling (10–30× faster builds)
+* [FEATURE] Breaking change: Replace ESLint + neostandard with Oxlint v1 for linting (50–100× faster)
+* [FEATURE] Breaking change: Drop Babel — transpilation handled by Rolldown's built-in Oxc transforms (minimum browser targets are unchanged: Chrome 60+, Firefox 60+, iOS 12+, Safari 12+)
+* [FEATURE] Breaking change: Drop CSV < 25 compatibility
+* [ENHANCEMENT] Remove 9 unused npm devDependencies (smaller install footprint)
+
 ## 18.0.0 / 2026-04-19
 
 * [FEATURE] Breaking change: Align the Simple Form JavaScript hooks with the DOM-first `ClientSideValidations` runtime

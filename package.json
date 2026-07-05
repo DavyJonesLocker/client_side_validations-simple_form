@@ -19,24 +19,18 @@
   },
   "homepage": "https://github.com/DavyJonesLocker/client_side_validations-simple_form",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rolldown -c",
+    "lint": "oxlint --deny-warnings --ignore-pattern=coverage --ignore-pattern=dist --ignore-pattern=gemfiles --ignore-pattern=test --ignore-pattern=vendor",
     "test": "test/javascript/run-qunit.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
-    "@rollup/plugin-babel": "^7.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.3",
     "chrome-launcher": "^1.2.1",
-    "eslint": "^9.39.2",
-    "eslint-plugin-compat": "^7.0.2",
-    "neostandard": "^0.13.0",
+    "oxlint": "^1.0.0",
     "puppeteer-core": "^25.1.0",
-    "rollup": "^4.60.2",
-    "rollup-plugin-copy": "^3.5.0"
+    "rolldown": "^1.0.0"
   },
   "peerDependencies": {
-    "@client-side-validations/client-side-validations": ">=24.0.0"
+    "@client-side-validations/client-side-validations": ">=25.0.0"
   },
   "main": "dist/simple-form.js",
   "module": "dist/simple-form.esm.js",
@@ -58,15 +52,7 @@
     "dist",
     "src/**/*.js"
   ],
-  "standard": {
-    "ignore": [
-      "/dist/",
-      "/gemfiles/",
-      "/test/",
-      "/vendor/"
-    ]
-  },
-  "version": "18.0.0",
+  "version": "19.0.0",
   "directories": {
     "lib": "lib",
     "test": "test"

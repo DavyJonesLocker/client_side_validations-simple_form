@@ -1,54 +1,47 @@
 /*!
- * Client Side Validations Simple Form JS (Default) - v18.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
+ * Client Side Validations Simple Form JS (Default) - v19.0.0 (https://github.com/DavyJonesLocker/client_side_validations-simple_form)
  * Copyright (c) 2026 Geremia Taglialatela, Brian Cardarella
  * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
  */
-
-import ClientSideValidations from '@client-side-validations/client-side-validations';
-
+import ClientSideValidations from "@client-side-validations/client-side-validations";
+//#region src/utils.js
 const addClass = (element, customClass) => {
-  if (customClass) {
-    element.classList.add(...customClass.split(' '));
-  }
+	if (customClass) element.classList.add(...customClass.split(" "));
 };
 const removeClass = (element, customClass) => {
-  if (customClass) {
-    element.classList.remove(...customClass.split(' '));
-  }
+	if (customClass) element.classList.remove(...customClass.split(" "));
 };
-
-ClientSideValidations.formBuilders['SimpleForm::FormBuilder'] = {
-  add: function (element, settings, message) {
-    this.wrapper(settings.wrapper).add.call(this, element, settings, message);
-  },
-  remove: function (element, settings) {
-    this.wrapper(settings.wrapper).remove.call(this, element, settings);
-  },
-  wrapper: function (name) {
-    return this.wrappers[name] || this.wrappers.default;
-  },
-  wrappers: {
-    default: {
-      add(element, settings, message) {
-        const wrapperElement = element.closest("".concat(settings.wrapper_tag, ".").concat(settings.wrapper_class.replace(/ /g, '.')));
-        let errorElement = wrapperElement.querySelector("".concat(settings.error_tag, ".").concat(settings.error_class.replace(/ /g, '.')));
-        if (!errorElement) {
-          errorElement = document.createElement(settings.error_tag);
-          addClass(errorElement, settings.error_class);
-          errorElement.textContent = message;
-          wrapperElement.appendChild(errorElement);
-        }
-        addClass(wrapperElement, settings.wrapper_error_class);
-        errorElement.textContent = message;
-      },
-      remove(element, settings) {
-        const wrapperElement = element.closest("".concat(settings.wrapper_tag, ".").concat(settings.wrapper_class.replace(/ /g, '.')));
-        const errorElement = wrapperElement.querySelector("".concat(settings.error_tag, ".").concat(settings.error_class.replace(/ /g, '.')));
-        removeClass(wrapperElement, settings.wrapper_error_class);
-        if (errorElement) {
-          errorElement.remove();
-        }
-      }
-    }
-  }
+//#endregion
+//#region src/index.js
+ClientSideValidations.formBuilders["SimpleForm::FormBuilder"] = {
+	add: function(element, settings, message) {
+		this.wrapper(settings.wrapper).add.call(this, element, settings, message);
+	},
+	remove: function(element, settings) {
+		this.wrapper(settings.wrapper).remove.call(this, element, settings);
+	},
+	wrapper: function(name) {
+		return this.wrappers[name] || this.wrappers.default;
+	},
+	wrappers: { default: {
+		add(element, settings, message) {
+			const wrapperElement = element.closest(`${settings.wrapper_tag}.${settings.wrapper_class.replace(/ /g, ".")}`);
+			let errorElement = wrapperElement.querySelector(`${settings.error_tag}.${settings.error_class.replace(/ /g, ".")}`);
+			if (!errorElement) {
+				errorElement = document.createElement(settings.error_tag);
+				addClass(errorElement, settings.error_class);
+				errorElement.textContent = message;
+				wrapperElement.appendChild(errorElement);
+			}
+			addClass(wrapperElement, settings.wrapper_error_class);
+			errorElement.textContent = message;
+		},
+		remove(element, settings) {
+			const wrapperElement = element.closest(`${settings.wrapper_tag}.${settings.wrapper_class.replace(/ /g, ".")}`);
+			const errorElement = wrapperElement.querySelector(`${settings.error_tag}.${settings.error_class.replace(/ /g, ".")}`);
+			removeClass(wrapperElement, settings.wrapper_error_class);
+			if (errorElement) errorElement.remove();
+		}
+	} }
 };
+//#endregion
