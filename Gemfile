@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'json', '< 3.0' # TODO: relax this constraint when rails/rails#58601 will be released
+
 gem 'appraisal2'
 gem 'byebug'
 gem 'm'
