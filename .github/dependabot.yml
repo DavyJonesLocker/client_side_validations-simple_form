@@ -13,6 +13,9 @@ updates:
     cooldown:
       default-days: 5
     open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: json
+        versions: ">= 3.0.0" # TODO: remove when a Rails release includes rails/rails#58601
   - package-ecosystem: npm
     directory: "/"
     schedule:
